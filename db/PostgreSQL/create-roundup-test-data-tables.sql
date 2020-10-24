@@ -1,7 +1,7 @@
 CREATE DATABASE Ecommerce;
 
 CREATE TABLE Products (
-    ID SERIAL PRIMARY KEY,
+    ID INT GENERATED ALWAYS AS IDENTITY,
     Name varchar(255) NOT NULL,
     ItemNumber varchar(30) NOT NULL,
     ShortDescription varchar(1000),
