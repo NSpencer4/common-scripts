@@ -1,10 +1,13 @@
 CREATE DATABASE pharma;
 
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS products;
+
 CREATE TABLE users
 (
     user_id    INT GENERATED ALWAYS AS IDENTITY,
     username   varchar(20) NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id)
 );
 
