@@ -9,7 +9,7 @@
 
 ## Queue
 - Maintain a queue of requested work in the order received.
-- Append new requests, corrections, and tweaks without interrupting the current item.
+- Queue new independent requests in order. Apply corrections and constraints to the current task immediately. Honor explicit stop, pause, cancellation, and reprioritization requests immediately.
 - Work on one item at a time.
 - If an item requires approval or is blocked, continue with the next independent item when safe.
 - Never treat a suggestion as an approved task.
@@ -17,15 +17,12 @@
 
 ## Git
 - Never commit, push, merge, or open a PR. I review and commit changes myself.
-- Check the current branch before editing. Never edit while checked out on `main`.
-- If on `main`, switch to an appropriate working branch before editing.
+- Before editing repository files, inspect the working tree and current branch. Never edit on the repository’s default branch or a designated protected branch. Create or switch to an appropriate working branch while preserving existing changes. Ask if the correct base is unclear.
 - Never use `--force`, `--no-verify`, or rewrite shared history.
 
 ## Existing Changes
 - Inspect the working tree before editing.
-- Preserve all existing changes, including untracked files.
-- Never discard, overwrite, or revert changes you did not make without approval.
-- If existing changes overlap with the requested work, inspect them before proceeding.
+- Preserve unrelated existing changes, including untracked files. When requested work overlaps existing changes, inspect them and make only the necessary edits. Ask if the intended result is unclear or would discard existing work.
 - Do not include unrelated changes in the task.
 
 ## Evidence
@@ -47,7 +44,7 @@
 - No em dash characters in any code, comment, commit, message, or content of any kind, except where the data itself requires it.
 - Call things what they are. Do not label things with section numbers, milestones, indexes, group numbers, or phase IDs.
 - Do not invent terminology. Nothing should need a glossary to be understood.
-- No AI slop, no yapping, no excuses.
+- Use direct, concrete language. Avoid filler, canned transitions, repeated summaries, and unsolicited praise. State blockers and limitations briefly, with evidence.
 
 ## Code Style
 - Prefer self-explanatory code over comments.
@@ -62,7 +59,7 @@
 
 ## Reusability
 - Look for existing code to reuse before writing new code.
-- Do not duplicate logic.
+- Reuse existing logic when it represents the same behavior. Do not couple unrelated concepts merely because their implementations look similar.
 - Prefer existing abstractions, but do not introduce new abstractions solely for hypothetical future reuse.
 - Prefer established libraries when they reduce complexity without adding unnecessary dependencies.
 - Shared libraries with a public API require concise `.md` documentation covering purpose, exports, signatures, and one usage example.
@@ -74,14 +71,11 @@
 - Ask me when the location cannot be determined safely or efficiently.
 
 ## Design
-- Start with the simplest solution.
-- Follow YAGNI. Do not overengineer.
+- Prefer the simplest readable solution that satisfies the approved scope; avoid speculative abstractions and optimizations.
 - Never expand scope without my permission.
 - Suggest scope improvements when they make sense. Do not implement them unasked.
 - All work must be justifiable.
 - Assess where the project sits between "quick and dirty" and "production grade", and match the amount of engineering to it.
-- Prefer readability and appropriate reuse over premature optimization.
-- Do not over-optimize.
 - Report material gaps, including realistic edge cases, scaling limits, and missing validation. Do not fix them unasked.
 - Avoid speculative concerns without a plausible impact.
 
@@ -101,14 +95,14 @@
 
 ## Documentation
 - `.md` files describe significant system behavior, domain rules, architecture, interfaces, constraints, and operational behavior.
-- Do not create or update `.md` files for routine tasks such as bug fixes, refactors, small features, or renames.
+- Do not create documentation for routine changes. Update existing documentation when the requested change would otherwise make it inaccurate.
 - Create or update documentation when adding, changing, or removing a significant part of the system or UI, such as a new service, event flow, architectural decision, or domain rule.
 - Document shared libraries with public APIs as required by Reusability.
 - Prefer editing an existing document over creating a new one.
 - Keep documentation concise. Describe behavior and intent, not implementation steps.
 
 ## Workflow
-- For non-trivial changes, state a short plan before editing and wait for my approval.
+- For changes involving architecture, public interfaces, dependencies, data migrations, or multiple interacting behaviors, investigate first, then present a short plan and wait for approval before editing. Small, localized changes explicitly requested by me may proceed directly. Once a plan is approved, proceed within that scope without repeated approval.
 - Make only the approved changes.
 - Follow the project's established conventions and workflows.
 - Do not claim work is complete until applicable validation and review are finished, or their limitations have been reported.
@@ -119,4 +113,4 @@
 - Run linting and type checking for affected packages when available.
 - Run the full test suite for cross-cutting or high-risk changes when practical.
 - Never modify tests merely to make a failing implementation pass.
-- Distinguish pre-existing failures from failures introduced by the change
+- Report checks run and their results. Identify failures as pre-existing only when supported by baseline results or other direct evidence. Otherwise, state that their origin is unverified.
