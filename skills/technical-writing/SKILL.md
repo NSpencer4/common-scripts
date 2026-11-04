@@ -107,6 +107,6 @@ After:
 
 ## Related references
 
-- [diataxis-documentation-writer.md](references/diataxis-documentation-writer.md) — Diátaxis doc types and workflows
-- [create-readme.md](references/create-readme.md) — README structure prompts
+- [diataxis-documentation-writer.md](references/diataxis-documentation-writer.md) - Diátaxis doc types and workflows
+- [create-readme.md](references/create-readme.md) - README structure prompts
 - Pair with `unslop` to cut AI tells after drafting

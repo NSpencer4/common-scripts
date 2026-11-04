@@ -331,5 +331,5 @@ When a visual comparison would help more than prose:
 
 1. Write a small self-contained HTML file under the OS temp directory (or a throwaway path the user approves).
 2. Open it with the platform opener (`xdg-open` / `open` / `start`) after the user agrees.
-3. Prefer offline HTML/CSS/SVG — no CDN scripts.
+3. Prefer offline HTML/CSS/SVG - no CDN scripts.
 4. See `visual-companion.md` for *when* visuals help; ignore its `scripts/start-server.sh` instructions in this install.

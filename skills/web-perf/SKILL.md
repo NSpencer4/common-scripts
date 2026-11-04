@@ -1,11 +1,22 @@
 ---
 name: web-perf
-description: Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and Lighthouse performance scores.
+description: >-
+  Audit, diagnose, or optimize loading and interaction performance. Prefer for
+  Core Web Vitals and Lighthouse on websites; also use when measure-first
+  profiling points at frontend, backend, or query bottlenecks. Do not optimize
+  without evidence of a problem.
 ---
 
 # Web Performance Audit
 
 Your knowledge of web performance metrics, thresholds, and tooling APIs may be outdated. **Prefer retrieval over pre-training** when citing specific numbers or recommendations.
+
+For measure-first workflow (including backend/query trees) and pattern catalogs, see:
+
+- [measure-first-workflow.md](references/measure-first-workflow.md)
+- [optimization-patterns.md](references/optimization-patterns.md)
+
+Prefer Cursor browser / CDP tools when available; see also `browser-testing-with-devtools`.
 
 ## Retrieval Sources
 
@@ -30,12 +41,12 @@ If the user wants Chrome DevTools MCP setup, consult its [installation guide](ht
 
 ## Key Guidelines
 
-- **Be assertive**: Verify claims by checking network requests, DOM, or codebase—then state findings definitively.
+- **Be assertive**: Verify claims by checking network requests, DOM, or codebase-then state findings definitively.
 - **Verify before recommending**: Confirm something is unused before suggesting removal.
 - **Quantify impact**: Use estimated savings from insights. Don't prioritize changes with 0ms impact.
 - **Skip non-issues**: If render-blocking resources have 0ms estimated impact, note but don't recommend action.
 - **Be specific**: Say "compress hero.png (450KB) to WebP" not "optimize images".
-- **Prioritize ruthlessly**: A site with 200ms LCP and 0 CLS is already excellent—say so.
+- **Prioritize ruthlessly**: A site with 200ms LCP and 0 CLS is already excellent-say so.
 
 ## Quick Reference
 
@@ -123,7 +134,7 @@ list_network_requests(resourceTypes: ["Script", "Stylesheet", "Document", "Font"
 3. **Missing preloads**: Critical resources (fonts, hero images, key scripts) not preloaded
 4. **Caching issues**: Missing or weak `Cache-Control`, `ETag`, or `Last-Modified` headers
 5. **Large payloads**: Uncompressed or oversized JS/CSS bundles
-6. **Unused preconnects**: If flagged, verify by checking if ANY requests went to that origin. If zero requests, it's definitively unused—recommend removal. If requests exist but loaded late, the preconnect may still be valuable.
+6. **Unused preconnects**: If flagged, verify by checking if ANY requests went to that origin. If zero requests, it's definitively unused-recommend removal. If requests exist but loaded late, the preconnect may still be valuable.
 
 For detailed request info:
 ```

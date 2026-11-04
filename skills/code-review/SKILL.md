@@ -84,7 +84,7 @@ violations from judgement calls. Under 400 words.
 
 **Spec** prompt includes: diff command, commit list, issue/PR/spec text, and:
 missing/partial requirements, unrequested scope creep, wrong-looking
-implementations — quote the spec/issue line for each. Under 400 words.
+implementations - quote the spec/issue line for each. Under 400 words.
 
 Skip Spec if no spec source exists.
 
@@ -98,6 +98,14 @@ across axes. End with counts per axis and the worst issue within each axis.
 Standards-clean code can still implement the wrong thing. Spec-faithful code can
 still break project conventions. Keep the axes separate so one cannot mask the
 other.
+
+## Quality axes, sizing, and severity
+
+After the Standards/Spec axes (or when the user wants a quality-axis review without a fixed point), also apply:
+
+- [five-axis-and-sizing.md](references/five-axis-and-sizing.md) - correctness, readability, architecture, security, performance; change-size targets; severity labels (Critical / Nit / Optional / FYI)
+
+You may run a third parallel pass for five-axis findings, or fold five-axis checks into the Standards prompt. Keep Standards vs Spec reports separate; put five-axis severity labels on findings.
 
 ## Review craft
 
