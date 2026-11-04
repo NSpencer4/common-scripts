@@ -1,6 +1,12 @@
 ---
 name: accessibility
-description: Audit and improve web accessibility following WCAG 2.2 guidelines. Use when asked to "improve accessibility", "a11y audit", "WCAG compliance", "screen reader support", "keyboard navigation", or "make accessible".
+description: >-
+  Deep web accessibility audit and remediation following WCAG 2.2. Use when
+  asked for an a11y audit, WCAG compliance, screen reader support, keyboard
+  navigation remediation, or "make accessible" as a focused accessibility pass.
+  Prefer this over frontend-ui-engineering when the primary ask is accessibility
+  review depth. Do not use for visual redesign (frontend-design) or final spacing
+  polish (polish).
 license: MIT
 metadata:
   author: web-quality-skills

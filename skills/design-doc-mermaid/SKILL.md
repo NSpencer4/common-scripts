@@ -1,6 +1,12 @@
 ---
 name: design-doc-mermaid
-description: Create Mermaid diagrams (flowchart, sequence, class, ER, state, C4, architecture) from text or source code. Default for GitHub wiki. Use when asked to create a diagram, generate mermaid, document architecture, or convert code to diagram. PlantUML is only for leftover types. Confluence needs PNG/SVG as well as the fence.
+description: >-
+  Create Mermaid diagrams (flowchart, sequence, class, ER, state, C4, architecture)
+  as Markdown fences for docs, README, GitHub wiki, ADRs, and design docs. Use when
+  asked for mermaid, a diagram in Markdown/docs, or converting code to a Mermaid
+  diagram. Prefer this over Excalidraw for documentation. For editable whiteboard
+  `.excalidraw` files, use excalidraw-diagram-generator. PlantUML is only for leftover
+  types. Confluence needs PNG/SVG as well as the fence.
 ---
 
 # Mermaid Architect - Hierarchical Diagram and Documentation Skill

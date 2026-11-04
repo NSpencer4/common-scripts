@@ -92,7 +92,7 @@ Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineerin
 - `debugging-and-error-recovery` → `debugging-strategies` (stop-the-line triage)
 - `api-and-interface-design` → `api-design-principles` (Hyrum/contracts/boundaries)
 - `documentation-and-adrs` → `architecture-decision-records` + `technical-writing`
-- `spec-driven-development` → `prd` gated workflow (+ cross-link from `create-specification`)
+- `spec-driven-development` → `prd` gated workflow (+ `/spec/` template under `prd/references/ai-ready-spec-template.md`)
 - `planning-and-task-breakdown` → `incremental-implementation`
 - `git-workflow-and-versioning` → selective `git-commit` change-sizing (no always-commit)
 - `interview-me` → `grilling` (frontier UX kept; hypothesis/intent added)

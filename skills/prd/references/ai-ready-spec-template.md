@@ -1,17 +1,8 @@
----
-name: create-specification
-description: 'Create a new specification file for the solution, optimized for Generative AI consumption.'
----
+# AI-ready specification file (`/spec/`)
 
-# Create Specification
+Use this template when the user wants a Generative-AI-consumption file under `/spec/`, not a full product PRD. Prefer the parent `prd` skill for product/feature requirements and the gated Specify → Plan → Tasks → Implement flow.
 
-Your goal is to create a new specification file for `${input:SpecPurpose}`.
-
-For product/feature requirements and the gated Specify → Plan → Tasks flow before coding, prefer `prd` (see its `references/gated-spec-workflow.md`). This skill owns the AI-ready file under `/spec/` with the template below.
-
-The specification file must define the requirements, constraints, and interfaces for the solution components in a manner that is clear, unambiguous, and structured for effective use by Generative AIs. Follow established documentation standards and ensure the content is machine-readable and self-contained.
-
-## Best Practices for AI-Ready Specifications
+## Best practices
 
 - Use precise, explicit, and unambiguous language.
 - Clearly distinguish between requirements, constraints, and recommendations.
@@ -21,11 +12,11 @@ The specification file must define the requirements, constraints, and interfaces
 - Include examples and edge cases where applicable.
 - Ensure the document is self-contained and does not rely on external context.
 
-The specification should be saved in the `/spec/` directory and named according to the following convention: `spec-[a-z0-9-]+.md`, where the name should be descriptive of the specification's content and starting with the highlevel purpose, which is one of [schema, tool, data, infrastructure, process, architecture, or design].
+## File location and naming
 
-The specification file must be formatted in well formed Markdown.
+Save under `/spec/` as `spec-[a-z0-9-]+.md`. The name should be descriptive and start with one of: `schema`, `tool`, `data`, `infrastructure`, `process`, `architecture`, or `design`.
 
-Specification files must follow the template below, ensuring that all sections are filled out appropriately. The front matter for the markdown should be structured correctly as per the example following:
+Use well-formed Markdown with this front matter and body:
 
 ```md
 ---
@@ -77,9 +68,9 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 [Define the testing approach, frameworks, and automation requirements.]
 
 - **Test Levels**: Unit, Integration, End-to-End
-- **Frameworks**: MSTest, FluentAssertions, Moq (for .NET applications)
+- **Frameworks**: [project test stack]
 - **Test Data Management**: [approach for test data creation and cleanup]
-- **CI/CD Integration**: [automated testing in GitHub Actions pipelines]
+- **CI/CD Integration**: [automated testing in CI pipelines]
 - **Coverage Requirements**: [minimum code coverage thresholds]
 - **Performance Testing**: [approach for load and performance testing]
 
@@ -109,7 +100,7 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 ### Compliance Dependencies
 - **COM-001**: [Regulatory or compliance requirement] - [Impact on implementation]
 
-**Note**: This section should focus on architectural and business dependencies, not specific package implementations. For example, specify "OAuth 2.0 authentication library" rather than "Microsoft.AspNetCore.Authentication.JwtBearer v6.0.1".
+**Note**: This section should focus on architectural and business dependencies, not specific package implementations. For example, specify "OAuth 2.0 authentication library" rather than a pinned package version.
 
 ## 9. Examples & Edge Cases
 
@@ -125,5 +116,4 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 
 [Link to related spec 1]
 [Link to relevant external documentation]
-
 ```

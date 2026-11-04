@@ -1,6 +1,11 @@
 ---
 name: postgres-drizzle
-description: Write or review PostgreSQL schemas, queries, migrations, and Drizzle ORM code. Use for Postgres/Drizzle relations, indexing, pooling, or query performance; not for unrelated databases or generic backend work.
+description: >-
+  Write or review Drizzle ORM schemas, relations, queries, and drizzle-kit
+  migrations against PostgreSQL. Use when editing drizzle-orm / drizzle-kit code,
+  Drizzle relations APIs, or Drizzle-generated migrations. For vendor-neutral SQL,
+  schema design, indexing, pooling, replication, or EXPLAIN outside the ORM, use
+  postgres. Not for unrelated databases or generic backend work.
 ---
 
 # PostgreSQL and Drizzle ORM

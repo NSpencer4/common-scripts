@@ -1,6 +1,10 @@
 ---
 name: code-simplification
-description: Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity. Use when asked to simplify, clean up, or reduce the nesting of a function or module that already works, even when the code is pasted inline and nothing else needs to change.
+description: >-
+  Simplify working code for clarity without changing behavior. Use when asked to
+  simplify, reduce nesting, or refactor for readability/maintainability on code
+  that already works (including pasted snippets). Do not use for AI-slop cleanup
+  on a PR/diff (deslop) or prose AI-tell cleanup (unslop).
 ---
 
 # Code Simplification

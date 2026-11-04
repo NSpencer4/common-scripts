@@ -86,4 +86,4 @@ For choosing and applying client/server state libraries (Redux Toolkit, Zustand,
 ## Related skills
 
 - `typescript-best-practices`, `typescript-advanced-types`, `vitest`
-- `typescript-security-review` for auth/header/input reviews in Next route handlers
+- `security-and-hardening` for auth/header/input reviews in Next route handlers

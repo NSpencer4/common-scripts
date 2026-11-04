@@ -1,9 +1,10 @@
 ---
 name: deslop
 description: >-
-  Remove AI-generated code slop and clean up code style on a branch or diff.
-  Use when asked to deslop, clean AI code noise, strip unnecessary comments,
-  or tidy a PR without changing behavior. Complements unslop (prose).
+  Remove AI-generated code slop on a branch or diff without changing behavior.
+  Use when asked to deslop, clean AI code noise, strip unnecessary AI comments,
+  or tidy a PR's AI tells in code. Do not use for general clarity refactors
+  (code-simplification) or prose AI-tell cleanup (unslop).
 ---
 
 # Remove AI code slop

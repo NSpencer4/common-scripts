@@ -1,11 +1,13 @@
 ---
 name: frontend-ui-engineering
 description: >-
-  Production-quality accessible responsive UI engineering (WCAG, state, loading,
-  responsive). Use when building or modifying interfaces with engineering depth.
-  Defer component boundaries and Storybook workflow to atomic-presentational-ui;
-  defer art direction to frontend-design.
-  Also use for grouping, alignment, reading order, and translation/mirror-safe layout structure.
+  Production-quality responsive UI engineering: interaction states, loading,
+  error/empty, responsive layout, and baseline accessibility in implementation.
+  Use when building or modifying interfaces with engineering depth, grouping,
+  alignment, reading order, or translation/mirror-safe layout. Defer art
+  direction to frontend-design; defer deep WCAG audits to accessibility; defer
+  final micro-polish to polish. In launch-sequence only, invoke
+  atomic-presentational-ui for shared-component and Storybook workflow.
 ---
 
 # Frontend UI Engineering

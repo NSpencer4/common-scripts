@@ -3,11 +3,13 @@ name: frontend-design
 description: >-
   Distinctive, intentional frontend visual design for new or reshaped UI.
   Combines anti-slop art direction, typography/layout discipline, and a
-  look-and-fix critique loop. Use when building, redesigning, polishing, or
-  reviewing landing pages, marketing surfaces, product pages, heroes, or
-  public-facing web UI, or when a page looks generic, templated, or "AI-made".
-  Also for quieter app/dashboard screens (see references/app-screens.md).
-  For reusable component libraries and Storybook, also use atomic-presentational-ui.
+  look-and-fix critique loop. Use when building, redesigning, or reviewing
+  landing pages, marketing surfaces, product pages, heroes, or public-facing
+  web UI, or when a page looks generic, templated, or "AI-made". Also for
+  quieter app/dashboard screens (see references/app-screens.md). Own visual
+  direction; defer production UI states/responsive eng to frontend-ui-engineering,
+  WCAG audits to accessibility, and final micro-pass to polish. In launch-sequence
+  only, also invoke atomic-presentational-ui for Storybook/component boundaries.
   No bundled design scripts; deal directions and inspect with available
   browser/screenshot tools.
 ---

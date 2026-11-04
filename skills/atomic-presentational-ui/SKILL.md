@@ -1,11 +1,12 @@
 ---
 name: atomic-presentational-ui
 description: >-
-  Build or review reusable, themeable UI components and Storybook catalogs using
-  atomic design boundaries in this monorepo. Use when adding or refactoring shared
-  or app UI, writing Storybook stories (including full-page stories), composing
-  pages from primitives, or building a page/route from design.html, design.png,
-  and a route document via sub-agents.
+  Launch-sequence monorepo only: reusable themeable UI components and Storybook
+  catalogs using atomic design boundaries. Invoke with /atomic-presentational-ui
+  when working in launch-sequence on shared/app UI, Storybook stories (including
+  full-page stories), page composition, or design-to-page builds. Not for other
+  repositories; use frontend-ui-engineering and frontend-design there instead.
+disable-model-invocation: true
 ---
 
 # Atomic presentational UI

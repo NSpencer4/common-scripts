@@ -2,8 +2,9 @@
 name: shipping-and-launch
 description: >-
   Prepares engineering production deploys. Use when preparing to deploy to
-  production, needing a pre-launch checklist, staged rollout, monitoring, or
-  rollback plan. Do not use for marketing go-to-market launches (use `launch`).
+  production, needing an eng pre-launch checklist, staged rollout, monitoring, or
+  rollback plan. Do not use for marketing go-to-market, Product Hunt, announcements,
+  or launch content (use launch).
 ---
 
 # Shipping and Launch

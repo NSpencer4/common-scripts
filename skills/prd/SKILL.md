@@ -1,6 +1,11 @@
 ---
 name: prd
-description: 'Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes executive summaries, user stories, technical specifications, and risk analysis.'
+description: >-
+  Generate Product Requirements Documents (PRDs) and AI-ready specification
+  files for software systems and AI-powered features. Use when writing a PRD,
+  documenting requirements, planning a feature, or creating a Generative-AI
+  consumption file under /spec/. Includes executive summaries, user stories,
+  technical specifications, risk analysis, and the /spec/ template.
 license: MIT
 ---
 
@@ -24,7 +29,7 @@ Use this skill when:
 
 ## Operational Workflow
 
-For large or multi-capability work, use the gated Specify → Plan → Tasks → Implement flow (with optional capability map) in [gated-spec-workflow.md](references/gated-spec-workflow.md). Advance phases only after the user reviews. For AI-ready files under `/spec/`, also use `create-specification`.
+For large or multi-capability work, use the gated Specify → Plan → Tasks → Implement flow (with optional capability map) in [gated-spec-workflow.md](references/gated-spec-workflow.md). Advance phases only after the user reviews. For AI-ready files under `/spec/`, follow [ai-ready-spec-template.md](references/ai-ready-spec-template.md).
 
 ### Phase 1: Discovery (The Interview)
 

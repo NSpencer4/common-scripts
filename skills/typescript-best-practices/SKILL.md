@@ -79,5 +79,5 @@ For async/await, iterators/generators, modules, and functional patterns that sti
 - tsconfig, diagnostics, migration, monorepo compiler issues: `typescript-toolchain`
 - Framework UI/routing: `nextjs-react` (and other framework skills)
 - Tests: `vitest`
-- Security audit: `typescript-security-review`
+- Security audit: `security-and-hardening` (TypeScript references under that skill)
 - API/docs generation: `typescript-docs`

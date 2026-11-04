@@ -2,7 +2,7 @@
 
 Merged from addyosmani `prd`. Use when requirements are ambiguous or a change is large enough to need a written source of truth before code. Soften slash-command culture: advance phases when the user approves, not via `/spec` `/plan` required commands.
 
-For AI-consumption file layout under `/spec/`, also see `create-specification`.
+For AI-consumption file layout under `/spec/`, see [ai-ready-spec-template.md](ai-ready-spec-template.md).
 
 Do **not** create git commits unless the user asks.
 

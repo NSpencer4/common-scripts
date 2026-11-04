@@ -42,8 +42,7 @@ Edit files in this repo, then commit/push. Every linked tool picks up the change
 
 ## Skills catalog
 
-109 skills with local `SKILL.md` content under `skills/`.
- Plus 19 symlink stubs whose targets are missing in this checkout (listed at the bottom).
+107 skills with local `SKILL.md` content under `skills/`.
 
 Agents auto-match on the skill `description` unless marked **slash-only** (`disable-model-invocation: true`). Slash-only skills load only when you invoke them by slash command or skill name.
 
@@ -64,11 +63,10 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`brainstorming`](skills/brainstorming/SKILL.md) | Explore unclear product or design intent before building | When the user asks to brainstorm, shape a design, or clarify what to build | — | auto |
 | [`codebase-design`](skills/codebase-design/SKILL.md) | Shared vocabulary for designing deep modules | Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more… | — | auto |
 | [`constraint-driven-development`](skills/constraint-driven-development/SKILL.md) | Establishes a project's quality bar as a written contract and stops agents quietly lowering it.… | Use when no quality bar is written down, when the user says "set up constraints" or "define our standards", when the user wants dimensions they… | — | auto |
-| [`create-specification`](skills/create-specification/SKILL.md) | Create a new specification file for the solution, optimized for Generative AI consumption | Create a new specification file for the solution, optimized for Generative AI consumption. | — | auto |
-| [`design-doc-mermaid`](skills/design-doc-mermaid/SKILL.md) | Create Mermaid diagrams (flowchart, sequence, class, ER, state, C4, architecture) from text or source… | Use when asked to create a diagram, generate mermaid, document architecture, or convert code to diagram | — | auto |
+| [`design-doc-mermaid`](skills/design-doc-mermaid/SKILL.md) | Create Mermaid diagrams (flowchart, sequence, class, ER, state, C4, architecture) from text or source… | Mermaid fences for docs/README/GitHub; prefer over Excalidraw for documentation | — | auto |
 | [`domain-modeling`](skills/domain-modeling/SKILL.md) | Build and sharpen a project's domain model | Use when discussing codebase terminology, writing or editing a GLOSSARY | — | auto |
 | [`doubt-driven-development`](skills/doubt-driven-development/SKILL.md) | Subjects non-trivial decisions to a fresh-context adversarial review before they stand | Use when stress-testing a plan, working in unfamiliar code, stakes are high (auth, security, migration, irreversible ops), or a confident output… | — | auto |
-| [`excalidraw-diagram-generator`](skills/excalidraw-diagram-generator/SKILL.md) | Generate Excalidraw diagrams from natural language descriptions | Use when asked to "create a diagram", "make a flowchart", "visualize a process", "draw a system architecture", "create a mind map", or "generate… | — | auto |
+| [`excalidraw-diagram-generator`](skills/excalidraw-diagram-generator/SKILL.md) | Generate Excalidraw whiteboard diagrams as `.excalidraw` JSON | Excalidraw file / editable whiteboard / mind map; not Mermaid docs (use design-doc-mermaid) | — | auto |
 | [`grill-me`](skills/grill-me/SKILL.md) | A relentless interview to sharpen a plan or design | Manual only (`/grill-me`). Not auto-matched from conversation. | `/grill-me` | slash-only |
 | [`grill-with-docs`](skills/grill-with-docs/SKILL.md) | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go | Manual only (`/grill-with-docs`). Not auto-matched from conversation. | `/grill-with-docs` | slash-only |
 | [`grilling`](skills/grilling/SKILL.md) | Grill the user relentlessly about a plan, decision, or idea until shared understanding | Use when the ask is underspecified, when the user wants to stress-test thinking, or uses grill/interview triggers ("grill me", "interview me",… | — | auto |
@@ -76,7 +74,7 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`i-have-adhd`](skills/i-have-adhd/SKILL.md) | Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state… | Invoke with /i-have-adhd; stays on until "stop adhd mode" | `/i-have-adhd` | slash-only |
 | [`improve-codebase-architecture`](skills/improve-codebase-architecture/SKILL.md) | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through… | Manual only (`/improve-codebase-architecture`). Not auto-matched from conversation. | `/improve-codebase-architecture` | slash-only |
 | [`incremental-implementation`](skills/incremental-implementation/SKILL.md) | Delivers changes in thin, verifiable slices, and breaks oversized work into ordered tasks with… | Use when implementing multi-file changes, picking up the next task from a plan, writing a plan from a spec, rolling out behind a feature flag,… | — | auto |
-| [`prd`](skills/prd/SKILL.md) | Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features | Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes executive summaries,… | — | auto |
+| [`prd`](skills/prd/SKILL.md) | Generate PRDs and AI-ready `/spec/` specification files for software and AI-powered features | Write a PRD, document requirements, plan a feature, or create a Generative-AI consumption file under `/spec/` | — | auto |
 | [`source-driven-development`](skills/source-driven-development/SKILL.md) | Ground framework-specific decisions in official documentation for the installed versions | Use when correctness depends on a framework/library API or recommended pattern, when building boilerplate that will be copied, or when the user… | — | auto |
 | [`test-driven-development`](skills/test-driven-development/SKILL.md) | Drives development with the red-green-refactor loop | Use when implementing new logic or behavior, fixing bugs (prove-it with a failing test first), or changing existing behavior in a maintained… | — | auto |
 | [`why`](skills/why/SKILL.md) | 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or… | Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds | `/why` | slash-only |
@@ -88,33 +86,32 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`blast-radius`](skills/blast-radius/SKILL.md) | Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact… | Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust | `/blast-radius` | slash-only |
 | [`ci-cd-and-automation`](skills/ci-cd-and-automation/SKILL.md) | Automates CI/CD pipeline setup | Use when setting up or modifying build and deployment pipelines | — | auto |
 | [`code-review`](skills/code-review/SKILL.md) | Review changes since a fixed point (commit, branch, tag, or merge-base) on two axes: Standards (repo… | Use when reviewing a branch, a PR, WIP changes, or "review since X" | — | auto |
-| [`code-simplification`](skills/code-simplification/SKILL.md) | Simplifies code for clarity | Use when refactoring code for clarity without changing behavior | — | auto |
+| [`code-simplification`](skills/code-simplification/SKILL.md) | Simplify working code for clarity without changing behavior | Simplify / reduce nesting / readability refactor; not AI-slop PR cleanup (deslop) or prose (unslop) | — | auto |
 | [`cost-optimization`](skills/cost-optimization/SKILL.md) | Optimize cloud costs across AWS, Azure, GCP, and OCI through resource rightsizing, tagging strategies,… | Use when reducing cloud expenses, analyzing infrastructure costs, or implementing cost governance policies | — | auto |
 | [`debugging-strategies`](skills/debugging-strategies/SKILL.md) | Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track… | Use when investigating bugs, performance issues, or unexpected behavior | — | auto |
 | [`deprecation-and-migration`](skills/deprecation-and-migration/SKILL.md) | Manages deprecation and migration | Use when removing old systems, APIs, or features | — | auto |
-| [`deslop`](skills/deslop/SKILL.md) | Remove AI-generated code slop and clean up code style on a branch or diff | Use when asked to deslop, clean AI code noise, strip unnecessary comments, or tidy a PR without changing behavior | — | auto |
+| [`deslop`](skills/deslop/SKILL.md) | Remove AI-generated code slop on a branch or diff without changing behavior | Deslop / AI code noise on a PR; not general simplify (code-simplification) or prose (unslop) | — | auto |
 | [`git-commit`](skills/git-commit/SKILL.md) | Making a Git commit or splitting changes into more than one commit | When the user asks to commit or types /commit, or when standing global/project Git instructions approve committing after validation | `/commit` | auto |
 | [`make-pr-easy-to-review`](skills/make-pr-easy-to-review/SKILL.md) | Prepare PRs for review by cleaning noisy history, improving PR descriptions, and adding reviewer… | Prepare PRs for review by cleaning noisy history, improving PR descriptions, and adding reviewer guidance without changing code… | — | auto |
 | [`observability-and-instrumentation`](skills/observability-and-instrumentation/SKILL.md) | Instruments code so production behavior is visible and diagnosable | Use when adding logging, metrics, tracing, or alerting | — | auto |
-| [`security-and-hardening`](skills/security-and-hardening/SKILL.md) | Hardens code against vulnerabilities | Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or… | — | auto |
-| [`shipping-and-launch`](skills/shipping-and-launch/SKILL.md) | Prepares engineering production deploys | Use when preparing to deploy to production, needing a pre-launch checklist, staged rollout, monitoring, or rollback plan | — | auto |
+| [`security-and-hardening`](skills/security-and-hardening/SKILL.md) | Hardens code against vulnerabilities; includes TypeScript/Node review references | Auditing input/auth/storage/integrations, OWASP checks, dependency risk, privacy; TS/Node XSS/JWT/injection reviews | — | auto |
+| [`shipping-and-launch`](skills/shipping-and-launch/SKILL.md) | Prepares engineering production deploys | Eng deploy / staged rollout / monitoring / rollback; not marketing GTM (launch) | — | auto |
 | [`technical-writing`](skills/technical-writing/SKILL.md) | Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE… | Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages | `/technical-writing` | slash-only |
 | [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/SKILL.md) | Run an extremely strict maintainability review for abstraction quality, giant files, and… | Manual only (`/thermo-nuclear-code-quality-review`). Not auto-matched from conversation. | `/thermo-nuclear-code-quality-review` | slash-only |
-| [`typescript-security-review`](skills/typescript-security-review/SKILL.md) | Security review for TypeScript/Node.js apps: XSS, injection, CSRF, JWT/OAuth flaws, dependency CVEs, and… | Security review for TypeScript/Node.js apps: XSS, injection, CSRF, JWT/OAuth flaws, dependency CVEs, and secrets exposure. Use for… | — | auto |
 | [`unslop`](skills/unslop/SKILL.md) | Cut AI tells from any writing | Manual only (`/unslop`). Not auto-matched from conversation. | `/unslop` | slash-only |
 
 ### Frontend & design
 
 | Skill | Purpose | Activates when | Command | Mode |
 |-------|---------|----------------|---------|------|
-| [`accessibility`](skills/accessibility/SKILL.md) | Audit and improve web accessibility following WCAG 2.2 guidelines | Use when asked to "improve accessibility", "a11y audit", "WCAG compliance", "screen reader support", "keyboard navigation", or "make accessible" | — | auto |
-| [`atomic-presentational-ui`](skills/atomic-presentational-ui/SKILL.md) | Build or review reusable, themeable UI components and Storybook catalogs using atomic design boundaries… | Use when adding or refactoring shared or app UI, writing Storybook stories (including full-page stories), composing pages from primitives, or… | — | auto |
+| [`accessibility`](skills/accessibility/SKILL.md) | Deep WCAG 2.2 accessibility audit and remediation | a11y audit / WCAG / screen reader / keyboard remediation as the primary ask | — | auto |
+| [`atomic-presentational-ui`](skills/atomic-presentational-ui/SKILL.md) | Launch-sequence monorepo: atomic UI components and Storybook catalogs | Manual only in launch-sequence (`/atomic-presentational-ui`). Not auto-matched elsewhere. | `/atomic-presentational-ui` | slash-only |
 | [`browser-testing-with-devtools`](skills/browser-testing-with-devtools/SKILL.md) | Verifies UI in a real browser with Cursor browser / CDP tools | Use when building or debugging anything that renders in a browser, inspecting the DOM, capturing console errors, analyzing network requests,… | — | auto |
-| [`frontend-design`](skills/frontend-design/SKILL.md) | Distinctive, intentional frontend visual design for new or reshaped UI. Combines anti-slop art… | Use when building, redesigning, polishing, or reviewing landing pages, marketing surfaces, product pages, heroes, or public-facing web UI, or… | — | auto |
-| [`frontend-ui-engineering`](skills/frontend-ui-engineering/SKILL.md) | Production-quality accessible responsive UI engineering (WCAG, state, loading, responsive) | Use when building or modifying interfaces with engineering depth | — | auto |
+| [`frontend-design`](skills/frontend-design/SKILL.md) | Distinctive intentional visual design / anti-slop art direction | Landing/marketing/product UI redesign; defers eng states, WCAG audits, and polish | — | auto |
+| [`frontend-ui-engineering`](skills/frontend-ui-engineering/SKILL.md) | Production-quality responsive UI engineering (states, loading, baseline a11y) | Building/modifying interfaces with eng depth; deep WCAG audits go to accessibility | — | auto |
 | [`image-to-code`](skills/image-to-code/SKILL.md) | Opt-in image-first website design: generate design image(s), analyze them, then implement. Use ONLY when… | Opt-in image-first website design: generate design image(s), analyze them, then implement. Use ONLY when the user explicitly asks for… | — | auto |
-| [`modern-web-guidance`](skills/modern-web-guidance/SKILL.md) | Search tool for modern web development best practices | Search tool for modern web development best practices. MANDATORY: Execute FIRST for all HTML/CSS and clientside JS tasks. Do NOT skip —… | — | auto |
-| [`polish`](skills/polish/SKILL.md) | Final quality pass for alignment, spacing, consistency, states, and micro-detail before shipping | Use when the user mentions polish, finishing touches, pre-launch review, something looks off, UI micro-detail (radius, shadows, icons, motion),… | — | auto |
+| [`modern-web-guidance`](skills/modern-web-guidance/SKILL.md) | Look up current vanilla web-platform / HTML / CSS / DOM capability guides | Platform-capability lookup via npx tool; not mandatory for every React UI task | — | auto |
+| [`polish`](skills/polish/SKILL.md) | Final quality pass for alignment, spacing, consistency, states, and micro-detail | Polish / finishing touches / UI micro-detail; not redesign or WCAG audits | — | auto |
 | [`prototype`](skills/prototype/SKILL.md) | Build a throwaway prototype to answer a design question | Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like | — | auto |
 | [`tailwind-design-system`](skills/tailwind-design-system/SKILL.md) | Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive… | Use when creating component libraries, implementing design systems, or standardizing UI patterns | — | auto |
 | [`web-perf`](skills/web-perf/SKILL.md) | Audit, diagnose, or optimize loading and interaction performance | Use when measure-first profiling points at frontend, backend, or query bottlenecks | — | auto |
@@ -135,11 +132,11 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`nextjs-on-cloudflare`](skills/nextjs-on-cloudflare/SKILL.md) | Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext | Use when starting a Next | — | auto |
 | [`nextjs-react`](skills/nextjs-react/SKILL.md) | Next.js App Router and React TypeScript patterns: Server Components, client boundaries, data fetching,… | Use when editing Next | — | auto |
 | [`postgres`](skills/postgres/SKILL.md) | PostgreSQL schema design, indexing, query patterns, operations (pooling, replication, upgrades), table… | Use when writing SQL, designing schemas, optimizing queries, reviewing migrations, or debugging Postgres performance | — | auto |
-| [`postgres-drizzle`](skills/postgres-drizzle/SKILL.md) | Write or review PostgreSQL schemas, queries, migrations, and Drizzle ORM code | Write or review PostgreSQL schemas, queries, migrations, and Drizzle ORM code. Use for Postgres/Drizzle relations, indexing, pooling, or… | — | auto |
+| [`postgres-drizzle`](skills/postgres-drizzle/SKILL.md) | Write or review Drizzle ORM schemas, relations, queries, and drizzle-kit migrations | Drizzle/drizzle-kit code; vendor-neutral SQL/ops go to postgres | — | auto |
 | [`rag-implementation`](skills/rag-implementation/SKILL.md) | Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and… | Use when implementing knowledge-grounded AI, building document Q&A systems, or integrating LLMs with external knowledge bases | — | auto |
 | [`typescript-advanced-types`](skills/typescript-advanced-types/SKILL.md) | Advanced TypeScript type-system patterns: generics with constraints, conditional types and infer, mapped… | Use when implementing complex type logic, reusable type utilities, type-safe APIs, or exhaustiveness-safe state models | — | auto |
 | [`typescript-best-practices`](skills/typescript-best-practices/SKILL.md) | Daily TypeScript coding rules for .ts/.tsx work: discriminated unions, branded types via type guards… | Use when reading or editing TypeScript | — | auto |
-| [`typescript-docs`](skills/typescript-docs/SKILL.md) | TypeScript documentation with JSDoc, TypeDoc, ADRs, and framework-oriented examples | Use when generating API docs, architecture decision records, or improving public TypeScript API documentation for NestJS, Express, React, and… | — | auto |
+| [`typescript-docs`](skills/typescript-docs/SKILL.md) | TypeScript API documentation with JSDoc, TypeDoc, and framework examples | Public TS API docs; ADRs go to architecture-decision-records | — | auto |
 | [`typescript-toolchain`](skills/typescript-toolchain/SKILL.md) | TypeScript compiler workflow: tsconfig, module resolution, diagnostics, typecheck performance, JS-to-TS… | TypeScript compiler workflow: tsconfig, module resolution, diagnostics, typecheck performance, JS-to-TS migration, monorepo project… | — | auto |
 | [`vitest`](skills/vitest/SKILL.md) | Vitest unit/integration testing: official API/config/coverage references plus practice patterns… | Use when writing or editing * | — | auto |
 | [`workers-best-practices`](skills/workers-best-practices/SKILL.md) | Cloudflare Workers best practices for production applications | Use when writing, reviewing, or configuring Workers | — | auto |
@@ -155,7 +152,7 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`content-strategy`](skills/content-strategy/SKILL.md) | Plan a content strategy, decide what content to create, or figure out what topics to cover | Use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content… | — | auto |
 | [`copywriting`](skills/copywriting/SKILL.md) | Write, rewrite, or improve marketing copy for any page, including homepage, landing pages, pricing… | Use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing copy," "headline help," "CTA copy," "value… | — | auto |
 | [`customer-research`](skills/customer-research/SKILL.md) | Conduct, analyze, or synthesize customer research | Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey… | — | auto |
-| [`launch`](skills/launch/SKILL.md) | Plan a product launch, feature announcement, or release strategy | Use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,'… | — | auto |
+| [`launch`](skills/launch/SKILL.md) | Plan a product launch, feature announcement, or marketing GTM release | Product Hunt / GTM / announcement / marketing launch checklist; not eng deploy (shipping-and-launch) | — | auto |
 | [`marketing-council`](skills/marketing-council/SKILL.md) | Multiple expert perspectives on a marketing question — a simulated board of advisors staffed by… | Use when the user mentions 'marketing council,' 'board of advisors,' 'advisory board,' 'what would Seth Godin say,' 'what would Ogilvy think,'… | — | auto |
 | [`marketing-ideas`](skills/marketing-ideas/SKILL.md) | Marketing ideas, inspiration, or strategies for their SaaS or software product | Use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,'… | — | auto |
 | [`marketing-loops`](skills/marketing-loops/SKILL.md) | Set up a recurring, self-running marketing workflow — a repeatable loop an AI agent runs on a cadence… | Use when the user mentions 'marketing loop,' 'recurring marketing workflow,' 'automate my marketing,' 'marketing on autopilot,' 'weekly… | — | auto |
@@ -212,30 +209,4 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | Skill | Purpose | Activates when | Command | Mode |
 |-------|---------|----------------|---------|------|
 | [`image`](skills/image/SKILL.md) | Create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product… | Use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' 'product mockup,' 'hero image,' 'social media… | — | auto |
-
-### Symlink stubs (content not in this checkout)
-
-These directories are symlinks to `../../.agents/skills/...`, which is not present here. They do not currently load.
-
-| Skill | Intended area | Symlink target |
-|-------|---------------|----------------|
-| `higgsfield-brandkit` | Creative media | `../../.agents/skills/higgsfield-brandkit` |
-| `higgsfield-faceless-video` | Creative media | `../../.agents/skills/higgsfield-faceless-video` |
-| `higgsfield-generate` | Creative media | `../../.agents/skills/higgsfield-generate` |
-| `higgsfield-marketplace-cards` | Creative media | `../../.agents/skills/higgsfield-marketplace-cards` |
-| `higgsfield-product-photoshoot` | Creative media | `../../.agents/skills/higgsfield-product-photoshoot` |
-| `higgsfield-soul-id` | Creative media | `../../.agents/skills/higgsfield-soul-id` |
-| `higgsfield-video-explainer` | Creative media | `../../.agents/skills/higgsfield-video-explainer` |
-| `higgsfield-websites` | Creative media | `../../.agents/skills/higgsfield-websites` |
-| `higgsfield-youtube-thumbnail` | Creative media | `../../.agents/skills/higgsfield-youtube-thumbnail` |
-| `connect-recommend` | Vendor APIs | `../../.agents/skills/connect-recommend` |
-| `connect-required-verification-information` | Vendor APIs | `../../.agents/skills/connect-required-verification-information` |
-| `metronome` | Vendor APIs | `../../.agents/skills/metronome` |
-| `stripe-apps` | Vendor APIs | `../../.agents/skills/stripe-apps` |
-| `stripe-best-practices` | Vendor APIs | `../../.agents/skills/stripe-best-practices` |
-| `stripe-directory` | Vendor APIs | `../../.agents/skills/stripe-directory` |
-| `stripe-docs` | Vendor APIs | `../../.agents/skills/stripe-docs` |
-| `stripe-pay` | Vendor APIs | `../../.agents/skills/stripe-pay` |
-| `stripe-projects` | Vendor APIs | `../../.agents/skills/stripe-projects` |
-| `upgrade-stripe` | Vendor APIs | `../../.agents/skills/upgrade-stripe` |
 

@@ -1,6 +1,11 @@
 ---
 name: excalidraw-diagram-generator
-description: 'Generate Excalidraw diagrams from natural language descriptions. Use when asked to "create a diagram", "make a flowchart", "visualize a process", "draw a system architecture", "create a mind map", or "generate an Excalidraw file". Supports flowcharts, relationship diagrams, mind maps, and system architecture diagrams. Outputs .excalidraw JSON files that can be opened directly in Excalidraw.'
+description: >-
+  Generate Excalidraw whiteboard diagrams as `.excalidraw` JSON from natural language.
+  Use when asked for an Excalidraw file, editable whiteboard diagram, mind map, or
+  freeform flowchart meant to open in Excalidraw. Do not use for Mermaid fences in
+  docs/README/GitHub (use design-doc-mermaid). Supports flowcharts, relationship
+  diagrams, mind maps, and system architecture diagrams.
 ---
 
 # Excalidraw Diagram Generator

@@ -1,6 +1,13 @@
 ---
 name: security-and-hardening
-description: Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login flow is safe against the OWASP Top Ten. Use when building any feature that accepts untrusted data, manages user sessions or session cookies, or interacts with third-party services. Use when auditing dependencies for known vulnerabilities, triaging package-manager audit findings, or assessing supply-chain risk in a new package. Use when personal data or privacy compliance (GDPR, CCPA) is involved.
+description: >-
+  Hardens code against vulnerabilities and runs security audits. Use when
+  auditing input handlers, authentication, data storage, or external
+  integrations; checking a login flow against the OWASP Top Ten; building
+  features that accept untrusted data, manage sessions, or call third parties;
+  auditing dependencies / supply-chain risk; or privacy compliance (GDPR, CCPA).
+  For TypeScript/Node (Express, NestJS, Next.js) XSS, injection, CSRF, JWT/OAuth,
+  and secret reviews, use the TypeScript references under this skill.
 ---
 
 # Security and Hardening
@@ -160,6 +167,10 @@ Calling an LLM — chatbots, summarizers, agents, RAG — adds a new attack surf
 - **Keep secrets, other tenants' data, and the full system prompt out of the context window** (LLM02, LLM07); scope tool permissions, validate every tool argument, and confirm destructive actions (LLM06); cap tokens, request rate, and recursion depth (LLM10); partition RAG embeddings per tenant and validate documents before indexing (LLM08).
 
 Pattern: [LLM output handling](references/hardening-patterns.md#llm-output-handling).
+
+## TypeScript / Node review depth
+
+When the codebase is TypeScript or Node, follow [references/typescript/review-workflow.md](references/typescript/review-workflow.md) and the sibling TypeScript references (OWASP mapping, XSS, headers, input validation, dependency security, common vulnerabilities). Keep the same threat-model-first process above; the TypeScript pack adds stack-specific checks and report shape.
 
 ## Review Checklist
 

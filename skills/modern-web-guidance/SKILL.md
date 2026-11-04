@@ -1,9 +1,16 @@
 ---
 name: modern-web-guidance
-description: |
-  Search tool for modern web development best practices. MANDATORY: Execute FIRST for all HTML/CSS and clientside JS tasks. Do NOT skip — web APIs evolve rapidly and training weights contain obsolete patterns.
-  Trigger immediately for: modals/dialogs/popovers, tables, dark mode, anchor positioning, container queries, view transitions, scroll-driven animations, parallax/reveals, forms, validation, autofill, accessibility, custom selects, scrollbars, CWV (LCP, INP, CLS), content-visibility, fetch priority, image optimization, security, passkeys, HTML sanitization, web components, dates/timezones, built-in AI, WebAssembly, standard HTML/CSS/DOM in frameworks, etc.
-  DO NOT trigger for: backend (SQL, ORMs, API routes), infra/scripts (CI/CD, Docker, Actions, Python/Go, Git), or tooling/trivial (Vite, tsconfig, ESLint, tests, copy/renames, 3P docs), etc.
+description: >-
+  Look up current vanilla web-platform / HTML / CSS / DOM capability guides via the
+  modern-web-guidance npx tool when implementing or updating browser APIs and CSS
+  patterns that change faster than model training (dialogs/popovers, anchor
+  positioning, container queries, view transitions, scroll-driven animation,
+  forms/autofill, custom selects, CWV loading hints, passkeys, sanitization,
+  web components, dates/timezones). Prefer this for platform-capability lookup,
+  not as a default for every React/Next UI task. Do not use for deep WCAG audits
+  (accessibility), visual redesign (frontend-design), final micro-polish (polish),
+  framework patterns (nextjs-react), backend/SQL/ORM, CI/Docker, or trivial
+  renames/copy. Not mandatory first for all frontend work.
 ---
 
 # Modern Web Guidance

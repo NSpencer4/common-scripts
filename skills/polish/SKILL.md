@@ -3,9 +3,10 @@ name: polish
 description: >-
   Final quality pass for alignment, spacing, consistency, states, and micro-detail
   before shipping. Use when the user mentions polish, finishing touches, pre-launch
-  review, something looks off, UI micro-detail (radius, shadows, icons, motion), or wants
-  to go from good to great. Pair with frontend-design and atomic-presentational-ui; do not
-  redesign under the guise of polish.
+  UI review, something looks off, or UI micro-detail (radius, shadows, icons,
+  motion). Pair with frontend-design for visual context; do not redesign under the
+  guise of polish. Do not use for WCAG audits (accessibility) or new art direction
+  (frontend-design).
 ---
 
 # Polish

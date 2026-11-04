@@ -1,24 +1,25 @@
 ---
 name: typescript-docs
 description: >-
-  TypeScript documentation with JSDoc, TypeDoc, ADRs, and framework-oriented
-  examples. Use when generating API docs, architecture decision records, or
-  improving public TypeScript API documentation for NestJS, Express, React, and
-  similar stacks.
+  TypeScript API documentation with JSDoc, TypeDoc, and framework-oriented
+  examples. Use when generating or improving public TypeScript API docs for
+  NestJS, Express, React, and similar stacks. For Architecture Decision Records,
+  use architecture-decision-records. For prose AI-tell cleanup, use unslop.
 ---
 
 # TypeScript Documentation
 
 Produce documentation that matches the repository's audience: inline JSDoc for
-editors, generated API references when the project uses TypeDoc (or equivalent),
-and ADRs for significant decisions.
+editors and generated API references when the project uses TypeDoc (or equivalent).
+For significant architectural decisions, use `architecture-decision-records`
+(this skill may still cite ADR-oriented TypeScript examples in references).
 
 ## When to use
 
 - Public API / package documentation
-- ADR creation or updates
 - Framework-facing examples (NestJS controllers, React hooks, Express routes)
 - Doc validation / CI doc generation setup
+- Not primary owner of ADRs (use `architecture-decision-records`)
 
 ## Quick reference
 
@@ -98,4 +99,5 @@ What becomes easier or harder.
 ## Related skills
 
 - `typescript-best-practices` for typing rules in examples
-- `typescript-security-review` when documenting security-sensitive APIs
+- `security-and-hardening` when documenting security-sensitive APIs
+- `architecture-decision-records` for ADR authoring
