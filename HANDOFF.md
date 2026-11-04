@@ -44,6 +44,17 @@ For marketing strategy / plan talk, intended stack:
 
 Chase prefers **auto skill use** from conversation match, not required slash commands. Open tweak: soften `marketing-plan` "invoke with `/marketing-plan`" docs and ensure it runs `product-marketing` when `.agents/product-marketing.md` is missing.
 
+### leonxlnx/taste-skill (reviewed)
+
+Live upstream skill is `design-taste-frontend` (repo folder `skills/taste-skill`). Classics, imagegen, and `full-output-enforcement` moved or were removed.
+
+**Direction taken:**
+- Keep art direction in **`frontend-design`** (Anthropic + taste refs + product hard rules; no `draw.mjs` / `inspect.mjs`)
+- Keep **`image-to-code`** opt-in only
+- Fold redesign route into `frontend-design` (retired `redesign-existing-projects`)
+- Short **Completeness** bullets in `AGENTS.md` / `cursor/rules/global.mdc` (from full-output idea; no separate skill)
+- Skip: parallel `design-taste-frontend`, aesthetic presets (minimalist/brutalist/gpt-taste), imagegen reinstalls, global `stitch-design-taste`, full pack / scripts
+
 ### addyosmani/agent-skills (reviewed)
 
 Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineering`, `code-simplification`, `incremental-implementation`, `deprecation-and-migration`, `source-driven-development`.

@@ -109,6 +109,11 @@
 - Prefer editing an existing document over creating a new one.
 - Keep documentation concise. Describe behavior and intent, not implementation steps.
 
+## Completeness
+- When the request asks for a full file, component, or implementation, deliver the full artifact. Do not ship skeletons, `// ...` / "rest omitted" placeholders, or "same pattern as above" in place of code.
+- If output must stop at a token or tool limit, pause at a logical boundary, say what remains, and continue without recap when asked.
+- Throwaway work under an explicit `prototype` or "speed over completeness" ask may stay thin; say so.
+
 ## Workflow
 - For changes involving architecture, public interfaces, dependencies, data migrations, or multiple interacting behaviors, investigate first, then present a short plan and wait for approval before editing. Small, localized changes explicitly requested by me may proceed directly. Once a plan is approved, proceed within that scope without repeated approval.
 - Make only the approved changes.
