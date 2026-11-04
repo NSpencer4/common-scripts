@@ -44,6 +44,22 @@ For marketing strategy / plan talk, intended stack:
 
 Chase prefers **auto skill use** from conversation match, not required slash commands. Open tweak: soften `marketing-plan` "invoke with `/marketing-plan`" docs and ensure it runs `product-marketing` when `.agents/product-marketing.md` is missing.
 
+### cursor/plugins (reviewed)
+
+Marketplace of many plugins; do **not** `npx skills add cursor/plugins` wholesale.
+
+**Already had:** `unslop`, `how`, `why`, `technical-writing`, `architect`, `typescript-best-practices`
+
+**Taken:**
+- `deslop` (code slop; complements `unslop`)
+- `blast-radius` (opt-in; prove breakage beyond callers; no pstack arena requirement)
+- `make-pr-easy-to-review` (no force-push to protected branches)
+- `thermo-nuclear-code-quality-review` (opt-in harsh maintainability; complements `code-review`)
+
+**Merged into AGENTS / global.mdc:** prove-it-works, subtract-before-add, test-behavior, fix-root-causes, type/boundary discipline (as Engineering principles bullets)
+
+**Skip:** full pack; pstack stack (`arena`, `poteto-mode`, `setup-pstack`, `bro`, `swarm`); ralph/ketchup/orchestrate; dyl-stack; teaching/continual-learning; SaaS MCP skills until needed; duplicate `tdd` / `interrogate`
+
 ### leonxlnx/taste-skill (reviewed)
 
 Live upstream skill is `design-taste-frontend` (repo folder `skills/taste-skill`). Classics, imagegen, and `full-output-enforcement` moved or were removed.

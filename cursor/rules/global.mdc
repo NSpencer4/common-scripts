@@ -119,6 +119,14 @@ alwaysApply: true
 - If output must stop at a token or tool limit, pause at a logical boundary, say what remains, and continue without recap when asked.
 - Throwaway work under an explicit `prototype` or "speed over completeness" ask may stay thin; say so.
 
+## Engineering principles
+Selected from cursor/plugins pstack principles (not installed as separate skills):
+- Prove it works against the real artifact (run it, read the value, inspect the diff), not proxies or "it compiles."
+- Subtract before you add: remove dead code and redundant guards first, then build on the simpler base.
+- Test observable behavior for callers/users, not private implementation details.
+- Fix root causes; do not paper over impossible states with silent guards.
+- Prefer types and boundaries that make illegal states unrepresentable; validate at trust boundaries and trust internals.
+
 ## Workflow
 - For changes involving architecture, public interfaces, dependencies, data migrations, or multiple interacting behaviors, investigate first, then present a short plan and wait for approval before editing. Small, localized changes explicitly requested by me may proceed directly. Once a plan is approved, proceed within that scope without repeated approval.
 - Make only the approved changes.
