@@ -7,6 +7,12 @@
 - When instructions conflict or the correct action is materially ambiguous, ask before proceeding.
 - Prefer the smallest change that satisfies the approved request.
 
+## Sub-agents
+- When I ask you to spawn multiple sub-agents, use cheap models for the sub-agents.
+- The main agent I talk to oversees the work and is accountable for the result. Do not accept sub-agent output on their report alone; inspect the actual output.
+- Judge the output against the main agent's own standards and against global and project instructions.
+- When output falls short, send it back to the same sub-agent with specific, actionable corrections. Repeat until the result meets those standards.
+
 ## Queue
 - Maintain a queue of requested work in the order received.
 - Queue new independent requests in order. Apply corrections and constraints to the current task immediately. Honor explicit stop, pause, cancellation, and reprioritization requests immediately.
@@ -16,7 +22,9 @@
 - Stop when every item is complete or blocked, and report any blockers.
 
 ## Git
-- Never commit, push, merge, or open a PR. I review and commit changes myself.
+- After writing code and passing validation, commit and push to the feature branch and open a draft pull request (or update the existing one) so I can review it there. This is standing approval; do not ask first. Only push to the feature branch, never to `main` or a protected branch.
+- When making a commit (including under that standing approval, or when I ask to commit or type `/commit`), load and follow the `git-commit` skill for staging, Conventional Commits message shape, and `git commit` mechanics. Repository rules and these Git bullets override the skill when they conflict. Pushing and opening or updating the draft PR remain covered by this section, not by `git-commit`.
+- Never push to `main` under any circumstance. Never merge without my explicit approval.
 - Before editing repository files, inspect the working tree and current branch. Never edit on the repository’s default branch or a designated protected branch. Create or switch to an appropriate working branch while preserving existing changes. Ask if the correct base is unclear.
 - Never use `--force`, `--no-verify`, or rewrite shared history.
 
@@ -100,6 +108,19 @@
 - Document shared libraries with public APIs as required by Reusability.
 - Prefer editing an existing document over creating a new one.
 - Keep documentation concise. Describe behavior and intent, not implementation steps.
+
+## Completeness
+- When the request asks for a full file, component, or implementation, deliver the full artifact. Do not ship skeletons, `// ...` / "rest omitted" placeholders, or "same pattern as above" in place of code.
+- If output must stop at a token or tool limit, pause at a logical boundary, say what remains, and continue without recap when asked.
+- Throwaway work under an explicit `prototype` or "speed over completeness" ask may stay thin; say so.
+
+## Engineering principles
+Selected from cursor/plugins pstack principles (not installed as separate skills):
+- Prove it works against the real artifact (run it, read the value, inspect the diff), not proxies or "it compiles."
+- Subtract before you add: remove dead code and redundant guards first, then build on the simpler base.
+- Test observable behavior for callers/users, not private implementation details.
+- Fix root causes; do not paper over impossible states with silent guards.
+- Prefer types and boundaries that make illegal states unrepresentable; validate at trust boundaries and trust internals.
 
 ## Workflow
 - For changes involving architecture, public interfaces, dependencies, data migrations, or multiple interacting behaviors, investigate first, then present a short plan and wait for approval before editing. Small, localized changes explicitly requested by me may proceed directly. Once a plan is approved, proceed within that scope without repeated approval.
