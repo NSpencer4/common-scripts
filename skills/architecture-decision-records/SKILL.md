@@ -48,6 +48,8 @@ Before drafting a standard, lightweight, or Y-statement ADR, read [decision temp
 
 Before drafting a deprecation ADR or RFC, read [deprecation and RFC templates](references/deprecation-rfc-templates.md).
 
+Match existing repo ADR location, numbering, and headings when present; document alternatives and why. See [match-convention-and-why.md](references/match-convention-and-why.md).
+
 ## ADR Management
 
 ### Directory Structure

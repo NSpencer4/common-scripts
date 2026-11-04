@@ -2,11 +2,13 @@
 name: brainstorming
 description: >-
   Explore unclear product or design intent before building. Use when the
-  request leaves non-trivial goals, approaches, or tradeoffs unsettled, or
-  when the user asks to brainstorm, shape a design, or clarify what to build.
-  Do not use for clear, narrow tasks with an obvious approach. Prefer grilling
-  when the user wants a relentless decision-tree interview; prefer
-  domain-modeling when crystallizing glossary/ADR language.
+  request leaves non-trivial goals, approaches, or tradeoffs unsettled, when
+  refining a vague idea (ideate / refine this idea), or when the user asks to
+  brainstorm, shape a design, or clarify what to build. Do not use for clear,
+  narrow tasks with an obvious approach. Prefer grilling when the ask is
+  underspecified or the user wants a relentless interview; prefer prd when
+  direction is chosen and needs a spec; prefer domain-modeling when
+  crystallizing glossary/ADR language.
 ---
 
 # Brainstorming
@@ -19,6 +21,17 @@ anything gets built.
 People often haven't finished working out what they want. Good questions
 help them think it through. When you understand the why, you make the
 hundred decisions they never mention the way they would have made them.
+
+## Idea refine (divergent / convergent)
+
+When there is already a raw idea to shape (not a blank "what should we build?"), use:
+
+- [divergent-convergent.md](references/divergent-convergent.md)
+- [frameworks.md](references/frameworks.md)
+- [refinement-criteria.md](references/refinement-criteria.md)
+- [examples.md](references/examples.md)
+
+Produce a short one-pager (problem, recommended direction, assumptions, MVP, not-doing) when converging. Do not run external idea-refine shell helpers.
 
 ## First: What Do You Actually Know?
 

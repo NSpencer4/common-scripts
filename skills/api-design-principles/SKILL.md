@@ -17,6 +17,12 @@ Master REST and GraphQL API design principles to build intuitive, scalable, and 
 - Creating developer-friendly API documentation
 - Optimizing APIs for specific use cases (mobile, third-party integrations)
 
+## Contracts and boundaries first
+
+Before REST/GraphQL pattern detail, apply contract-first design, Hyrum's Law, the One-Version Rule, consistent error semantics, and validate-at-boundaries:
+
+- [contracts-hyrum-boundaries.md](references/contracts-hyrum-boundaries.md)
+
 ## Core Concepts
 
 ### 1. RESTful Design Principles

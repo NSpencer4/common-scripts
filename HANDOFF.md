@@ -55,21 +55,21 @@ Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineerin
 - `ci-cd-and-automation`
 - `constraint-driven-development` (+ `scripts/quality-gate.mjs`, `references/floor-guard.md`)
 - `browser-testing-with-devtools` (Cursor browser/CDP first)
+- `shipping-and-launch` (eng deploy readiness; distinct from marketing `launch`)
 
 **Skip:** `using-agent-skills`, `context-engineering`, full pack / `npx` install.
 
-**Merge queue (not done yet; do when friction shows):**
-- `code-review-and-quality` → `code-review`
-- `performance-optimization` → `web-perf`
-- `debugging-and-error-recovery` → `debugging-strategies`
-- `api-and-interface-design` → `api-design-principles`
-- `documentation-and-adrs` → `architecture-decision-records` / `technical-writing`
-- `spec-driven-development` → `create-specification` / `prd`
-- `planning-and-task-breakdown` → `incremental-implementation` (or thin new skill)
-- `shipping-and-launch` → keep eng-named; do **not** merge into marketing `launch`
-- `git-workflow-and-versioning` → selective into `git-commit` + `AGENTS.md` (respect explicit-commit rules)
-- `interview-me` → `grilling` / `grill-me`
-- `idea-refine` → `brainstorming`
+**Merged into existing skills:**
+- `code-review-and-quality` → `code-review` (`references/five-axis-and-sizing.md`)
+- `performance-optimization` → `web-perf` (measure-first + optimization-patterns)
+- `debugging-and-error-recovery` → `debugging-strategies` (stop-the-line triage)
+- `api-and-interface-design` → `api-design-principles` (Hyrum/contracts/boundaries)
+- `documentation-and-adrs` → `architecture-decision-records` + `technical-writing`
+- `spec-driven-development` → `prd` gated workflow (+ cross-link from `create-specification`)
+- `planning-and-task-breakdown` → `incremental-implementation`
+- `git-workflow-and-versioning` → selective `git-commit` change-sizing (no always-commit)
+- `interview-me` → `grilling` (frontier UX kept; hypothesis/intent added)
+- `idea-refine` → `brainstorming` (no shell helper)
 
 ## Related context (other repos)
 
@@ -80,12 +80,11 @@ Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineerin
 
 - Widen/soften marketing skill descriptions for auto-routing; wire `marketing-plan` → require/create product-marketing context first.
 - Continue installing remaining marketingskills (social, video, events, ...) only as plans need them.
-- Work the addyosmani merge queue above when overlap causes double triggers.
 - Keep iterating skills **in this repo**, then commit/push on `chore/centralize-ai-globals`.
 - Merge PR #1 when ready; avoid editing skills only under `~/.cursor/skills` (it is a symlink).
 
 ## Git status snapshot (at handoff)
 
 - Branch: `chore/centralize-ai-globals` tracking `origin/chore/centralize-ai-globals`
-- Recent commits: centralize globals; marketing-plan composition; addyosmani take-set install
+- Recent commits: centralize globals; marketing-plan composition; addyosmani take-set; merge queue
 - Local `main` may still be ahead of `origin/main` by the checkpoint commit; feature branch is the working line

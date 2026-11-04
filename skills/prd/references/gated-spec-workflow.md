@@ -172,7 +172,7 @@ With the validated spec, generate a technical implementation plan:
 
 > Follow `incremental-implementation` for the dependency-graph mapping and vertical-slicing mechanics behind these steps; it is the canonical source. The bullets above are a lightweight summary; if they ever diverge, `incremental-implementation` takes precedence.
 >
-> **Output convention:** Save the plan to `tasks/plan.md` and record the task list in the task list target defined by `incremental-implementation` (default `tasks/todo.md`; projects may designate an external tracker instead). Create `tasks/` if it does not exist. Downstream commands (`/build`, etc.) expect these defaults.
+> **Output convention:** Save the plan to `tasks/plan.md` and record the task list in the task list target defined by `incremental-implementation` (default `tasks/todo.md`; projects may designate an external tracker instead). Create `tasks/` if it does not exist. Do not require slash commands; execute the next phase after user approval.
 
 The plan should be reviewable: the human should be able to read it and say "yes, that's the right approach" or "no, change X."
 

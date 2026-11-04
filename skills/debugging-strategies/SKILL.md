@@ -7,6 +7,12 @@ description: Master systematic debugging techniques, profiling tools, and root c
 
 Transform debugging from frustrating guesswork into systematic problem-solving with proven strategies, powerful tools, and methodical approaches.
 
+When tests fail, builds break, or a change regresses behavior, start with stop-the-line triage:
+
+- [stop-the-line-triage.md](references/stop-the-line-triage.md) - STOP, preserve evidence, reproduce, localize, reduce, fix, guard
+
+Use the rest of this skill for profiling, memory, crash dumps, and distributed-systems depth once triage has a root-cause hypothesis.
+
 ## When to Use This Skill
 
 - Tracking down elusive bugs

@@ -24,6 +24,8 @@ Use this skill when:
 
 ## Operational Workflow
 
+For large or multi-capability work, use the gated Specify → Plan → Tasks → Implement flow (with optional capability map) in [gated-spec-workflow.md](references/gated-spec-workflow.md). Advance phases only after the user reviews. For AI-ready files under `/spec/`, also use `create-specification`.
+
 ### Phase 1: Discovery (The Interview)
 
 Before writing a single line of the PRD, you **MUST** interrogate the user to fill knowledge gaps. Do not assume context.

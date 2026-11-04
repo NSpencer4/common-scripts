@@ -27,6 +27,8 @@ A doc can obey every layer and still read machine-written: every sentence clippe
 - Have a view where the mode allows it. Explanation weighs trade-offs, so say what you make of them instead of listing pros and cons. Reference stays dry.
 - Be specific over sterile. Not "schema changes can cause issues" but "a column rename fails the build".
 
+For API and decision docs that must capture *why* (constraints, trade-offs), see [document-the-why.md](references/document-the-why.md). Prefer `architecture-decision-records` for formal ADRs.
+
 ## Pick the mode first (Diátaxis)
 
 One document, one mode. Two questions pick it: does the content inform action (doing) or understanding (thinking), and does it serve learning or work?

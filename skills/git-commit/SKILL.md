@@ -19,6 +19,8 @@ allowed-tools: shell(git:*)
 
 Repository rules, global agent instructions, and explicit user requests override this skill when they conflict. This skill defines commit *mechanics* and Conventional Commits message shape. Pushing, opening PRs, amending, and history rewrites are out of scope here unless a higher-priority instruction explicitly covers them.
 
+For atomic commits, change sizing (~100 / ~300 / ~1000 lines), and separating refactors from features, see [change-sizing-and-atomicity.md](references/change-sizing-and-atomicity.md). Leave the tree in reviewable slices; create commits only when the user asks or standing repo rules approve after validation.
+
 If user or repo rules require a HEREDOC or `git commit -F` for the message, use that instead of multiple `-m` flags.
 
 Make Git commits that follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification. Get the type, the scope, and the summary from the diff.
