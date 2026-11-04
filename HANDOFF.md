@@ -1,4 +1,4 @@
-# Handoff — global AI skills & marketing-plan stack
+# Handoff - global AI skills and marketing-plan stack
 
 Use this when starting a new agent chat. Repo: `~/WebstormProjects/common-scripts`, branch `chore/centralize-ai-globals`, draft PR https://github.com/NSpencer4/common-scripts/pull/1
 
@@ -36,13 +36,40 @@ Earlier skill batches also live under personal skill roots historically; **this 
 
 For marketing strategy / plan talk, intended stack:
 
-1. **`product-marketing`** — foundation; creates/updates `.agents/product-marketing.md`
-2. **`marketing-plan`** — AARRR / 12-month / fCMO plan hub (auto-trigger via description; slash `/marketing-plan` optional)
+1. **`product-marketing`** - foundation; creates/updates `.agents/product-marketing.md`
+2. **`marketing-plan`** - AARRR / 12-month / fCMO plan hub (auto-trigger via description; slash `/marketing-plan` optional)
 3. Inputs: **`marketing-ideas`**, **`customer-research`**, **`competitor-profiling`**, **`marketing-psychology`**, **`offers`**, **`marketing-council`**
 4. Channel depth (also installed where missing): `ads`, `ad-creative`, `content-strategy`, `cro`, `churn-prevention`, `programmatic-seo`, `schema`, `revops`, `prospecting`, `paywalls`
 5. Already had many channels: `seo-audit`, `ai-seo`, `signup`, `onboarding`, `emails`, `referrals`, `pricing`, `launch`, `copywriting`, `cold-email`, etc.
 
-Chase prefers **auto skill use** from conversation match, not required slash commands. Open tweak: soften `marketing-plan` “invoke with `/marketing-plan`” docs and ensure it runs `product-marketing` when `.agents/product-marketing.md` is missing.
+Chase prefers **auto skill use** from conversation match, not required slash commands. Open tweak: soften `marketing-plan` "invoke with `/marketing-plan`" docs and ensure it runs `product-marketing` when `.agents/product-marketing.md` is missing.
+
+### addyosmani/agent-skills (reviewed)
+
+Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineering`, `code-simplification`, `incremental-implementation`, `deprecation-and-migration`, `source-driven-development`.
+
+**Taken (static install, adapted):**
+- `test-driven-development` (+ bundled `references/testing-patterns.md`)
+- `doubt-driven-development`
+- `observability-and-instrumentation` (+ bundled `references/observability-checklist.md`)
+- `ci-cd-and-automation`
+- `constraint-driven-development` (+ `scripts/quality-gate.mjs`, `references/floor-guard.md`)
+- `browser-testing-with-devtools` (Cursor browser/CDP first)
+
+**Skip:** `using-agent-skills`, `context-engineering`, full pack / `npx` install.
+
+**Merge queue (not done yet; do when friction shows):**
+- `code-review-and-quality` → `code-review`
+- `performance-optimization` → `web-perf`
+- `debugging-and-error-recovery` → `debugging-strategies`
+- `api-and-interface-design` → `api-design-principles`
+- `documentation-and-adrs` → `architecture-decision-records` / `technical-writing`
+- `spec-driven-development` → `create-specification` / `prd`
+- `planning-and-task-breakdown` → `incremental-implementation` (or thin new skill)
+- `shipping-and-launch` → keep eng-named; do **not** merge into marketing `launch`
+- `git-workflow-and-versioning` → selective into `git-commit` + `AGENTS.md` (respect explicit-commit rules)
+- `interview-me` → `grilling` / `grill-me`
+- `idea-refine` → `brainstorming`
 
 ## Related context (other repos)
 
@@ -52,12 +79,13 @@ Chase prefers **auto skill use** from conversation match, not required slash com
 ## Sensible next changes
 
 - Widen/soften marketing skill descriptions for auto-routing; wire `marketing-plan` → require/create product-marketing context first.
-- Continue installing remaining marketingskills (social, video, events, …) only as plans need them.
+- Continue installing remaining marketingskills (social, video, events, ...) only as plans need them.
+- Work the addyosmani merge queue above when overlap causes double triggers.
 - Keep iterating skills **in this repo**, then commit/push on `chore/centralize-ai-globals`.
 - Merge PR #1 when ready; avoid editing skills only under `~/.cursor/skills` (it is a symlink).
 
 ## Git status snapshot (at handoff)
 
 - Branch: `chore/centralize-ai-globals` tracking `origin/chore/centralize-ai-globals`
-- Recent commits: centralize globals; add marketing-plan composition
+- Recent commits: centralize globals; marketing-plan composition; addyosmani take-set install
 - Local `main` may still be ahead of `origin/main` by the checkpoint commit; feature branch is the working line
