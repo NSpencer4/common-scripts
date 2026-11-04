@@ -7,6 +7,12 @@
 - When instructions conflict or the correct action is materially ambiguous, ask before proceeding.
 - Prefer the smallest change that satisfies the approved request.
 
+## Sub-agents
+- When I ask you to spawn multiple sub-agents, use cheap models for the sub-agents.
+- The main agent I talk to oversees the work and is accountable for the result. Do not accept sub-agent output on their report alone; inspect the actual output.
+- Judge the output against the main agent's own standards and against global and project instructions.
+- When output falls short, send it back to the same sub-agent with specific, actionable corrections. Repeat until the result meets those standards.
+
 ## Queue
 - Maintain a queue of requested work in the order received.
 - Queue new independent requests in order. Apply corrections and constraints to the current task immediately. Honor explicit stop, pause, cancellation, and reprioritization requests immediately.
@@ -16,7 +22,9 @@
 - Stop when every item is complete or blocked, and report any blockers.
 
 ## Git
-- Never commit, push, merge, or open a PR. I review and commit changes myself.
+- After writing code and passing validation, commit and push to the feature branch and open a draft pull request (or update the existing one) so I can review it there. This is standing approval; do not ask first. Only push to the feature branch, never to `main` or a protected branch.
+- When making a commit (including under that standing approval, or when I ask to commit or type `/commit`), load and follow the `git-commit` skill for staging, Conventional Commits message shape, and `git commit` mechanics. Repository rules and these Git bullets override the skill when they conflict. Pushing and opening or updating the draft PR remain covered by this section, not by `git-commit`.
+- Never push to `main` under any circumstance. Never merge without my explicit approval.
 - Before editing repository files, inspect the working tree and current branch. Never edit on the repository’s default branch or a designated protected branch. Create or switch to an appropriate working branch while preserving existing changes. Ask if the correct base is unclear.
 - Never use `--force`, `--no-verify`, or rewrite shared history.
 
