@@ -1,6 +1,6 @@
 # Animations
 
-Recipes for interruptible transitions, press feedback, first-render behavior, theme switches and the reduced-motion fallback. Staged entrances and exits live in [enter-exit.md](enter-exit.md), and icon swaps in [icon-transitions.md](icon-transitions.md).
+Recipes for interruptible transitions, press feedback, first-render behavior, theme switches and the reduced-motion fallback. Staged entrances and exits live in [enter-exit.md](better-ui-enter-exit.md), and icon swaps in [icon-transitions.md](better-ui-icon-transitions.md).
 
 ## Interruptible animations
 
@@ -81,7 +81,7 @@ function Button({ static: isStatic, className, children, ...props }) {
 
 ## Skip animation on page load
 
-The icon recipe in [icon-transitions.md](icon-transitions.md#motion) shows `initial={false}` used correctly. It suits icon swaps, toggles, tabs and segmented controls, anything with a default state on page load.
+The icon recipe in [icon-transitions.md](better-ui-icon-transitions.md#motion) shows `initial={false}` used correctly. It suits icon swaps, toggles, tabs and segmented controls, anything with a default state on page load.
 
 Setting it around a first-time entrance skips that entrance entirely. Check the component on a full page refresh before adding it.
 

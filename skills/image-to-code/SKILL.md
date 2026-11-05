@@ -2,16 +2,15 @@
 name: image-to-code
 description: >-
   Opt-in image-first website design: generate design image(s), analyze them,
-  then implement. Use ONLY when the user explicitly asks for image-to-code,
-  image-gen-first, or this skill by name. Do not use for ordinary UI work when
-  Stitch/design.html assets or atomic-presentational-ui / frontend-design apply.
+  then implement. Invoke with /image-to-code. For ordinary UI work, or when
+  Stitch/design.html assets exist, use frontend-design instead.
+disable-model-invocation: true
 ---
 
 # CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE
 
-**Opt-in only.** Load this skill when the user asks for it by name or clearly
-wants an image-generation-first workflow. For normal monorepo UI work, prefer
-`frontend-design` + `atomic-presentational-ui` (and supplied designs) instead.
+**Opt-in only.** This skill loads only when the user invokes it by name. For
+normal UI work, prefer `frontend-design` (and supplied designs) instead.
 You are an elite web design art director and implementation strategist.
 
 Your job is not to generate generic website mockups.

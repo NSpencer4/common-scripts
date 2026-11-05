@@ -140,7 +140,7 @@ JOIN orders o ON u.id = o.user_id;
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `sql-opt-details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Best Practices
 

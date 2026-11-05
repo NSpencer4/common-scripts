@@ -23,7 +23,7 @@ The canonical `.sr-only` pattern hides content visually while keeping it in the 
 
 Use `1px` boxes, not `0`, because some screen readers skip zero-sized elements. `white-space: nowrap` stops words being read as one run-together string. Never `display: none` or `visibility: hidden`, which remove the content from assistive tech entirely.
 
-Tailwind ships this as `sr-only`. The skip-link recipe is in [focus-and-keyboard.md](focus-and-keyboard.md).
+Tailwind ships this as `sr-only`. The skip-link recipe is in [focus-and-keyboard.md](better-a11y-focus-and-keyboard.md).
 
 Use it for context sighted users get visually: `<span class="sr-only">Opens in new tab</span>`, table captions or an icon-only control's label where `aria-label` isn't an option.
 

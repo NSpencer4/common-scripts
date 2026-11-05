@@ -857,10 +857,8 @@ Maintain consistent symbol usage across all diagrams:
 ---
 
 **Related Guides:**
-- [Activity Diagrams](./activity-diagrams.md) - Workflows and business logic
-- [Architecture Diagrams](./architecture-diagrams.md) - System structure
-- [Deployment Diagrams](./deployment-diagrams.md) - Infrastructure
-- [Unicode Symbols](../unicode-symbols/guide.md) - Symbol reference
+- [Mermaid Diagram Guide](../../mermaid-diagram-guide.md) - Flowcharts, class, ER, state
+- [Architecture Diagrams](./architecture-diagrams.md) - System structure and deployment (C4)
 
 **Version:** 1.0
 **Last Updated:** 2025-01-13

@@ -1,6 +1,6 @@
 ---
 name: competitor-profiling
-description: "When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep dive,' 'who are my competitors,' 'competitor landscape,' 'competitor dossier,' 'competitive audit,' or 'research these competitors.' Input is a list of competitor URLs. Output is structured competitor profile markdown files. For creating comparison/alternative pages from profiles, see competitors. For sales-specific battle cards, see sales-enablement. For researching accounts you're selling to, see prospecting. For how a competitor grew over time and what to copy, see reverse-engineer-marketing."
+description: "When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep dive,' 'who are my competitors,' 'competitor landscape,' 'competitor dossier,' 'competitive audit,' 'competitor teardown,' 'SWOT,' 'feature matrix,' 'positioning map,' or 'research these competitors.' Input is a list of competitor URLs. Output is structured competitor profile markdown files, or a teardown (references/teardown-framework.md). For creating comparison/alternative pages from profiles, see competitors. For sales-specific battle cards, see sales-enablement. For researching accounts you're selling to, see prospecting. For how a competitor grew over time and what to copy, see reverse-engineer-marketing."
 metadata:
   version: 2.1.5
 ---
@@ -424,6 +424,12 @@ Only ask if not answered by context or input:
 2. Quick scan or deep profile?
 3. Any specific dimensions to focus on (pricing, SEO, positioning)?
 4. Should I compare findings against your product?
+
+---
+
+## Competitive teardown
+
+When the user wants a teardown, SWOT, feature and pricing matrices, a positioning map, or review mining rather than per-competitor profile files, follow [teardown-framework.md](references/teardown-framework.md). Use browser tools and web search; do not depend on a third-party CLI. Feed verified findings into **competitors** pages and **sales-enablement** battle cards when requested.
 
 ---
 

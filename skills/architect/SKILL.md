@@ -8,17 +8,6 @@ disable-model-invocation: true
 
 Sketch types, function signatures, class shapes, and module boundaries with `not implemented` bodies and pseudocode. Synthesize across multiple model perspectives, then fill in code against the chosen sketch.
 
-
-
-## Runtime adaptations (this install)
-
-This snapshot is decoupled from the full Cursor pstack plugin pack.
-
-- **Models:** Ignore `pstack-models.mdc` and **poteto-mode** if absent. When spawning subagents, use the host's Task/subagent tool with an available model (prefer a strong model for synthesis/explain; a cheaper/faster model for parallel explore/investigate). If a named slug is rejected, pick the closest available model and say so.
-- **Missing sibling skills:** `arena`, `interrogate`, and `principle-*` skills are optional. If missing: for "design it twice," spawn two parallel sketch subagents yourself and synthesize; for adversarial pressure, use `grilling` or a critical review pass; treat named principles as plain guidance, not required skill loads.
-- **MCP investigators (`why`):** Discover whatever MCPs exist. Skip categories with no MCP and record the gap. Always run source-control investigation via git/`gh`.
-- **Cross-links:** Pair with `codebase-design` (module depth vocabulary), `architecture-patterns` (Clean/Hexagonal/DDD patterns), and `architecture-decision-records` (durable decision write-ups). `architect` grounds with `how`/`why`; ADRs capture the agreed decision afterward when the change is significant.
-
 ## Start
 
 Open a todolist with one entry per phase before starting.
@@ -37,17 +26,15 @@ Skip Phase A only when the work is genuinely greenfield with no surrounding syst
 
 ## Phase B: Sketch
 
-If the **arena** skill is installed, use it with the design-sketch task and Phase A grounding artifacts (`references/runner-prompt.md` as each runner prompt). Otherwise spawn parallel sketch subagents with that prompt and synthesize.
+Spawn at least two parallel design-sketch subagents, each given the Phase A grounding artifacts and [`references/runner-prompt.md`](references/runner-prompt.md) as its prompt. Use different models when the host offers more than one. Then synthesize the candidates yourself.
 
-If **arena** / `pstack-models.mdc` are missing: spawn at least two parallel design-sketch subagents with different strong/fast models when available, then synthesize structurally distinct candidates yourself.
-
-Design it twice. Require at least two structurally distinct candidates before synthesis, even when the first looks sufficient. This makes the exhaust-the-design-space principle concrete (principle skill optional). Whole-shape alternatives, not point fixes inside one shape.
+Design it twice. Require at least two structurally distinct candidates before synthesis, even when the first looks sufficient. Whole-shape alternatives, not point fixes inside one shape.
 
 Screen every candidate against [`references/design-red-flags.md`](references/design-red-flags.md) before synthesis. Assume the next contributor is an agent that sees only the files it opened, copies the nearest example, and takes the shortest path that compiles. Prefer the design where a change that looks right from one file is right for the whole repo.
 
 Compare viable candidates on interface depth. Prefer the design that hides more complexity behind a smaller, simpler public surface. A rich interface can keep call chains short by concentrating capability instead of scattering it across layers.
 
-Arena returns one synthesized design package. Its synthesis decision fills the rationale's "Synthesis decision" section.
+Synthesis produces one design package. Record which candidate became the base, and why, in the rationale's "Synthesis decision" section.
 
 ## Phase C: Agree (opt-in)
 
@@ -55,7 +42,7 @@ Default: proceed directly to implementation with the synthesized design. No huma
 
 Opt in to a checkpoint when the invoker explicitly asks: "/architect with checkpoint," "stop and show me before implementing," or similar. Then surface the synthesized design and pause for sign-off.
 
-The synthesis can ship as its own commit either way, as the "scaffold first" mode of the **foundational-thinking** principle skill. Planned and scoped breakage during fill-in is fine, per the outcome-oriented-execution principle (load that principle skill if installed; otherwise apply the idea directly). For adversarial pressure on the design before implementing, run **interrogate** if installed; otherwise use `grilling` or a structured critique pass on the synthesized sketch.
+The synthesis can ship as its own commit either way (scaffold first). Planned and scoped breakage during fill-in is fine. For adversarial pressure on the design before implementing, use `grilling` or `doubt-driven-development` on the synthesized sketch.
 
 If the human pushes back on the shape (in a checkpoint or after the fact), treat that as Phase A evidence. Re-ground and re-run Phase B before writing more code.
 
@@ -65,7 +52,7 @@ Replace `not implemented` bodies with code, pseudocode with logic. The synthesiz
 
 ## Phase E: Scrap when the architecture is wrong
 
-If implementation keeps producing friction the sketch can't absorb, throw the sketch out. Don't bolt fixes onto a wrong design, per the **redesign-from-first-principles** and **fix-root-causes** principle skills.
+If implementation keeps producing friction the sketch can't absorb, throw the sketch out. Don't bolt fixes onto a wrong design.
 
 The signal is a *pattern*, not single instances. Tells:
 
@@ -81,9 +68,9 @@ Use judgment. A few edge cases don't condemn an architecture. Some problems are 
 When you scrap:
 
 1. Re-run the **how** skill over what's been built.
-2. Redesign as if the new constraints had been day-one assumptions, per redesign-from-first-principles.
-3. Subtract before adding, per the subtract-before-you-add principle (load that principle skill if installed; otherwise apply the idea directly). The new sketch should be smaller than the old one before it grows.
-4. Return to Phase B and re-run arena.
+2. Redesign as if the new constraints had been day-one assumptions.
+3. Subtract before adding. The new sketch should be smaller than the old one before it grows.
+4. Return to Phase B.
 
 ## Outputs
 
@@ -96,6 +83,5 @@ The caller's usage is written first and the type sketch derived from it. One fil
 - `why` — evidence-backed rationale
 - `architect` (this skill) — sketch-before-code workflow that uses how/why
 - `codebase-design` — deep-module vocabulary
-- `architecture-patterns` — Clean / Hexagonal / DDD patterns
 - `architecture-decision-records` — write the decision down
-- `grilling` — stress-test a design when `interrogate` is unavailable
+- `grilling` — stress-test a design

@@ -120,5 +120,4 @@ Treat those values as defaults when the design system does not already specify t
 ## Related skills
 
 - Visual direction: `frontend-design`
-- Component/Storybook construction: `atomic-presentational-ui`
 - Engineering/a11y depth: `frontend-ui-engineering`

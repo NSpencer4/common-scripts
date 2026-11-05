@@ -13,11 +13,10 @@ This guide documents the resilient workflow for generating Mermaid diagrams. It 
 1. [Overview](#overview)
 2. [Workflow Steps](#workflow-steps)
 3. [File Naming Convention](#file-naming-convention)
-4. [Using the Script](#using-the-script)
-5. [Error Recovery Patterns](#error-recovery-patterns)
-6. [Search Tool Priority](#search-tool-priority)
-7. [Manual Fallback Workflow](#manual-fallback-workflow)
-8. [Integration Examples](#integration-examples)
+4. [Error Recovery Patterns](#error-recovery-patterns)
+5. [Searching for Fixes](#searching-for-fixes)
+6. [Manual Workflow](#manual-workflow)
+7. [Integration Examples](#integration-examples)
 
 ---
 
@@ -28,7 +27,7 @@ The resilient workflow ensures diagrams are generated correctly by:
 - **Detecting diagram type** for appropriate reference guide loading
 - **Following consistent file naming** for organized output
 - **Validating before finalizing** using mmdc CLI
-- **Recovering from errors** using troubleshooting guide and external search
+- **Recovering from errors** using the error patterns below and web search
 - **Only adding validated diagrams** to markdown files
 
 ### Workflow Diagram
@@ -43,13 +42,13 @@ flowchart TD
     Validate --> Success{Valid?}
 
     Success -->|Yes| AddRef[Step 5: Add Image Reference to Markdown]
-    Success -->|No| Troubleshoot[Check Troubleshooting Guide]
+    Success -->|No| Troubleshoot[Check Error Patterns]
 
     Troubleshoot --> Found{Fix Found?}
     Found -->|Yes| Apply[Apply Fix]
     Apply --> Generate
 
-    Found -->|No| Search[Search External Tools]
+    Found -->|No| Search[Search the Web]
     Search --> SearchResult{Solution Found?}
     SearchResult -->|Yes| Apply
     SearchResult -->|No| Manual[Request Human Review]
@@ -84,7 +83,7 @@ Analyze the Mermaid code to determine the diagram type and load appropriate refe
 
 | First Line Pattern | Type | Reference Guide |
 |-------------------|------|-----------------|
-| `flowchart TD/LR/...` or `graph TB/...` | Flowchart | `references/guides/diagrams/activity-diagrams.md` |
+| `flowchart TD/LR/...` or `graph TB/...` | Flowchart | `references/mermaid-diagram-guide.md` (Flowcharts) |
 | `sequenceDiagram` | Sequence | `references/guides/diagrams/sequence-diagrams.md` |
 | `classDiagram` | Class | (use general mermaid-diagram-guide.md) |
 | `stateDiagram-v2` | State | (use general mermaid-diagram-guide.md) |
@@ -137,15 +136,12 @@ mmdc -i diagram.mmd -o diagram.png -b transparent
 When validation fails:
 
 1. **Parse the error message** from mmdc output
-2. **Search troubleshooting.md** for matching errors:
-   - Match by error keywords (reserved word, missing, invalid, syntax)
-   - Match by diagram type
-   - Match by severity level
-3. **Apply the suggested fix** from the troubleshooting guide
+2. **Match the error** against [Error Recovery Patterns](#error-recovery-patterns) and the Common Errors and Fixes section of `references/mermaid-diagram-guide.md`
+3. **Apply the fix**
 4. **Retry validation**
 
-If troubleshooting guide doesn't have a match:
-1. Use **search tools** (see [Search Tool Priority](#search-tool-priority))
+If nothing matches:
+1. **Search the web** (see [Searching for Fixes](#searching-for-fixes))
 2. Apply the found solution
 3. Retry validation
 
@@ -208,92 +204,11 @@ Optionally include a link to the source:
 
 ---
 
-## Using the Script
-
-### Automated Workflow (Recommended)
-
-The `resilient_diagram.py` script automates the entire workflow:
-
-```bash
-# Basic usage
-python scripts/resilient_diagram.py \
-    --code "flowchart TD; A-->B" \
-    --markdown-file design_doc \
-    --diagram-num 1 \
-    --title "overview" \
-    --format png
-
-# With JSON output (recommended for programmatic use)
-python scripts/resilient_diagram.py \
-    --code "sequenceDiagram..." \
-    --markdown-file api \
-    --diagram-num 2 \
-    --title "auth_flow" \
-    --json
-```
-
-### CLI Options
-
-| Option | Short | Description | Default |
-|--------|-------|-------------|---------|
-| `--code` | `-c` | Mermaid code string | - |
-| `--mmd-file` | `-i` | Path to .mmd file | - |
-| `--stdin` | - | Read from stdin | - |
-| `--output-dir` | `-o` | Output directory | `./diagrams` |
-| `--markdown-file` | `-m` | Source markdown name | `diagram` |
-| `--diagram-num` | `-n` | Diagram number | `1` |
-| `--title` | `-t` | Diagram title | `diagram` |
-| `--format` | `-f` | Image format (png/svg/pdf) | `png` |
-| `--json` | `-j` | Output as JSON | `false` |
-
-### JSON Output Format
-
-When using `--json`, the script returns structured data:
-
-```json
-{
-  "success": true,
-  "mmd_path": "./diagrams/api_01_sequence_auth_flow.mmd",
-  "image_path": "./diagrams/api_01_sequence_auth_flow.png",
-  "diagram_type": "sequence",
-  "error_message": null,
-  "troubleshooting_matches": [],
-  "suggested_fix": null,
-  "search_recommendation": null
-}
-```
-
-**On failure:**
-
-```json
-{
-  "success": false,
-  "mmd_path": "./diagrams/api_01_flowchart_process.mmd",
-  "image_path": null,
-  "diagram_type": "flowchart",
-  "error_message": "Parse error on line 2: reserved word 'end'",
-  "troubleshooting_matches": [
-    {
-      "error_number": 5,
-      "title": "Reserved Word \"end\" in Node Names",
-      "severity": "Critical",
-      "diagram_types": ["flowchart"],
-      "problem": "The word 'end' is reserved and breaks flowcharts",
-      "correct_example": "flowchart TD\n    start --> End"
-    }
-  ],
-  "suggested_fix": "flowchart TD\n    start --> End",
-  "search_recommendation": null
-}
-```
-
----
-
 ## Error Recovery Patterns
 
 ### Common Error Categories
 
-#### 1. Reserved Words (Error 1, 5)
+#### 1. Reserved Words
 
 **Symptoms:** Parse error mentioning DEFAULT, end, style, class, etc.
 
@@ -304,7 +219,7 @@ When using `--json`, the script returns structured data:
 + start --> "end"
 ```
 
-#### 2. Unescaped Special Characters (Error 2)
+#### 2. Unescaped Special Characters
 
 **Symptoms:** Unexpected token, parsing error mid-label
 
@@ -315,7 +230,7 @@ When using `--json`, the script returns structured data:
 + A["Say #34;hello#34;"]
 ```
 
-#### 3. Invalid Arrow Syntax (Error 7)
+#### 3. Invalid Arrow Syntax
 
 **Symptoms:** Connection not rendered, no arrow shown
 
@@ -326,7 +241,7 @@ When using `--json`, the script returns structured data:
 + A --> B
 ```
 
-#### 4. Missing Colon in Sequence (Error 11)
+#### 4. Missing Colon in Sequence
 
 **Symptoms:** Parsing error in sequence diagram
 
@@ -337,7 +252,7 @@ When using `--json`, the script returns structured data:
 + Alice->>Bob: Message
 ```
 
-#### 5. Missing "end" in Blocks (Error 13)
+#### 5. Missing "end" in Blocks
 
 **Symptoms:** Parse error in alt/opt/loop blocks
 
@@ -351,7 +266,7 @@ When using `--json`, the script returns structured data:
 + end
 ```
 
-#### 6. Invalid classDef (Error 3)
+#### 6. Invalid classDef
 
 **Symptoms:** Styling not applied
 
@@ -362,57 +277,11 @@ When using `--json`, the script returns structured data:
 + classDef myClass fill:#f00,stroke:#333,color:#fff
 ```
 
-### Using Troubleshooting Guide
-
-1. **Read the error message** from mmdc output
-2. **Search troubleshooting.md** for keywords:
-   - Error keywords: "reserved", "missing", "invalid", "syntax"
-   - Diagram type: "flowchart", "sequence", etc.
-3. **Find matching Error entry** (Error 1-28)
-4. **Compare your code** to the "Incorrect" example
-5. **Apply the pattern** from the "Correct" example
-
 ---
 
-## Search Tool Priority
+## Searching for Fixes
 
-When troubleshooting.md doesn't have a matching fix, use external search tools **in this order**:
-
-### 1. Perplexity MCP (Primary)
-
-Best for: Specific syntax questions, code examples
-
-```
-perplexity_ask: "mermaid sequenceDiagram syntax error participant not defined"
-```
-
-### 2. Brave Search MCP (Secondary)
-
-Best for: Recent issues, GitHub discussions, community solutions
-
-```
-brave_web_search: "mermaid gantt chart reserved word error site:github.com"
-```
-
-### 3. Gemini Skill (Tertiary)
-
-Best for: Complex multi-line errors, alternative perspectives, debugging assistance
-
-```
-Use gemini skill with prompt:
-"I have a Mermaid diagram error. The code is:
-[paste diagram code]
-The error is: [paste error message]
-What is the fix?"
-```
-
-### 4. WebSearch Tool (Fallback)
-
-Best for: General web results when other tools unavailable
-
-```
-WebSearch: "mermaid diagram syntax error [specific error text]"
-```
+When no pattern matches, search the web with whatever search tool the host provides.
 
 ### Search Query Format
 
@@ -429,9 +298,9 @@ mermaid flowchart syntax error: Parse error on line 2 reserved word end
 
 ---
 
-## Manual Fallback Workflow
+## Manual Workflow
 
-If the `resilient_diagram.py` script is unavailable or fails, follow these manual steps:
+Follow these steps for every diagram:
 
 ### Step 1: Determine Diagram Type
 
@@ -450,13 +319,12 @@ Look at the first non-comment line of Mermaid code:
 
 ### Step 2: Load Reference Guide
 
-Read the appropriate guide from `references/guides/diagrams/`:
+Read the appropriate guide:
 
 ```
-Activity/Flowchart: activity-diagrams.md
-Sequence: sequence-diagrams.md
-Deployment: deployment-diagrams.md
-Architecture: architecture-diagrams.md
+Flowchart, class, state, ER, Gantt: references/mermaid-diagram-guide.md
+Sequence: references/guides/diagrams/sequence-diagrams.md
+Architecture and deployment (C4): references/guides/diagrams/architecture-diagrams.md
 ```
 
 ### Step 3: Create Output Directory
@@ -493,16 +361,12 @@ Check exit code:
 ### Step 6: Error Recovery
 
 1. **Read error message** from mmdc output
-2. **Open troubleshooting guide:**
-   ```bash
-   cat references/guides/troubleshooting.md
-   ```
-3. **Search for matching error** (Ctrl+F for keywords)
-4. **Apply the fix** from "Correct" example
-5. **Retry Step 5**
+2. **Match the error** against [Error Recovery Patterns](#error-recovery-patterns) and the Common Errors and Fixes section of `references/mermaid-diagram-guide.md`
+3. **Apply the fix**
+4. **Retry Step 5**
 
 If no match found:
-1. Use search tools in priority order
+1. Search the web
 2. Apply found solution
 3. Retry Step 5
 
@@ -561,7 +425,7 @@ flowchart TD
 
 **Recovery:**
 
-1. **Search troubleshooting.md** → Match Error #5
+1. **Check Error Recovery Patterns** → Reserved Words
 2. **Apply fix:** Change `end` to `"end"` or `End`
 3. **Fixed code:**
    ```mermaid
@@ -571,20 +435,20 @@ flowchart TD
 4. **Retry validation** → Success
 5. **Save and add to markdown**
 
-### Example 3: No Troubleshooting Match
+### Example 3: No Pattern Match
 
 **Error:** `Unknown parsing error in custom directive`
 
 **Recovery:**
 
-1. **Search troubleshooting.md** → No match
-2. **Use perplexity_ask:**
+1. **Check Error Recovery Patterns** → No match
+2. **Search the web:**
    ```
-   "mermaid flowchart custom directive unknown parsing error"
+   mermaid flowchart custom directive unknown parsing error
    ```
 3. **Get solution** from search result
 4. **Apply fix and retry**
-5. **If still failing:** Escalate to brave_web_search, then gemini skill
+5. **If still failing:** Ask the user to review
 
 ---
 
@@ -597,7 +461,7 @@ flowchart TD
 2. GENERATE → Write Mermaid code using guide patterns
 3. SAVE     → Create ./diagrams/<name>.mmd
 4. VALIDATE → Run mmdc, check exit code
-5. RECOVER  → If failed: troubleshooting.md → search tools
+5. RECOVER  → If failed: error patterns → web search
 6. ADD      → Only after validation: ![](./diagrams/name.png)
 ```
 
@@ -606,15 +470,6 @@ flowchart TD
 ```
 ./diagrams/<markdown>_<num>_<type>_<title>.mmd
 ./diagrams/<markdown>_<num>_<type>_<title>.png
-```
-
-### Search Priority
-
-```
-1. perplexity_ask MCP
-2. brave_web_search MCP
-3. gemini skill
-4. WebSearch tool
 ```
 
 ### Validation Command
@@ -627,8 +482,6 @@ mmdc -i input.mmd -o output.png -b transparent
 
 **Version:** 1.0
 **Related Guides:**
-- [Troubleshooting Guide](troubleshooting.md)
-- [Activity Diagrams](diagrams/activity-diagrams.md)
+- [Mermaid Diagram Guide](../mermaid-diagram-guide.md)
 - [Sequence Diagrams](diagrams/sequence-diagrams.md)
-- [Deployment Diagrams](diagrams/deployment-diagrams.md)
 - [Architecture Diagrams](diagrams/architecture-diagrams.md)

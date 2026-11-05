@@ -34,4 +34,3 @@ Vendor-neutral Postgres guidance. Prefer the project's actual host, version, and
 
 - `postgres-drizzle` — Drizzle ORM schemas, relations, migrations
 - `nestjs-best-practices` — Nest data-access rules when calling Postgres from Nest
-- `api-design-principles` — API shape above the database

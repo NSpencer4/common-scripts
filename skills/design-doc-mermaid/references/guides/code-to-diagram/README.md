@@ -34,14 +34,14 @@ This master guide explains how to analyze source code and configuration files to
 
 ### Supported Frameworks
 
-| Framework | Language | Architecture Style | Example Guide |
-|-----------|----------|-------------------|---------------|
-| **Spring Boot** | Java | Annotation-driven, layered | [Spring Boot Guide](../../examples/spring-boot/README.md) |
-| **FastAPI** | Python | Async, dependency injection | [FastAPI Guide](../../examples/fastapi/README.md) |
-| **React** | JavaScript/TypeScript | Component-based, state management | [React Guide](../../examples/react/README.md) |
-| **Express.js** | JavaScript/TypeScript | Middleware chain, routes | [Node.js Guide](../../examples/node-webapp/README.md) |
-| **Java Servlet** | Java | MVC Model 2, filters | [Java Servlet Guide](../../examples/java-webapp/README.md) |
-| **Python ETL** | Python | Data pipelines, transformations | [Python ETL Guide](../../examples/python-etl/README.md) |
+| Framework | Language | Architecture Style |
+|-----------|----------|-------------------|
+| **Spring Boot** | Java | Annotation-driven, layered |
+| **FastAPI** | Python | Async, dependency injection |
+| **React** | JavaScript/TypeScript | Component-based, state management |
+| **Express.js** | JavaScript/TypeScript | Middleware chain, routes |
+| **Java Servlet** | Java | MVC Model 2, filters |
+| **Python ETL** | Python | Data pipelines, transformations |
 
 ---
 
@@ -78,9 +78,9 @@ grep -r "express()\|app.use" .
 | Code Artifact | Extracts To | Diagram Type | Guide |
 |---------------|-------------|--------------|-------|
 | **Directory structure** | Package/module hierarchy | Architecture | [Architecture Guide](../diagrams/architecture-diagrams.md) |
-| **Configuration files** | Infrastructure layout | Deployment | [Deployment Guide](../diagrams/deployment-diagrams.md) |
+| **Configuration files** | Infrastructure layout | Deployment | [Architecture Guide](../diagrams/architecture-diagrams.md) (C4 container) |
 | **Method calls** | Request/response flow | Sequence | [Sequence Guide](../diagrams/sequence-diagrams.md) |
-| **Business logic** | Process flow | Activity | [Activity Guide](../diagrams/activity-diagrams.md) |
+| **Business logic** | Process flow | Activity | [Mermaid Guide](../../mermaid-diagram-guide.md) (Flowcharts) |
 | **Database entities** | Data relationships | ER Diagram | See examples |
 
 ### Step 3: Extract Key Information
@@ -107,18 +107,18 @@ grep -r "express()\|app.use" .
 
 ### Step 4: Apply Framework Patterns
 
-Each framework has common architectural patterns. Load the appropriate framework guide:
+Each framework has common architectural patterns. Use the matching framework section below:
 
 ```mermaid
 graph TB
     Start([Analyze Codebase]) --> Detect{Detect Framework}
 
-    Detect -->|Spring Boot| SpringGuide[Load Spring Boot Guide]
-    Detect -->|FastAPI| FastAPIGuide[Load FastAPI Guide]
-    Detect -->|React| ReactGuide[Load React Guide]
-    Detect -->|Express| ExpressGuide[Load Express Guide]
-    Detect -->|Java Servlet| ServletGuide[Load Servlet Guide]
-    Detect -->|Python ETL| ETLGuide[Load ETL Guide]
+    Detect -->|Spring Boot| SpringGuide[Spring Boot section]
+    Detect -->|FastAPI| FastAPIGuide[FastAPI section]
+    Detect -->|React| ReactGuide[React section]
+    Detect -->|Express| ExpressGuide[Express section]
+    Detect -->|Java Servlet| ServletGuide[Servlet section]
+    Detect -->|Python ETL| ETLGuide[ETL section]
 
     SpringGuide --> Extract[Extract Patterns]
     FastAPIGuide --> Extract
@@ -141,7 +141,7 @@ graph TB
 ### Step 5: Generate and Validate
 
 1. **Generate Mermaid code** using patterns from guides
-2. **Validate syntax** using `scripts/extract_mermaid.py --validate`
+2. **Validate syntax** with `mmdc -i diagram.mmd -o diagram.png` if mmdc is available
 3. **Review diagram** for accuracy and clarity
 4. **Refine** based on team feedback
 
@@ -217,7 +217,6 @@ sequenceDiagram
     Controller-->>-Client: 200 OK + JSON
 ```
 
-**Full Guide:** [Spring Boot Examples](../../examples/spring-boot/README.md)
 
 ---
 
@@ -284,7 +283,6 @@ sequenceDiagram
     Endpoint-->>-Client: 201 Created + JSON
 ```
 
-**Full Guide:** [FastAPI Examples](../../examples/fastapi/README.md)
 
 ---
 
@@ -353,7 +351,6 @@ sequenceDiagram
     Component->>User: Render ContactTable
 ```
 
-**Full Guide:** [React Examples](../../examples/react/README.md)
 
 ---
 
@@ -412,7 +409,6 @@ flowchart TD
     Success --> End
 ```
 
-**Full Guide:** [Node.js/Express Examples](../../examples/node-webapp/README.md)
 
 ---
 
@@ -469,7 +465,6 @@ graph TB
     AuthFilter --> ContactServlet
 ```
 
-**Full Guide:** [Java Servlet Examples](../../examples/java-webapp/README.md)
 
 ---
 
@@ -540,7 +535,6 @@ flowchart LR
     Success --> End2([Pipeline Success])
 ```
 
-**Full Guide:** [Python ETL Examples](../../examples/python-etl/README.md)
 
 ---
 
@@ -551,9 +545,9 @@ flowchart LR
 | If Code Contains... | Generate... | Use Guide... |
 |---------------------|-------------|--------------|
 | Package/directory structure | Architecture diagram | [Architecture](../diagrams/architecture-diagrams.md) |
-| Configuration files (YAML, XML, JSON) | Deployment diagram | [Deployment](../diagrams/deployment-diagrams.md) |
+| Configuration files (YAML, XML, JSON) | Deployment diagram | [Architecture](../diagrams/architecture-diagrams.md) (C4 container) |
 | Method calls between classes | Sequence diagram | [Sequence](../diagrams/sequence-diagrams.md) |
-| Conditional logic, loops | Activity diagram | [Activity](../diagrams/activity-diagrams.md) |
+| Conditional logic, loops | Activity diagram | [Mermaid Guide](../../mermaid-diagram-guide.md) (Flowcharts) |
 | Database entity annotations | ER diagram | See framework examples |
 | Message queue publishers/consumers | Event-driven architecture | [Architecture](../diagrams/architecture-diagrams.md) |
 
@@ -570,9 +564,9 @@ graph TD
     Type -->|Database<br/>entities| ER[Generate<br/>ER Diagram]
 
     Arch --> LoadArch[Load Architecture Guide]
-    Deploy --> LoadDeploy[Load Deployment Guide]
+    Deploy --> LoadDeploy[Load Architecture Guide, C4]
     Seq --> LoadSeq[Load Sequence Guide]
-    Act --> LoadAct[Load Activity Guide]
+    Act --> LoadAct[Load Mermaid Guide, Flowcharts]
     ER --> LoadFramework[Load Framework Example]
 
     classDef decision fill:#FFE66D,stroke:#F08C00,color:#000
@@ -670,7 +664,7 @@ Don't try to diagram everything at once:
 ### 2. **Use Framework Examples as Templates**
 
 Don't reinvent patterns. If you're analyzing a Spring Boot app:
-1. Load [Spring Boot Guide](../../examples/spring-boot/README.md)
+1. Use the Spring Boot section of this guide
 2. Find similar code patterns
 3. Adapt the Mermaid template to your specific code
 
@@ -686,11 +680,8 @@ Always label:
 ### 4. **Validate Diagram Syntax**
 
 ```bash
-# Extract diagrams from markdown
-python scripts/extract_mermaid.py docs/architecture.md --validate
-
-# Convert to image to verify rendering
-python scripts/mermaid_to_image.py diagram.mmd output.png
+# Render to an image to verify the syntax (requires mmdc)
+mmdc -i diagram.mmd -o output.png
 ```
 
 ### 5. **Keep Diagrams Current**
@@ -701,7 +692,7 @@ python scripts/mermaid_to_image.py diagram.mmd output.png
 
 ### 6. **Use Semantic Unicode Symbols**
 
-Refer to [Unicode Symbols Guide](../unicode-symbols/guide.md) for:
+Use these symbols for:
 - 👤 Users/actors
 - ⚙️ Services
 - 💾 Databases
@@ -808,7 +799,7 @@ flowchart TD
     SeqDiagram --> Generate
     ActDiagram --> Generate
 
-    Generate --> Validate[✅ Validate Syntax<br/>scripts/extract_mermaid.py]
+    Generate --> Validate[✅ Validate Syntax<br/>mmdc]
 
     Validate --> Valid{Valid?}
     Valid -->|No| Fix[🔧 Fix Syntax Errors]
@@ -852,17 +843,9 @@ flowchart TD
 ---
 
 **Related Resources:**
-- [Activity Diagrams Guide](../diagrams/activity-diagrams.md)
+- [Mermaid Diagram Guide](../../mermaid-diagram-guide.md)
 - [Architecture Diagrams Guide](../diagrams/architecture-diagrams.md)
-- [Deployment Diagrams Guide](../diagrams/deployment-diagrams.md)
 - [Sequence Diagrams Guide](../diagrams/sequence-diagrams.md)
-- [Unicode Symbols Reference](../unicode-symbols/guide.md)
-- [Spring Boot Examples](../../examples/spring-boot/README.md)
-- [FastAPI Examples](../../examples/fastapi/README.md)
-- [React Examples](../../examples/react/README.md)
-- [Node.js Examples](../../examples/node-webapp/README.md)
-- [Java Servlet Examples](../../examples/java-webapp/README.md)
-- [Python ETL Examples](../../examples/python-etl/README.md)
 
 ---
 

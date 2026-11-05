@@ -11,8 +11,8 @@ description: >-
 # TypeScript Toolchain
 
 Workflow skill for configuring and diagnosing the TypeScript compiler and related
-checkers. Language syntax and daily coding rules live in
-`typescript-best-practices` and `typescript-advanced-types`.
+checkers. Language syntax, daily coding rules, and type-level patterns live in
+`typescript-best-practices`.
 
 Do not ship or rely on bundled helper binaries. Inspect the project, then run or
 author small one-off commands/scripts as needed.
@@ -108,6 +108,5 @@ When typecheck is slow:
 
 ## Related skills
 
-- Daily TS rules: `typescript-best-practices`
-- Type-level patterns: `typescript-advanced-types`
+- Daily TS rules and type-level patterns: `typescript-best-practices`
 - Framework app code: `nextjs-react` and other framework skills

@@ -89,8 +89,8 @@ Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineerin
 **Merged into existing skills:**
 - `code-review-and-quality` → `code-review` (`references/five-axis-and-sizing.md`)
 - `performance-optimization` → `web-perf` (measure-first + optimization-patterns)
-- `debugging-and-error-recovery` → `debugging-strategies` (stop-the-line triage)
-- `api-and-interface-design` → `api-design-principles` (Hyrum/contracts/boundaries)
+- `debugging-and-error-recovery` → `debugging-strategies` (stop-the-line triage; skill later removed, AGENTS.md Debugging section covers it)
+- `api-and-interface-design` → `api-design-principles` (Hyrum/contracts/boundaries; skill later removed)
 - `documentation-and-adrs` → `architecture-decision-records` + `technical-writing`
 - `spec-driven-development` → `prd` gated workflow (+ `/spec/` template under `prd/references/ai-ready-spec-template.md`)
 - `planning-and-task-breakdown` → `incremental-implementation`
@@ -99,6 +99,8 @@ Already had (adapted earlier): `security-and-hardening`, `frontend-ui-engineerin
 - `idea-refine` → `brainstorming` (no shell helper)
 
 ## Related context (other repos)
+
+- `atomic-presentational-ui` was removed from this repo; launch-sequence keeps its own copies under `.agents/skills`, `.cursor/skills`, and local `.claude/skills`.
 
 - **launch-sequence** still on `docs/atomic-presentational-ui-skill` (PR #38) for atomic UI skill / AGENTS slim-down. That branch is **not** on common-scripts; migration mistakenly tried to check it out here once (checkpoint kept as `backup/checkpoint-before-atomic-checkout`).
 - Bakery WIP was stashed earlier on launch-sequence as `wip bakery/tweaks before atomic-ui skill` (verify with `git stash list` there if needed).

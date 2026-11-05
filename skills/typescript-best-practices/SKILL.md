@@ -3,9 +3,10 @@ name: typescript-best-practices
 description: >-
   Daily TypeScript coding rules for .ts/.tsx work: discriminated unions, branded
   types via type guards (never assertions), unknown over any, schema-derived
-  types, exhaustiveness, const assertions, and variable conventions. Use when
-  reading or editing TypeScript. Pair with framework skills (React, Next.js,
-  NestJS, Vitest) when the task is framework-specific.
+  types, exhaustiveness, const assertions, and variable conventions, plus
+  advanced type-level design (generics, conditional, mapped, and template literal
+  types, type tests). Use when reading or editing TypeScript. Pair with framework
+  skills (React, Next.js, NestJS, Vitest) when the task is framework-specific.
 ---
 
 # TypeScript Best Practices
@@ -73,9 +74,15 @@ type Role = (typeof ROLES)[number];
 
 For async/await, iterators/generators, modules, and functional patterns that still apply under TypeScript, see [modern-js-patterns.md](references/modern-js-patterns.md) and `references/modern-js-*.md`. TypeScript typing rules in this skill win when they conflict with untyped JS examples.
 
+## Advanced types
+
+For complex generics, conditional types and `infer`, mapped and template literal
+types, custom utility types, or type tests, see
+[advanced-types.md](references/advanced-types.md). Deeper discriminated-union
+examples: [discriminated-unions.md](references/discriminated-unions.md).
+
 ## Related skills
 
-- Complex generics / mapped / conditional types: `typescript-advanced-types`
 - tsconfig, diagnostics, migration, monorepo compiler issues: `typescript-toolchain`
 - Framework UI/routing: `nextjs-react` (and other framework skills)
 - Tests: `vitest`

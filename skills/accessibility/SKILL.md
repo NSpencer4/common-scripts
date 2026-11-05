@@ -465,7 +465,6 @@ See the [screen reader commands reference](references/A11Y-PATTERNS.md#screen-re
 - [WCAG 2.2 Quick Reference](https://www.w3.org/WAI/WCAG22/quickref/)
 - [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 - [Deque axe Rules](https://dequeuniversity.com/rules/axe/)
-- [Web Quality Audit](../web-quality-audit/SKILL.md)
 - [WCAG criteria reference](references/WCAG.md)
 - [Accessibility code patterns](references/A11Y-PATTERNS.md)
 
@@ -498,5 +497,4 @@ For WCAG 2.2 implementation patterns beyond the audit checklist (mobile a11y, in
 
 - Everyday UI engineering (including baseline a11y habits): `frontend-ui-engineering`
 - Visual direction: `frontend-design`
-- Component/Storybook construction: `atomic-presentational-ui`
 - Final visual/state pass: `polish`
