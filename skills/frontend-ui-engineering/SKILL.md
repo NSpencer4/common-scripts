@@ -323,7 +323,7 @@ For container queries, fluid type, Grid, and mobile-first breakpoints, see:
 
 ## See Also
 
-For detailed accessibility requirements and testing tools, see `../../references/accessibility-checklist.md`.
+For a full accessibility audit and testing tools, use the `accessibility` skill.
 
 ## Common Rationalizations
 

@@ -988,9 +988,8 @@ graph TB
 ---
 
 **Related Guides:**
-- [Activity Diagrams](./activity-diagrams.md) - Workflows and processes
-- [Deployment Diagrams](./deployment-diagrams.md) - Infrastructure and hosting
-- [Unicode Symbols](../unicode-symbols/guide.md) - Complete symbol reference
+- [Mermaid Diagram Guide](../../mermaid-diagram-guide.md) - Flowcharts, class, ER, state
+- [Sequence Diagrams](./sequence-diagrams.md) - API interactions
 
 **Version:** 1.0
 **Last Updated:** 2025-01-13
