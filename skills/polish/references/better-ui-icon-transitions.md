@@ -1,6 +1,6 @@
 # Icon transitions
 
-Cross-fade recipes for an icon that swaps on a state change, with and without a motion library. Icon weight, color and direction live in [icons.md](icons.md).
+Cross-fade recipes for an icon that swaps on a state change, with and without a motion library. Icon weight, color and direction live in [icons.md](better-ui-icons.md).
 
 ## Which library
 

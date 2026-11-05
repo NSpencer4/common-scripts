@@ -1,6 +1,6 @@
 # Enter and exit animations
 
-Recipes for staged entrances and the exits that follow them. For interactive state feedback see [animations.md](animations.md), and for icon swaps see [icon-transitions.md](icon-transitions.md).
+Recipes for staged entrances and the exits that follow them. For interactive state feedback see [animations.md](better-ui-animations.md), and for icon swaps see [icon-transitions.md](better-ui-icon-transitions.md).
 
 ## Enter animations
 

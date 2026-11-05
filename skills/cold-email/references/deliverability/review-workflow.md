@@ -110,12 +110,12 @@ Re-rank both orderings against answers 2-4, and tell the user which answer moved
 
 1. Run the Interview.
 2. Screen the request against the Ethics boundary. Decline evasion asks explicitly before doing anything else.
-3. Audit preconditions with [references/authentication-and-setup.md](references/authentication-and-setup.md): SPF/DKIM/DMARC presence and alignment, PTR, TLS, unsubscribe headers where required, and domain architecture against the ranking above. If you can run DNS lookups or browse the web, verify records yourself; otherwise ask the user to paste lookup output. Any failure is a BLOCKER: report it, state that no copy edit compensates, and hold the content review until fixed.
-4. Assess reputation and measurement with [references/reputation-and-measurement.md](references/reputation-and-measurement.md): spam rate against thresholds, bounces, blocklists, dashboard enrollment, volume and warmup sanity. A burned domain routes to the remediation path, not a copy review.
-5. Review body structure with [references/content-review.md](references/content-review.md) - structure and link-domain quality first, vocabulary last, honestly framed as the weakest lever.
+3. Audit preconditions with [references/authentication-and-setup.md](authentication-and-setup.md): SPF/DKIM/DMARC presence and alignment, PTR, TLS, unsubscribe headers where required, and domain architecture against the ranking above. If you can run DNS lookups or browse the web, verify records yourself; otherwise ask the user to paste lookup output. Any failure is a BLOCKER: report it, state that no copy edit compensates, and hold the content review until fixed.
+4. Assess reputation and measurement with [references/reputation-and-measurement.md](reputation-and-measurement.md): spam rate against thresholds, bounces, blocklists, dashboard enrollment, volume and warmup sanity. A burned domain routes to the remediation path, not a copy review.
+5. Review body structure with [references/content-review.md](content-review.md) - structure and link-domain quality first, vocabulary last, honestly framed as the weakest lever.
 6. Flag the subject line only for deception or placement-damaging structure (fake `Re:`/`Fwd:`, ALL CAPS, excess punctuation). Never score it for open rate or draft variants - route that to `mbfinotti/sales-skills@cold-email-subject-line-tester`.
-7. Check legal compliance for every recipient region with [references/compliance-by-region.md](references/compliance-by-region.md).
-8. Assemble the report (shape and worked pass/fail examples in [references/review-examples.md](references/review-examples.md)), run the Quality gate, and iterate with the user until it passes.
+7. Check legal compliance for every recipient region with [references/compliance-by-region.md](compliance-by-region.md).
+8. Assemble the report (shape and worked pass/fail examples in [references/review-examples.md](review-examples.md)), run the Quality gate, and iterate with the user until it passes.
 9. Run any rewritten copy proposed for a flagged section through your preferred humanizer skill before delivering - raw first-draft model output is never shipped.
 10. If your harness has persistent memory, store the setup answers (domains, auth status, volume, regions, dashboards) so later reviews skip straight to the draft.
 
@@ -146,7 +146,7 @@ Expected output - the review report, in order:
 3. Fix list in the efficiency order of the placement hierarchy, not in the finding-group order above - DNS and setup fixes before content edits, always.
 4. Measurement plan: which dashboards to enroll, which metrics to watch, thresholds that trigger action.
 
-Full template plus one failing and one passing worked example: [references/review-examples.md](references/review-examples.md).
+Full template plus one failing and one passing worked example: [references/review-examples.md](review-examples.md).
 
 ## Quality gate
 
@@ -183,8 +183,8 @@ Every finding carries a severity. The gate is measurable: count of unresolved BL
 ## References
 
 - `mbfinotti/sales-skills@sales-outbound-sequence` - touch-by-touch cadence and timing; out of scope here.
-- [references/authentication-and-setup.md](references/authentication-and-setup.md) - provider requirements and dates, alignment, error codes, unsubscribe headers, DNS gotchas, domain architecture, hard account caps.
-- [references/reputation-and-measurement.md](references/reputation-and-measurement.md) - mailstream filtering, complaint math, thresholds, dashboards, seed-test validity, warmup conventions, remediation and blocklists.
-- [references/content-review.md](references/content-review.md) - the ten structural checks with severity map, tracking and link guidance, opt-out debate, folklore explainer.
-- [references/compliance-by-region.md](references/compliance-by-region.md) - US, EU and member states, UK, Canada, Australia; B2B vs B2C consent bases and penalties.
-- [references/review-examples.md](references/review-examples.md) - report template, one failing worked example, one passing worked example.
+- [references/authentication-and-setup.md](authentication-and-setup.md) - provider requirements and dates, alignment, error codes, unsubscribe headers, DNS gotchas, domain architecture, hard account caps.
+- [references/reputation-and-measurement.md](reputation-and-measurement.md) - mailstream filtering, complaint math, thresholds, dashboards, seed-test validity, warmup conventions, remediation and blocklists.
+- [references/content-review.md](content-review.md) - the ten structural checks with severity map, tracking and link guidance, opt-out debate, folklore explainer.
+- [references/compliance-by-region.md](compliance-by-region.md) - US, EU and member states, UK, Canada, Australia; B2B vs B2C consent bases and penalties.
+- [references/review-examples.md](review-examples.md) - report template, one failing worked example, one passing worked example.
