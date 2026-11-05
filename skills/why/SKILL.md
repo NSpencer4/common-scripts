@@ -8,20 +8,9 @@ disable-model-invocation: true
 
 Investigate the motivation and intent behind code. The companion `how` skill answers what the code does and how it works. `why` answers what forces led to its shape.
 
-Each spawn below names a role line in the `pstack-models.mdc` rule and a default. Prefer the host default or an explicitly available model slug. If a suggested slug is rejected, use the closest valid model and say so. Pick each subagent's reasoning effort for the job. If **poteto-mode** is not installed, use sensible defaults (higher effort for synthesis, lower for parallel explore).
+Spawn subagents with the host's subagent tool. Use a cheaper, faster model with lower effort for investigators and a strong model with higher effort for the synthesizer, from whatever models the host offers.
 
-Every spawn is `generalPurpose` with `readonly: false` (agent mode). **Do not use readonly/Ask mode.** It strips MCP access, which disables the MCP-backed investigators and the synthesizer's citation spot-checks. Investigators still shouldn't write anything.
-
-
-
-## Runtime adaptations (this install)
-
-This snapshot is decoupled from the full Cursor pstack plugin pack.
-
-- **Models:** Ignore `pstack-models.mdc` and **poteto-mode** if absent. When spawning subagents, use the host's Task/subagent tool with an available model (prefer a strong model for synthesis/explain; a cheaper/faster model for parallel explore/investigate). If a named slug is rejected, pick the closest available model and say so.
-- **Missing sibling skills:** `arena`, `interrogate`, and `principle-*` skills are optional. If missing: for "design it twice," spawn two parallel sketch subagents yourself and synthesize; for adversarial pressure, use `grilling` or a critical review pass; treat named principles as plain guidance, not required skill loads.
-- **MCP investigators (`why`):** Discover whatever MCPs exist. Skip categories with no MCP and record the gap. Always run source-control investigation via git/`gh`.
-- **Cross-links:** Pair with `codebase-design` (module depth vocabulary), `architecture-patterns` (Clean/Hexagonal/DDD patterns), and `architecture-decision-records` (durable decision write-ups). `architect` grounds with `how`/`why`; ADRs capture the agreed decision afterward when the change is significant.
+Give every spawn MCP access. **Do not use a read-only mode that strips MCP tools.** That disables the MCP-backed investigators and the synthesizer's citation spot-checks. Investigators still shouldn't write anything.
 
 ## Operating Posture
 
@@ -43,7 +32,7 @@ Before spawning investigators, build the seed context inline: file paths and lin
 
 ### Discovery
 
-Before spawning investigators, list the available MCPs from the Cursor environment. Use the available-tools map when present. Otherwise inspect the `mcps/` directory Cursor exposes for enabled MCP servers.
+Before spawning investigators, list the MCP servers and tools available in this session.
 
 Map each available MCP to one evidence category:
 
@@ -57,7 +46,7 @@ Map each available MCP to one evidence category:
 
 Source control is always available through git and `gh`. For the other six, classify using the MCP name, server instructions, tool names, and resource descriptors. If an MCP could fit more than one category, choose the one matching its primary evidence. Record ambiguous cases in the coverage map.
 
-Spawn one investigator per category that has a matching MCP, all in a single message so they run concurrently, each owning exactly one tool or MCP. Don't ask one agent to cover multiple MCPs. `model`: the `why investigators` line, default `grok-4.7-xhigh-fast`.
+Spawn one investigator per category that has a matching MCP, all in a single message so they run concurrently, each owning exactly one tool or MCP. Don't ask one agent to cover multiple MCPs.
 
 Each investigator's prompt is `references/investigator-prompt.md` filled in, plus:
 - the category playbook `references/sources/<source>.md` for the selected MCP, adapted from the examples in `references/source-playbook.md`
@@ -87,7 +76,7 @@ If your scope assessment suggests a single-commit trivial target where the PR de
 
 ## Step 4. Synthesize
 
-Spawn one synthesizer. `model`: the `why synthesizer` line, default `claude-opus-5-5-xhigh`. It gets:
+Spawn one synthesizer. It gets:
 1. The investigator findings, including any null results and any categories skipped with justification
 2. The code anchor
 3. The user's original question
@@ -115,6 +104,5 @@ After Sources Consulted, if the user's `why` question is a precursor to changing
 - `why` (this skill) — evidence-backed rationale
 - `architect` — sketch-before-code workflow that uses how/why
 - `codebase-design` — deep-module vocabulary
-- `architecture-patterns` — Clean / Hexagonal / DDD patterns
 - `architecture-decision-records` — write the decision down
-- `grilling` — stress-test a design when `interrogate` is unavailable
+- `grilling` — stress-test a design

@@ -1,4 +1,4 @@
-# ADR Format
+# Minimal ADR and when to write one
 
 ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.
 

@@ -4,4 +4,4 @@ description: A relentless interview to sharpen a plan or design, which also crea
 disable-model-invocation: true
 ---
 
-Load and follow both the `grilling` skill and the `domain-modeling` skill.
+Load and follow the `grilling` skill and the `domain-modeling` skill. Write any ADRs with the `architecture-decision-records` skill.

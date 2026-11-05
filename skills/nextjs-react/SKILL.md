@@ -15,8 +15,7 @@ existing UI system, styling approach, and component library. Do not introduce
 Shadcn, Radix, Tailwind, or other kits unless the project already uses them or
 the user explicitly asks.
 
-Pair with `typescript-best-practices` (and `typescript-advanced-types` when the
-types are complex).
+Pair with `typescript-best-practices`.
 
 ## Code style and structure
 
@@ -85,5 +84,5 @@ For choosing and applying client/server state libraries (Redux Toolkit, Zustand,
 
 ## Related skills
 
-- `typescript-best-practices`, `typescript-advanced-types`, `vitest`
+- `typescript-best-practices`, `vitest`
 - `security-and-hardening` for auth/header/input reviews in Next route handlers

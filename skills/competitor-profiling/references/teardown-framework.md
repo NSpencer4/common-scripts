@@ -2,7 +2,7 @@
 
 Use this when the user wants internal competitive intelligence (SWOT, feature matrices, pricing teardown, review mining, positioning maps), not just public comparison pages. Prefer browser tools, official pages, and web search. Do not require third-party CLIs.
 
-Evidence discipline from the main skill still applies: date facts, separate observation from interpretation, and never mark an absence as confirmed without a primary source.
+The Facts Over Opinions principle from the main skill still applies: date facts, separate observation from interpretation, and never mark an absence as confirmed without a primary source.
 
 ## 7-layer analysis
 

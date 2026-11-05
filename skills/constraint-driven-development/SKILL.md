@@ -56,7 +56,7 @@ Report what you found in two lines, then ask only what's left.
 
 ### Step 2: Four questions, each with a default
 
-Follow a one-question-at-a-time intake (same idea as `grilling` / `grill-me`), with one change: every question here has a default, so "I don't know" is a complete answer that still produces a working config.
+Follow a one-question-at-a-time intake (same idea as `grilling`), with one change: every question here has a default, so "I don't know" is a complete answer that still produces a working config.
 
 ```
 Q1: Beyond the floor, which of these do you want enforced?
@@ -311,7 +311,7 @@ The skill was applied correctly when:
 
 ## See Also
 
-- `grilling` / `grill-me` - interview discipline this skill's intake borrows
+- `grilling` - interview discipline this skill's intake borrows
 - `code-review` - how to review; this skill decides what the review enforces
 - `ci-cd-and-automation` - building the pipeline these constraints run in
 - `test-driven-development` - the suite that coverage and mutation constraints measure

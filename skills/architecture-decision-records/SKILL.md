@@ -28,13 +28,7 @@ An Architecture Decision Record captures:
 
 ### 2. When to Write an ADR
 
-| Write ADR                  | Skip ADR               |
-| -------------------------- | ---------------------- |
-| New framework adoption     | Minor version upgrades |
-| Database technology choice | Bug fixes              |
-| API design patterns        | Implementation details |
-| Security architecture      | Routine maintenance    |
-| Integration patterns       | Configuration changes  |
+Write one only when the decision is hard to reverse, surprising without context, and the result of a real trade-off. If any of the three is missing, skip it. Examples of what qualifies: [minimal-adr.md](references/minimal-adr.md).
 
 ### 3. ADR Lifecycle
 
@@ -44,7 +38,7 @@ Proposed → Accepted → Deprecated → Superseded
            Rejected
 ```
 
-Before drafting a standard, lightweight, or Y-statement ADR, read [decision templates](references/decision-templates.md).
+Default to the one-paragraph format in [minimal-adr.md](references/minimal-adr.md). When the decision needs considered options or consequences spelled out, read [decision templates](references/decision-templates.md) for the standard, lightweight, or Y-statement format.
 
 Before drafting a deprecation ADR or RFC, read [deprecation and RFC templates](references/deprecation-rfc-templates.md).
 

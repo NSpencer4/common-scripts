@@ -1,6 +1,6 @@
 ---
 name: competitors
-description: "When the user wants competitor comparison or alternative pages for SEO and buyer-facing use, or structured competitive intelligence (teardown, SWOT, feature matrix, pricing teardown, review mining, positioning map). Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'competitor teardown,' 'competitive analysis,' 'SWOT,' 'feature matrix,' 'competitive landscape,' 'audit our competitor pages,' or 'competitive asset audit.' For public comparison pages use the page formats below; for internal research use references/teardown-framework.md. For sales battle cards see sales-enablement. For technical SEO on these pages see seo-audit."
+description: "When the user wants competitor comparison or alternative pages for SEO and buyer-facing use. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'audit our competitor pages,' or 'competitive asset audit.' For competitor research, teardowns, SWOT, or feature matrices, see competitor-profiling. For sales battle cards see sales-enablement. For technical SEO on these pages see seo-audit."
 metadata:
   version: 2.3.1
 ---
@@ -280,12 +280,9 @@ Claims checked per asset, status counts (current / changed / unverifiable / over
 
 
 
-## Competitive teardown (research)
-
-When the goal is internal competitive intelligence rather than a public comparison page, follow [teardown-framework.md](references/teardown-framework.md): 7-layer analysis, feature and pricing matrices, SWOT, positioning map, and review mining. Use browser tools and web search; do not depend on a third-party CLI. Feed verified findings into comparison pages and into **sales-enablement** battle cards when requested.
-
 ## Related Skills
 
+- **competitor-profiling**: For internal competitive research (profiles, teardowns, SWOT, feature and pricing matrices) that feeds these pages
 - **programmatic-seo**: For building competitor pages at scale
 - **copywriting**: For writing compelling comparison copy
 - **seo-audit**: For optimizing competitor pages

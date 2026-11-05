@@ -8,9 +8,7 @@ description: >-
   web UI, or when a page looks generic, templated, or "AI-made". Also for
   quieter app/dashboard screens (see references/app-screens.md). Own visual
   direction; defer production UI states/responsive eng to frontend-ui-engineering,
-  WCAG audits to accessibility, and final micro-pass to polish. In launch-sequence
-  only, also invoke atomic-presentational-ui for Storybook/component boundaries.
-  No bundled design scripts; deal directions and inspect with available
+  WCAG audits to accessibility, and final micro-pass to polish. No bundled design scripts; deal directions and inspect with available
   browser/screenshot tools.
 ---
 
@@ -25,8 +23,8 @@ This skill merges Anthropic frontend-design guidance, leonxlnx taste-skill /
 product hard rules below. Repository design systems and existing brand tokens
 win when they conflict.
 
-For reusable component APIs and Storybook catalogs, pair with
-`atomic-presentational-ui`. Do not replace an established component library with
+For reusable component APIs and Storybook catalogs, follow the project's
+component skill if one exists. Do not replace an established component library with
 a one-off marketing kit. For Stitch `DESIGN.md` work, use the Stitch design
 skills; do not load this pack's retired `stitch-design-taste` as a second global
 skill.

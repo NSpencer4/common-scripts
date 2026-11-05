@@ -6,8 +6,7 @@ description: >-
   Use when building or modifying interfaces with engineering depth, grouping,
   alignment, reading order, or translation/mirror-safe layout. Defer art
   direction to frontend-design; defer deep WCAG audits to accessibility; defer
-  final micro-polish to polish. In launch-sequence only, invoke
-  atomic-presentational-ui for shared-component and Storybook workflow.
+  final micro-polish to polish.
 ---
 
 # Frontend UI Engineering
@@ -26,13 +25,10 @@ Build production-quality user interfaces that are accessible, performant, and vi
 
 ## Component Architecture
 
-### File Structure (this monorepo)
+### File Structure
 
-Follow `atomic-presentational-ui` for placement:
-
-- Shared primitives / SaaS: `packages/shared/ui/components`
-- Storybook: `packages/shared/ui/storybook` (component stories + full-page stories)
-- App-specific sections: `packages/apps/<app>/...`
+Follow the project's existing component layout, and any project-level skill
+that defines component placement or Storybook structure.
 
 Colocate component, styles, and tests with the owning package. Do not invent a
 parallel `src/components/` tree at the repo root.

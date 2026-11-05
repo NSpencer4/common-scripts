@@ -18,7 +18,7 @@ Code you can't observe is code you can't operate. Observability is the ability t
 - Reviewing a PR that adds I/O, retries, queues, or cross-service calls
 
 **NOT for:**
-- Diagnosing a failure happening right now - use `debugging-strategies` (observability makes that skill fast next time)
+- Diagnosing a failure happening right now (observability makes that faster next time)
 - Profiling and optimizing measured slowness - use `web-perf` for frontend/CWV; measure-first profiling otherwise
 - Marketing product launches - use the marketing `launch` skill. Eng deploy monitoring/rollback checklists are separate; this skill covers the instrumentation that feeds them
 

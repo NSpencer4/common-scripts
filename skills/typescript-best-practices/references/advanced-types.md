@@ -1,35 +1,13 @@
----
-name: typescript-advanced-types
-description: >-
-  Advanced TypeScript type-system patterns: generics with constraints, conditional
-  types and infer, mapped types, template literal types, utility types, branded
-  types via guards, and discriminated unions. Use when implementing complex type
-  logic, reusable type utilities, type-safe APIs, or exhaustiveness-safe state
-  models. Pair with typescript-best-practices for daily rules.
----
+# Advanced types
 
-# TypeScript Advanced Types
+Type-level design beyond the daily rules in `SKILL.md`: generics, conditional types,
+mapped and template literal types, utility types, discriminated-union modeling, and
+type tests. The `SKILL.md` rules (no `as`, brands via guards only) apply here too.
 
-Guidance for generics, conditional types, mapped types, template literal types,
-utility types, and discriminated-union modeling. Daily coding rules live in
-`typescript-best-practices`; this skill goes deeper on type-level design.
+Use for type-safe libraries or shared utilities, complex inference or key remapping,
+custom utility types, and type tests that lock intended inference.
 
-**Hard rule:** do not use type assertions (`as`). Brand and narrow only through
-type guards, parsers, and control-flow narrowing. Prefer `satisfies` when checking
-that a value matches a type without widening.
-
-Prefer `interface` for object shapes and `type` for unions, intersections, and
-mapped/conditional aliases.
-
-## When to use
-
-- Building type-safe libraries or shared utilities
-- Complex inference, key remapping, or template-literal APIs
-- Discriminated unions for application state, props, or API results
-- Custom utility types beyond the built-ins
-- Type tests that lock intended inference
-
-## Core concepts (summary)
+## Core concepts
 
 ### Generics
 
@@ -119,7 +97,7 @@ Prefer a shared literal discriminant (`status` / `kind` / `type`). Do not model
 mutually exclusive states as independent booleans plus optionals.
 
 Deep examples (props, function args, required vs optional fields):
-`references/discriminated-unions.md`.
+[discriminated-unions.md](discriminated-unions.md).
 
 ## Branded types (guards only)
 
@@ -161,4 +139,4 @@ Failing assignments to `never` helpers also work as compile-time tests.
 ## Detailed patterns
 
 Worked examples (event emitters, API clients, builders, deep readonly/partial,
-form typing): `references/patterns.md`.
+form typing): [advanced-type-patterns.md](advanced-type-patterns.md).

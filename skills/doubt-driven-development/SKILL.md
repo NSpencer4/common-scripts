@@ -230,7 +230,6 @@ If 3 cycles is "obviously insufficient" because the artifact is large: the artif
 - **`code-review`**: complementary. Post-hoc PR / branch verdict; doubt-driven is in-flight per-decision. Use both.
 - **`source-driven-development`**: SDD verifies facts about frameworks against official docs. Doubt-driven verifies your reasoning about the artifact.
 - **`test-driven-development`**: TDD's RED step is doubt made concrete. When TDD applies, that failing test is the doubt step for behavioral claims.
-- **`debugging-strategies`**: when the reviewer surfaces a real failure mode, drop into debugging to localize and fix.
 - Orchestrate from the main session only; do not nest doubt inside a subagent (see Loading Constraints).
 
 ## Verification

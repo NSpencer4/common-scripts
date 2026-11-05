@@ -1,4 +1,4 @@
-# typescript-advanced-types — detailed worked examples
+# Advanced type patterns: worked examples
 
 ## Advanced Patterns
 

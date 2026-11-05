@@ -188,7 +188,7 @@ Do **not** create git commits or push unless the user explicitly asks.
 ```
 Lint failure → Agent runs the repo lint --fix command (if available); do not commit unless the user asks
 Type error  → Agent reads the error location and fixes the type
-Test failure → Agent follows debugging-strategies
+Test failure → Agent reproduces locally and fixes the root cause
 Build error → Agent checks config and dependencies
 ```
 

@@ -8,18 +8,7 @@ disable-model-invocation: true
 
 Explore the codebase to answer "how does X work?" questions. Produce architectural explanations at the level of a senior engineer onboarding onto a subsystem, enough to build a working mental model, not so much that it reads like annotated source code.
 
-Every spawn is a Task subagent with `subagent_type: generalPurpose` and `readonly: true`. Explorers use the `how explorer` line in the `pstack-models.mdc` rule (default `grok-4.7-xhigh-fast`), and every explainer uses the `how explainer` line (default `claude-opus-5-5-xhigh`). Prefer the host default or an explicitly available model slug. If a suggested slug is rejected, use the closest valid model and say so. Pick each subagent's reasoning effort for the job. If **poteto-mode** is not installed, use sensible defaults (higher effort for synthesis, lower for parallel explore).
-
-
-
-## Runtime adaptations (this install)
-
-This snapshot is decoupled from the full Cursor pstack plugin pack.
-
-- **Models:** Ignore `pstack-models.mdc` and **poteto-mode** if absent. When spawning subagents, use the host's Task/subagent tool with an available model (prefer a strong model for synthesis/explain; a cheaper/faster model for parallel explore/investigate). If a named slug is rejected, pick the closest available model and say so.
-- **Missing sibling skills:** `arena`, `interrogate`, and `principle-*` skills are optional. If missing: for "design it twice," spawn two parallel sketch subagents yourself and synthesize; for adversarial pressure, use `grilling` or a critical review pass; treat named principles as plain guidance, not required skill loads.
-- **MCP investigators (`why`):** Discover whatever MCPs exist. Skip categories with no MCP and record the gap. Always run source-control investigation via git/`gh`.
-- **Cross-links:** Pair with `codebase-design` (module depth vocabulary), `architecture-patterns` (Clean/Hexagonal/DDD patterns), and `architecture-decision-records` (durable decision write-ups). `architect` grounds with `how`/`why`; ADRs capture the agreed decision afterward when the change is significant.
+Every spawn is a read-only subagent from the host's subagent tool. Use a cheaper, faster model with lower effort for explorers and a strong model with higher effort for the explainer, from whatever models the host offers.
 
 ## 1. Assess complexity
 
@@ -53,6 +42,5 @@ The explanation uses the sections defined in `references/explainer-prompt.md`, d
 - `why` — evidence-backed rationale
 - `architect` — sketch-before-code workflow that uses how/why
 - `codebase-design` — deep-module vocabulary
-- `architecture-patterns` — Clean / Hexagonal / DDD patterns
 - `architecture-decision-records` — write the decision down
-- `grilling` — stress-test a design when `interrogate` is unavailable
+- `grilling` — stress-test a design

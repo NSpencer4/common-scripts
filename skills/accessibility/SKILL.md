@@ -498,5 +498,4 @@ For WCAG 2.2 implementation patterns beyond the audit checklist (mobile a11y, in
 
 - Everyday UI engineering (including baseline a11y habits): `frontend-ui-engineering`
 - Visual direction: `frontend-design`
-- Component/Storybook construction: `atomic-presentational-ui`
 - Final visual/state pass: `polish`
