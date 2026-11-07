@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Runs opencode with the lean local-worker config: no skills, no Claude Code files, scoped permissions.
+exec env XDG_CONFIG_HOME="$HOME/.config/opencode-worker" OPENCODE_DISABLE_CLAUDE_CODE=1 opencode "$@"
