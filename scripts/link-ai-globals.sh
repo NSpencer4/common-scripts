@@ -43,6 +43,7 @@ backup_and_link "$HOME/.claude/skills" "$REPO_ROOT/skills"
 backup_and_link "$HOME/.codex/skills" "$REPO_ROOT/skills"
 backup_and_link "$HOME/.config/opencode/skills" "$REPO_ROOT/skills"
 backup_and_link "$HOME/.junie/skills" "$REPO_ROOT/skills"
+backup_and_link "$HOME/.agents/skills" "$REPO_ROOT/skills"
 
 backup_and_link "$HOME/.claude/AGENTS.md" "$REPO_ROOT/AGENTS.md"
 backup_and_link "$HOME/.codex/AGENTS.md" "$REPO_ROOT/AGENTS.md"
