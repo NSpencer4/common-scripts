@@ -4,7 +4,7 @@ Shared global agent instructions and skills, revision-controlled and linked into
 
 ## Layout
 
-- `AGENTS.md` — canonical global instructions (Claude, Codex, OpenCode, Junie)
+- `AGENTS-GLOBAL.md` — canonical global instructions (Claude, Codex, OpenCode, Junie)
 - `cursor/rules/global.mdc` — same instructions with Cursor frontmatter (`alwaysApply`)
 - `skills/` — personal/global Agent Skills shared across tools
 - `scripts/link-ai-globals.sh` — idempotent symlink installer for a new machine
@@ -27,11 +27,11 @@ Linked paths:
 | `~/.codex/skills` | `skills/` |
 | `~/.config/opencode/skills` | `skills/` |
 | `~/.junie/skills` | `skills/` |
-| `~/.claude/AGENTS.md` | `AGENTS.md` |
+| `~/.claude/AGENTS.md` | `AGENTS-GLOBAL.md` |
 | `~/.claude/CLAUDE.md` | `AGENTS.md` (relative) |
-| `~/.codex/AGENTS.md` | `AGENTS.md` |
-| `~/.config/opencode/AGENTS.md` | `AGENTS.md` |
-| `~/.junie/AGENTS.md` | `AGENTS.md` |
+| `~/.codex/AGENTS.md` | `AGENTS-GLOBAL.md` |
+| `~/.config/opencode/AGENTS.md` | `AGENTS-GLOBAL.md` |
+| `~/.junie/AGENTS.md` | `AGENTS-GLOBAL.md` |
 | `~/.cursor/rules/global.mdc` | `cursor/rules/global.mdc` |
 
 Cursor built-in `~/.cursor/skills-cursor` is left alone.
