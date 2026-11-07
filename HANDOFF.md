@@ -15,6 +15,7 @@ Canonical copies live in this repo. Local AI tools symlink here (do not re-copy 
 | `~/.codex/skills` | same |
 | `~/.config/opencode/skills` | same |
 | `~/.junie/skills` | same |
+| `~/.agents/skills` | same |
 | `~/.claude/AGENTS.md` (+ `CLAUDE.md` → it) | `common-scripts/AGENTS.md` |
 | `~/.codex|opencode|junie/AGENTS.md` | same |
 | `~/.cursor/rules/global.mdc` | `common-scripts/cursor/rules/global.mdc` |
