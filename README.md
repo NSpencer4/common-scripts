@@ -8,6 +8,7 @@ Shared global agent instructions and skills, revision-controlled and linked into
 - `cursor/rules/global.mdc` — same instructions with Cursor frontmatter (`alwaysApply`)
 - `skills/` — personal/global Agent Skills shared across tools
 - `scripts/link-ai-globals.sh` — idempotent symlink installer for a new machine
+- `docs/`: notes behind the shared setup, such as [local model workers](docs/local-model-workers.md)
 
 ## Link on this machine / a new device
 
