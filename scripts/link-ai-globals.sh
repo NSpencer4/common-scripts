@@ -34,7 +34,7 @@ backup_and_link() {
 
 echo "REPO_ROOT=$REPO_ROOT"
 
-test -f "$REPO_ROOT/AGENTS.md"
+test -f "$REPO_ROOT/AGENTS-GLOBAL.md"
 test -d "$REPO_ROOT/skills"
 test -f "$REPO_ROOT/cursor/rules/global.mdc"
 
@@ -44,10 +44,10 @@ backup_and_link "$HOME/.codex/skills" "$REPO_ROOT/skills"
 backup_and_link "$HOME/.config/opencode/skills" "$REPO_ROOT/skills"
 backup_and_link "$HOME/.junie/skills" "$REPO_ROOT/skills"
 
-backup_and_link "$HOME/.claude/AGENTS.md" "$REPO_ROOT/AGENTS.md"
-backup_and_link "$HOME/.codex/AGENTS.md" "$REPO_ROOT/AGENTS.md"
-backup_and_link "$HOME/.config/opencode/AGENTS.md" "$REPO_ROOT/AGENTS.md"
-backup_and_link "$HOME/.junie/AGENTS.md" "$REPO_ROOT/AGENTS.md"
+backup_and_link "$HOME/.claude/AGENTS.md" "$REPO_ROOT/AGENTS-GLOBAL.md"
+backup_and_link "$HOME/.codex/AGENTS.md" "$REPO_ROOT/AGENTS-GLOBAL.md"
+backup_and_link "$HOME/.config/opencode/AGENTS.md" "$REPO_ROOT/AGENTS-GLOBAL.md"
+backup_and_link "$HOME/.junie/AGENTS.md" "$REPO_ROOT/AGENTS-GLOBAL.md"
 backup_and_link "$HOME/.cursor/rules/global.mdc" "$REPO_ROOT/cursor/rules/global.mdc"
 
 # Claude alias file: relative link next to AGENTS.md

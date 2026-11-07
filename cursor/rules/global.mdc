@@ -12,6 +12,10 @@ alwaysApply: true
 - When instructions conflict or the correct action is materially ambiguous, ask before proceeding.
 - Prefer the smallest change that satisfies the approved request.
 
+## Skills
+- When you use a skill, name it in a progress update before applying it and briefly explain what it informs.
+- In the final response, identify the skills you used and the decisions they influenced. Do not list skills you only considered.
+
 ## Sub-agents
 - When I ask you to spawn multiple sub-agents, use cheap models for the sub-agents.
 - The main agent I talk to oversees the work and is accountable for the result. Do not accept sub-agent output on their report alone; inspect the actual output.
