@@ -42,7 +42,7 @@ Edit files in this repo, then commit/push. Every linked tool picks up the change
 
 ## Skills catalog
 
-97 skills with local `SKILL.md` content under `skills/`.
+98 skills with local `SKILL.md` content under `skills/`.
 
 Agents auto-match on the skill `description` unless marked **slash-only** (`disable-model-invocation: true`). Slash-only skills load only when you invoke them by slash command or skill name.
 
@@ -72,6 +72,7 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`i-have-adhd`](skills/i-have-adhd/SKILL.md) | Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state… | Invoke with /i-have-adhd; stays on until "stop adhd mode" | `/i-have-adhd` | slash-only |
 | [`improve-codebase-architecture`](skills/improve-codebase-architecture/SKILL.md) | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through… | Manual only (`/improve-codebase-architecture`). Not auto-matched from conversation. | `/improve-codebase-architecture` | slash-only |
 | [`incremental-implementation`](skills/incremental-implementation/SKILL.md) | Delivers changes in thin, verifiable slices, and breaks oversized work into ordered tasks with… | Use when implementing multi-file changes, picking up the next task from a plan, writing a plan from a spec, rolling out behind a feature flag,… | — | auto |
+| [`local-worker`](skills/local-worker/SKILL.md) | Delegate a checkable task to a local opencode agent on Ollama, then review and correct its work | When the user asks to use a local model, local agent, local subagent, opencode, or an Ollama worker, or to save frontier tokens on mechanical work | `/local-worker` | auto |
 | [`prd`](skills/prd/SKILL.md) | Generate PRDs and AI-ready `/spec/` specification files for software and AI-powered features | Write a PRD, document requirements, plan a feature, or create a Generative-AI consumption file under `/spec/` | — | auto |
 | [`source-driven-development`](skills/source-driven-development/SKILL.md) | Ground framework-specific decisions in official documentation for the installed versions | Use when correctness depends on a framework/library API or recommended pattern, when building boilerplate that will be copied, or when the user… | — | auto |
 | [`test-driven-development`](skills/test-driven-development/SKILL.md) | Drives development with the red-green-refactor loop | Use when implementing new logic or behavior, fixing bugs (prove-it with a failing test first), or changing existing behavior in a maintained… | — | auto |
