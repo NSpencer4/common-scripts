@@ -27,6 +27,7 @@ Linked paths:
 | `~/.codex/skills` | `skills/` |
 | `~/.config/opencode/skills` | `skills/` |
 | `~/.junie/skills` | `skills/` |
+| `~/.agents/skills` | `skills/` (the shared folder `npx skills add -g` installs into; opencode reads it) |
 | `~/.claude/AGENTS.md` | `AGENTS.md` |
 | `~/.claude/CLAUDE.md` | `AGENTS.md` (relative) |
 | `~/.codex/AGENTS.md` | `AGENTS.md` |
@@ -42,7 +43,7 @@ Edit files in this repo, then commit/push. Every linked tool picks up the change
 
 ## Skills catalog
 
-98 skills with local `SKILL.md` content under `skills/`.
+117 skills with local `SKILL.md` content under `skills/`.
 
 Agents auto-match on the skill `description` unless marked **slash-only** (`disable-model-invocation: true`). Slash-only skills load only when you invoke them by slash command or skill name.
 
@@ -120,15 +121,25 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`chrome-extensions`](skills/chrome-extensions/SKILL.md) | Build and publish Chrome Extensions using Manifest V3 best practices | Phrases like: 'Chrome extension'; 'browser extension'; 'manifest.json' | — | auto |
 | [`cloudflare`](skills/cloudflare/SKILL.md) | Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security | Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security. Use for architecture and product… | — | auto |
 | [`cloudflare-email-service`](skills/cloudflare-email-service/SKILL.md) | Implement or troubleshoot Cloudflare Email Sending and Email Routing integrations and their delivery… | Implement or troubleshoot Cloudflare Email Sending and Email Routing integrations and their delivery configuration. | — | auto |
+| [`connect-recommend`](skills/connect-recommend/SKILL.md) | Stripe Connect setup guidance: configuration, charge patterns, Dashboard access, getting started | Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with… | none | auto |
+| [`connect-required-verification-information`](skills/connect-required-verification-information/SKILL.md) | What a Stripe Connect connected account must provide for verification and onboarding | Use this skill when the user asks what information a Stripe Connect connected account must provide for verification, onboarding, KYC, or… | none | auto |
 | [`durable-objects`](skills/durable-objects/SKILL.md) | Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination | Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination. | — | auto |
+| [`metronome`](skills/metronome/SKILL.md) | Guides Metronome usage-based billing integration decisions: event ingestion (single and batch,… | Use when building, modifying, or reviewing any Metronome integration, including ingesting usage events, creating customers, contracts, or… | none | auto |
 | [`nestjs-best-practices`](skills/nestjs-best-practices/SKILL.md) | NestJS best practices and architecture patterns for building production-ready applications | NestJS best practices and architecture patterns for building production-ready applications. This skill should be used when writing,… | — | auto |
 | [`nextjs-on-cloudflare`](skills/nextjs-on-cloudflare/SKILL.md) | Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext | Use when starting a Next | — | auto |
 | [`nextjs-react`](skills/nextjs-react/SKILL.md) | Next.js App Router and React TypeScript patterns: Server Components, client boundaries, data fetching,… | Use when editing Next | — | auto |
 | [`postgres`](skills/postgres/SKILL.md) | PostgreSQL schema design, indexing, query patterns, operations (pooling, replication, upgrades), table… | Use when writing SQL, designing schemas, optimizing queries, reviewing migrations, or debugging Postgres performance | — | auto |
 | [`postgres-drizzle`](skills/postgres-drizzle/SKILL.md) | Write or review Drizzle ORM schemas, relations, queries, and drizzle-kit migrations | Drizzle/drizzle-kit code; vendor-neutral SQL/ops go to postgres | — | auto |
+| [`stripe-apps`](skills/stripe-apps/SKILL.md) | Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference… | Build, modify, or review Stripe Apps and extensions using the relevant documentation and reference guides. | none | auto |
+| [`stripe-best-practices`](skills/stripe-best-practices/SKILL.md) | Guides Stripe integration decisions across development and test environment planning (separate… | Use when planning, building, modifying, testing, or reviewing any Stripe integration, including choosing a development environment,… | none | auto |
+| [`stripe-directory`](skills/stripe-directory/SKILL.md) | Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and… | Identifies external providers, merchants, nonprofits, platforms, APIs, and software services, and resolves the documented way to engage… | none | auto |
+| [`stripe-docs`](skills/stripe-docs/SKILL.md) | Read and search Stripe documentation and API reference | Use when the user or agent needs to read, search, or look up Stripe documentation or API reference | none | auto |
+| [`stripe-pay`](skills/stripe-pay/SKILL.md) | Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or… | Helps users send funds to another Stripe business, transfer money to a Stripe Profile handle or network ID, or ask whether an agent can pay… | none | auto |
+| [`stripe-projects`](skills/stripe-projects/SKILL.md) | Provision infrastructure and third-party services with Stripe Projects | Use when the user wants to provision infrastructure or third-party services using Stripe Projects | none | auto |
 | [`typescript-best-practices`](skills/typescript-best-practices/SKILL.md) | Daily TypeScript coding rules plus advanced type-level design (generics, conditional, mapped, template literal types) | Use when reading or editing TypeScript | — | auto |
 | [`typescript-docs`](skills/typescript-docs/SKILL.md) | TypeScript API documentation with JSDoc, TypeDoc, and framework examples | Public TS API docs; ADRs go to architecture-decision-records | — | auto |
 | [`typescript-toolchain`](skills/typescript-toolchain/SKILL.md) | TypeScript compiler workflow: tsconfig, module resolution, diagnostics, typecheck performance, JS-to-TS… | TypeScript compiler workflow: tsconfig, module resolution, diagnostics, typecheck performance, JS-to-TS migration, monorepo project… | — | auto |
+| [`upgrade-stripe`](skills/upgrade-stripe/SKILL.md) | Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile… | Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs | none | auto |
 | [`vitest`](skills/vitest/SKILL.md) | Vitest unit/integration testing: official API/config/coverage references plus practice patterns… | Use when writing or editing * | — | auto |
 | [`workers-best-practices`](skills/workers-best-practices/SKILL.md) | Cloudflare Workers best practices for production applications | Use when writing, reviewing, or configuring Workers | — | auto |
 | [`workers-profiling`](skills/workers-profiling/SKILL.md) | Profile or debug CPU usage and memory allocation in deployed Cloudflare Workers and Durable Objects | Profile or debug CPU usage and memory allocation in deployed Cloudflare Workers and Durable Objects. Then use this information to… | — | auto |
@@ -199,5 +210,14 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 
 | Skill | Purpose | Activates when | Command | Mode |
 |-------|---------|----------------|---------|------|
+| [`higgsfield-brandkit`](skills/higgsfield-brandkit/SKILL.md) | Create and extend complete visual brand systems through the Higgsfield CLI and bundled… | Use when: "create a brand kit", "make a visual identity", "design a logo and brandbook", "apply this logo to branded assets", "make… | none | auto |
+| [`higgsfield-faceless-video`](skills/higgsfield-faceless-video/SKILL.md) | Create a finished faceless explainer, documentary, illustrated story or children's music video, or… | Use when: "make a faceless video", "create a narrated explainer", "make a children's song video", "edit this faceless video" | none | auto |
+| [`higgsfield-generate`](skills/higgsfield-generate/SKILL.md) | Generate images/videos/3D assets/audio via Higgsfield AI | Use when: "generate an image", "make a video", "animate this photo", "image-to-video", "edit/stylize/remix this image", "reframe this… | none | auto |
+| [`higgsfield-marketplace-cards`](skills/higgsfield-marketplace-cards/SKILL.md) | Generate marketplace product image cards through Higgsfield: compliant main image, secondary… | Use when the user asks for marketplace listing images, product detail cards, secondary product images, product infographics, lifestyle… | none | auto |
+| [`higgsfield-product-photoshoot`](skills/higgsfield-product-photoshoot/SKILL.md) | Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement on… | Use when: "product photo", "studio shot", "lifestyle image", "Pinterest pin", "hero/banner", "carousel", "ad creative", "Meta ads",… | none | auto |
+| [`higgsfield-soul-id`](skills/higgsfield-soul-id/SKILL.md) | Train a Soul Character, a personalized model on a person's face that Higgsfield uses for… | Use when: "create my Soul", "train my face", "make my digital twin", "build me an avatar", "learn my appearance", "create a character of… | none | auto |
+| [`higgsfield-video-explainer`](skills/higgsfield-video-explainer/SKILL.md) | Compatibility entry for the former video explainer skill | Use when: the user explicitly invokes higgsfield-video-explainer or continues its existing workflow | none | auto |
+| [`higgsfield-websites`](skills/higgsfield-websites/SKILL.md) | Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield… | Use when: "build me a website", "make a landing page", "create a web app", "build a SaaS dashboard / portfolio", "make me a game", "deploy… | none | auto |
+| [`higgsfield-youtube-thumbnail`](skills/higgsfield-youtube-thumbnail/SKILL.md) | Create high-click-through YouTube thumbnails and vertical video covers through the Higgsfield CLI | Use when: "make a YouTube thumbnail", "thumbnail for this video", "MrBeast-style cover", "Shorts cover", or "Instagram video cover" | none | auto |
 | [`image`](skills/image/SKILL.md) | Create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product… | Use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' 'product mockup,' 'hero image,' 'social media… | — | auto |
 
