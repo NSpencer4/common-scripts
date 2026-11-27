@@ -44,7 +44,7 @@ Edit files in this repo, then commit/push. Every linked tool picks up the change
 
 ## Skills catalog
 
-117 skills with local `SKILL.md` content under `skills/`.
+120 skills with local `SKILL.md` content under `skills/`.
 
 Agents auto-match on the skill `description` unless marked **slash-only** (`disable-model-invocation: true`). Slash-only skills load only when you invoke them by slash command or skill name.
 
@@ -222,3 +222,11 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`higgsfield-youtube-thumbnail`](skills/higgsfield-youtube-thumbnail/SKILL.md) | Create high-click-through YouTube thumbnails and vertical video covers through the Higgsfield CLI | Use when: "make a YouTube thumbnail", "thumbnail for this video", "MrBeast-style cover", "Shorts cover", or "Instagram video cover" | none | auto |
 | [`image`](skills/image/SKILL.md) | Create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product… | Use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' 'product mockup,' 'hero image,' 'social media… | — | auto |
 
+
+### 3D & game assets
+
+| Skill | Purpose | Activates when | Command | Mode |
+|-------|---------|----------------|---------|------|
+| [`blender-game-modeling`](skills/blender-game-modeling/SKILL.md) | Model or fix a game asset's shape in Blender: blockout at real scale, silhouette, hard-surface and sculpt construction, retopology, reference matching | Model, block out, sculpt, retopologize, or reshape a 3D asset in Blender, or drive Blender through bpy or an MCP bridge for modeling | none | auto |
+| [`blender-game-surfacing`](skills/blender-game-surfacing/SKILL.md) | UVs, texel density, PBR materials, channel packing, and high-to-low baking for game assets in Blender | UV unwrap, fix seams or stretching, bake maps, set up materials, or diagnose bake artifacts on a Blender game model | none | auto |
+| [`blender-game-export`](skills/blender-game-export/SKILL.md) | Budgets, LODs, collision, pivot and scale, export to Unity, Unreal, Godot, or web, and re-import verification | Export, optimize, make LODs or collision, fix an asset that imports wrong, or check whether an asset is game-ready | none | auto |
