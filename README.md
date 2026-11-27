@@ -44,7 +44,7 @@ Edit files in this repo, then commit/push. Every linked tool picks up the change
 
 ## Skills catalog
 
-120 skills with local `SKILL.md` content under `skills/`.
+127 skills with local `SKILL.md` content under `skills/`.
 
 Agents auto-match on the skill `description` unless marked **slash-only** (`disable-model-invocation: true`). Slash-only skills load only when you invoke them by slash command or skill name.
 
@@ -230,3 +230,10 @@ Columns: **Skill** (dir under `skills/`), **Purpose**, **Activates when** (cues 
 | [`blender-game-modeling`](skills/blender-game-modeling/SKILL.md) | Model or fix a game asset's shape in Blender: blockout at real scale, silhouette, hard-surface and sculpt construction, retopology, reference matching | Model, block out, sculpt, retopologize, or reshape a 3D asset in Blender, or drive Blender through bpy or an MCP bridge for modeling | none | auto |
 | [`blender-game-surfacing`](skills/blender-game-surfacing/SKILL.md) | UVs, texel density, PBR materials, channel packing, and high-to-low baking for game assets in Blender | UV unwrap, fix seams or stretching, bake maps, set up materials, or diagnose bake artifacts on a Blender game model | none | auto |
 | [`blender-game-export`](skills/blender-game-export/SKILL.md) | Budgets, LODs, collision, pivot and scale, export to Unity, Unreal, Godot, or web, and re-import verification | Export, optimize, make LODs or collision, fix an asset that imports wrong, or check whether an asset is game-ready | none | auto |
+| [`blender-rigging-animation`](skills/blender-rigging-animation/SKILL.md) | Rig and animate characters in Blender for game engines: Rigify, skinning, game skeleton, Unity Humanoid, ARKit shape keys, clips, root motion, mocap retargeting | Rig, skin, weight paint, add shape keys, animate, retarget mocap, or bake clips for a Blender character | none | auto |
+| [`unity-csharp`](skills/unity-csharp/SKILL.md) | Unity 6 C# gameplay code: lifecycle, serialization, .meta/GUID safety, Awaitable, ScriptableObjects, architecture, state machines, save/load | New or changed .cs files in a Unity project, "Missing script", MissingReferenceException, async code outliving its object | none | auto |
+| [`unity-gameplay`](skills/unity-gameplay/SKILL.md) | Unity 3D gameplay: Input System, Rigidbody and CharacterController, raycasts, NavMesh, Animator, Timeline, Cinemachine 3, NPC AI, 3D math | A character will not move, collide, animate, path or aim, or adding controls, cameras or enemy AI | none | auto |
+| [`unity-2d`](skills/unity-2d/SKILL.md) | Unity 2D: Rigidbody2D, tilemaps and Rule Tiles, sprites and atlases, sorting, 2D lights, pixel perfect cameras | Any 2D Unity task, blurry or jittery pixel art, characters catching on tile seams | none | auto |
+| [`unity-rendering`](skills/unity-rendering/SKILL.md) | Unity rendering: URP or HDRP choice, Built-in to URP, Shader Graph, URP HLSL, Render Graph renderer features, post-processing, lighting, VFX | Pink materials, post effects not showing, lighting problems, shader or VFX work | none | auto |
+| [`unity-ui`](skills/unity-ui/SKILL.md) | Unity UI: UI Toolkit or uGUI, screen flow and HUD architecture, TextMeshPro fonts and fallbacks, Localization package | Menus, HUDs, inventories, text rendering as boxes or blurry, adding languages | none | auto |
+| [`unity-build-perf`](skills/unity-build-perf/SKILL.md) | Unity builds and performance: CI builds, stripping, build size per store, Profiler and memory work, platform settings, Test Framework in batch mode | A build fails or is too big, the game stutters, memory grows, tests must run headless | none | auto |
