@@ -137,5 +137,5 @@ works with a number, not a look. Lifecycle, `.meta` safety and test assembly set
 
 - `unity-csharp`: lifecycle, async, state machines, test assemblies, `.meta` checker.
 - `unity-2d`: Rigidbody2D, tilemaps, sprites.
-- `blender-to-unity`: importing rigs and animation clips from Blender.
+- `blender-game-export`: importing rigs and animation clips from Blender.
 - `unity-cli` (official): drive the Editor and Play mode, read live values.

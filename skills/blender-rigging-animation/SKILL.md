@@ -6,15 +6,15 @@ description: >-
   clean deform-only game skeleton, Unity Humanoid mapping, ARKit and viseme shape keys,
   correctives, keyframe workflow, 5.x actions and slots, loops, root motion, mocap retargeting
   (Mixamo, BVH), and baking clips for export. Use for anything that deforms or moves. Not for
-  static props (blender-game-assets) or the export settings (blender-to-unity).
+  static props (blender-game-modeling) or the export settings (blender-game-export).
 license: MIT
 compatibility: Blender 5.2 LTS or newer, verified upstream on 5.3. Rigify is bundled.
 ---
 
 # Blender Rigging and Animation
 
-Run every script the way `blender-core` describes. The mesh must pass the `blender-game-assets`
-QA gate before rigging: scale applied, facing -Y, feet at Z = 0, symmetric on X.
+Run every script the way `blender-game-modeling` describes (`operating-blender.md`). The mesh must
+pass the `blender-game-modeling` QA gate before rigging: scale applied, facing -Y, feet at Z = 0, symmetric on X.
 
 ## Rig a character
 
@@ -63,6 +63,6 @@ Names are case-sensitive and must match the spec. Jaw and eyes as bones.
 
 ## Related skills
 
-- `blender-core`: execution, API rules, keyframe and driver snippets.
-- `blender-to-unity`: `unity_skeletal` export preset, clip naming, Humanoid import.
+- `blender-game-modeling`: execution, API rules, keyframe and driver snippets, QA.
+- `blender-game-export`: `unity_skeletal` export preset, clip naming, Humanoid import.
 - `unity-gameplay`: Animator, blend trees, root motion and IK on the Unity side.

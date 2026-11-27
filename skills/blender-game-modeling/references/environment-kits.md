@@ -1,7 +1,7 @@
 
 # Environment kits
 
-The execution model is in `blender-core`. Materials (trims, vertex blends) are in `texturing.md` and `trims-tiling-painting.md`.
+The execution model is in `operating-blender.md`. Materials (trims, vertex blends) are in `blender-game-surfacing` (`blender-game-surfacing`, `trims-tiling-painting.md`).
 
 ## One call each
 ```
@@ -30,10 +30,10 @@ scripts/kit_check.py -- --objects SM_Wall_4m SM_Floor_4m SM_Door_4m --grid 0.5 -
 - **Pivot** convention (`--pivot corner` default, `bottom-center`, `center`) so pieces snap by increments. Footprint lengths are multiples of the grid. Thinner-than-a-cell dims (wall thickness, trims) may be off-grid.
 - Open edges only on the piece's outer faces (seams); holes inside are errors. Seam verts must be on the grid so neighbours weld visually. Texel density within 25% of the kit median (`--texture` px). `SM_` names (`--prefix`).
 - `--fix` applies rotation/scale and moves each origin to the pivot without moving geometry. Linked duplicates share mesh data, so fix the source once.
-- Break repetition with trims and decals (`texturing.md`), vertex-color blends, and rotated/mirrored variants (mirrors flip normals, so check with `asset-qa.md`). Hide seams with trim pieces over joints.
+- Break repetition with trims and decals (`blender-game-surfacing`), vertex-color blends, and rotated/mirrored variants (mirrors flip normals, so check with `asset-qa.md`). Hide seams with trim pieces over joints.
 
 ## Gotchas
 - Apply terrain/kit scale before scattering. Densities and slopes are world-based.
 - Scatter height is in the target's object space. Keep terrains at the origin or offset `--height-*`.
 - Huge Poisson counts are slow. Scatter per tile/area, or lower the density in the viewport and raise it for renders.
-- Validate terrain + scatter with `asset-qa.md` (floating instances on cliffs, z-fighting decals) and `game-optimization.md` (instances, LODs, draw calls).
+- Validate terrain + scatter with `asset-qa.md` (floating instances on cliffs, z-fighting decals) and `blender-game-export` (instances, LODs, draw calls).

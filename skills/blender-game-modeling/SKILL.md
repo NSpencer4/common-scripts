@@ -1,6 +1,6 @@
 ---
 name: blender-game-modeling
-description: Build or fix the shape of a game asset in Blender, from a brief, sketch, or reference images through blockout, real-world scale, silhouette, mesh construction, and topology. Covers hard-surface props, weapons, vehicles, and architecture, sculpt-to-low-poly retopology, cleaning up AI-generated or scanned meshes, and matching orthographic or photo references. Use whenever someone asks to model, block out, sculpt, retopologize, or reshape a 3D asset for a game in Blender, or drives Blender through bpy, an MCP bridge, or headless scripts for modeling work, even if they do not say "game". For UVs, textures, materials, and baking use blender-game-surfacing; for budgets, LODs, collision, and export use blender-game-export.
+description: Build or fix the shape of a game asset in Blender, from a brief, sketch, or reference images through blockout, real-world scale, silhouette, mesh construction, and topology. Covers hard-surface props, weapons, vehicles, and architecture, sculpt-to-low-poly retopology, cleaning up AI-generated or scanned meshes, matching orthographic or photo references, terrain and modular environment kits, scene setup and naming, batch jobs, and the mesh QA gate. Holds the shared scripts and rules for driving Blender live or headless. Use whenever someone asks to model, block out, sculpt, retopologize, or reshape a 3D asset for a game in Blender, or drives Blender through bpy, an MCP bridge, or headless scripts for modeling work, even if they do not say "game". For UVs, textures, materials, and baking use blender-game-surfacing; for budgets, LODs, collision, and export use blender-game-export.
 ---
 
 # Blender game modeling
@@ -59,9 +59,36 @@ Write these down before building. When the brief is silent, pick the default and
 | Boolean removes everything or leaves holes | Cutter not closed, inverted normals, coplanar faces | Repair the cutter, extend it past the surface, use the EXACT solver |
 | Model looks right in Blender, wrong in game | Judged from the wrong distance or without scale reference | Re-render from the gameplay camera next to the human-scale box |
 
+## Scripts
+
+Each takes its flags after `--`, returns one JSON result, and exposes `run(**kw)` for live sessions. Run headless through the runner, which finds Blender and prints only the JSON:
+
+```bash
+python3 <skills>/blender-game-modeling/scripts/run_in_blender.py --blend in.blend <script.py> -- <flags>
+```
+
+| Script | Does |
+|---|---|
+| `env_report.py` | Blender version, engines, GPU, add-ons, units, color management. Run first in a session. |
+| `scene_audit.py` | Units, unapplied or negative scale, default names, root-level objects, missing images, orphans. `--fix purge scale paths` only on files you own. |
+| `apply_stack.py` | Builds the hard-surface stack (`--preset midpoly --cutters ...`); `--apply` on an export copy only. |
+| `auto_retopo.py` | `--tris N --method quadriflow\|decimate\|planar`, writes `<name>_low` and keeps the source. |
+| `qa_check.py` | The QA gate: z-fighting, floating parts, non-manifold, flipped normals, n-gons, scale, UVs. `--profile game`; fix until `"pass": true`. |
+| `review_shots.py` | Contact sheets; `--mode random` colors each object so detached parts show. |
+| `review_renders.py` | Solid, wire and silhouette views plus the gameplay view with a 1.8 m box (see operating-blender.md). |
+| `terrain.py`, `scatter.py`, `kit_check.py` | Terrain with Unity-friendly 2^n+1 heightmaps, slope-aware scatter, modular kit grid and pivot checks. |
+| `batch_process.py` | Convert, inventory, or run any script over a folder of files, one JSON line per file, `--shard i/N`. |
+
 ## References
 
 - [references/operating-blender.md](references/operating-blender.md): live vs headless execution, bpy rules, Blender 5.x API traps, review render snippet. Load before scripting.
+- [references/api-changes-5x.md](references/api-changes-5x.md) and [references/bpy-patterns.md](references/bpy-patterns.md): the full 4.x to 5.3 migration table and verified bmesh, numpy, depsgraph, driver and handler snippets.
+- [references/blender-mcp.md](references/blender-mcp.md) and [references/blender-mcp-errors.md](references/blender-mcp-errors.md): Blender MCP tool choice, health check, export timeouts and known errors.
+- [references/scene-setup.md](references/scene-setup.md): units, collection layout, `SM_`/`SK_`/`M_`/`T_` naming, real-world sizes, linking, asset libraries.
+- [references/pipeline-automation.md](references/pipeline-automation.md): headless CLI flags, batch jobs, the `bpy` pip module, CI.
+- [references/asset-qa.md](references/asset-qa.md): what each `qa_check.py` finding means and how to fix it.
+- [references/environment-kits.md](references/environment-kits.md): terrain, scatter densities, modular kit metrics.
+- [references/lowpoly-style.md](references/lowpoly-style.md) and [references/ps1-aesthetic.md](references/ps1-aesthetic.md): low-poly and retro looks.
 - [references/hard-surface.md](references/hard-surface.md): modifier stack order, bevel and boolean settings, shading checks for mechanical props.
 - [references/organic-and-retopology.md](references/organic-and-retopology.md): sculpt workflow, automatic vs manual retopology, edge flow for deforming meshes, cleaning AI-generated and scanned meshes.
 - [references/reference-matching.md](references/reference-matching.md): matching orthographic or photo references, separating visible from inferred geometry.

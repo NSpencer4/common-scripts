@@ -1,7 +1,7 @@
 
 # Facial Rig & Shape Keys
 
-The execution model is in `blender-core`. The body rig is in `character-rigging.md`.
+The execution model is in `blender-game-modeling`. The body rig is in `character-rigging.md`.
 
 ## Choose the approach
 | Approach | Use | Notes |
@@ -12,7 +12,7 @@ The execution model is in `blender-core`. The body rig is in `character-rigging.
 | **Rigify face** (`human` metarig) | film-style keyframe animation inside Blender | 100+ face bones, heavy for engines |
 
 ## Procedure (blendshapes)
-1. The head mesh needs clean loops around the eyes and mouth (`blender-game-assets`), with eyes, teeth and tongue as separate objects parented or weighted to bones.
+1. The head mesh needs clean loops around the eyes and mouth (`blender-game-modeling`), with eyes, teeth and tongue as separate objects parented or weighted to bones.
 2. `scripts/shapekeys.py -- --mesh Head --create arkit` (or `--create visemes` for the 15 Oculus visemes) creates empty, correctly named keys.
 3. Sculpt each key (live: sculpt mode on the active key, `use_shape_key_edit_mode`). Symmetric expressions can be sculpted once, then `--split eyeBlink` gives `eyeBlinkLeft/Right` with a soft blend across X=0 (`--falloff` m).
 4. `--mirror browDownLeft` builds `browDownRight` (topology-independent mirror).
@@ -22,7 +22,7 @@ The execution model is in `blender-core`. The body rig is in `character-rigging.
 
 ## Shape key rules
 - Shapes are **deltas from Basis**. Never change the Basis topology after creating keys (adding or removing verts destroys every key).
-- One action per key. No head or neck movement inside face keys (bones do that). Keep eyelids sliding over the eye surface, not through it (check with `blender-game-assets` zfighting on lid/eye).
+- One action per key. No head or neck movement inside face keys (bones do that). Keep eyelids sliding over the eye surface, not through it (check with `blender-game-modeling` zfighting on lid/eye).
 - Range 0–1. `slider_max` can be raised for exaggeration, but engines clamp to 0–1.
 - Relative keys (`use_relative=True`, the default) are the only kind that exports.
 - Name exactly per spec (case-sensitive): `eyeBlinkLeft`, not `EyeBlink_L`. Engines map by name.

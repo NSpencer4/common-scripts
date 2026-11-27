@@ -7,7 +7,7 @@ description: >-
   Particle System and VFX Graph. Use for pink materials, post effects that do not show, too dark
   or blown-out lighting, shader authoring, or visual effects. Not for 2D lights and pixel
   perfect cameras (unity-2d), GPU profiling and build size (unity-build-perf), or importing
-  Blender materials (blender-to-unity).
+  Blender materials (blender-game-export).
 license: MIT
 compatibility: Unity 6.0 or newer, written against 6.3 LTS with URP 17. HDRP notes in references.
 ---
@@ -174,4 +174,4 @@ asset.
 
 - `unity-2d`: 2D Renderer, 2D lights, pixel perfect.
 - `unity-build-perf`: GPU profiling, shader variant stripping, build size.
-- `blender-to-unity`: PBR textures and lightmap UVs from Blender.
+- `blender-game-surfacing`: PBR textures and lightmap UVs from Blender.

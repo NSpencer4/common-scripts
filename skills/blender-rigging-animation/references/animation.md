@@ -1,7 +1,7 @@
 
 # Animation
 
-The execution model is in `blender-core` (`blender-core/references/bpy-patterns.md` has verified keyframe/driver snippets). Rigs are in `character-rigging.md`.
+The execution model is in `blender-game-modeling` (`blender-game-modeling/references/bpy-patterns.md` has verified keyframe/driver snippets). Rigs are in `character-rigging.md`.
 
 ## 5.x data model (what changed)
 - An **Action** holds **slots** (one per animated ID) and **layers → strips → channelbags → F-curves**. A single action can animate several objects (e.g. a rig and its camera) through different slots.

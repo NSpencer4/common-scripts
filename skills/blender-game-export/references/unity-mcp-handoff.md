@@ -20,7 +20,7 @@ directly.
    root (the editor dataPath's parent). Decide the export format:
    - **GLB (glTFast) when the model has a rig, animation, PBR (metallic/roughness), emission,
      or transparency**: glTFast carries all of these automatically, no post-processing
-     (see [bridge-fidelity.md](bridge-fidelity.md)). Multi-material zones
+     (see [unity-bridge-fidelity.md](unity-bridge-fidelity.md)). Multi-material zones
      survive either format, so they alone don't force GLB.
    - **FBX otherwise**: when glTFast isn't installed, the model is plain geometry, or you
      specifically need the built-in importer's humanoid-avatar pipeline. FBX drops emission/metallic
@@ -111,7 +111,7 @@ directly.
   that needs a vertex-color-reading shader, not `_EmissionColor`.
 - FBX is the default because glTFast is optional in MCP for Unity. If the import errors with
   "GLB import requires glTFast", re-export as FBX (or install glTFast from the Dependencies tab).
-- **Format fidelity.** [bridge-fidelity.md](bridge-fidelity.md) is a tested
+- **Format fidelity.** [unity-bridge-fidelity.md](unity-bridge-fidelity.md) is a tested
   matrix of what each format carries. Summary: **GLB (glTFast)** keeps textures, metallic/roughness,
   emission, transparency, and animation automatically; **FBX** drops metallic + emission, needs
   `ModelImporter.animationType = Generic` to surface transform animation, and needs material/texture

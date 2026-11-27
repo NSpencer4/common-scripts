@@ -1,16 +1,16 @@
 
 # Character Rigging
 
-The execution model is in `blender-core`. Faces and shape keys are in `facial-shapekeys.md`, animation in `animation.md`.
+The execution model is in `blender-game-modeling`. Faces and shape keys are in `facial-shapekeys.md`, animation in `animation.md`.
 
 ## Pipeline (scripts chain; each returns JSON)
-1. **Prepare the mesh**: scale applied, facing **-Y**, feet at Z=0, centered on X=0, symmetric, in T- or A-pose (A-pose 30–45° deforms shoulders better). Run `blender-game-assets` first.
+1. **Prepare the mesh**: scale applied, facing **-Y**, feet at Z=0, centered on X=0, symmetric, in T- or A-pose (A-pose 30–45° deforms shoulders better). Run the `blender-game-modeling` QA check first.
 2. **Metarig**: `scripts/rigify_build.py -- --add basic_human --fit Body` (`human` adds a full face rig; for games use `--no-face` + shape keys).
 3. **Place the joints** (the fit only scales). Edit bones in X-ray against the mesh: joints sit at the **pivot of rotation** (inside the volume, not on the surface). The elbow and knee need a slight bend toward their natural direction (elbow back, knee forward) so the IK solves the right way. Symmetrize: `bpy.ops.armature.symmetrize()`. Check with `look` (`shading="xray"`).
 4. **Generate**: `--metarig META_Body --generate` gives `RIG_Body` (control rig: FK/IK, IK/FK snapping, tweak bones, bone collections).
 5. **Skin**: `scripts/bind_mesh.py -- --armature RIG_Body --meshes Body`. It uses heat weights, switches to the voxel-proxy transfer automatically when heat fails (non-manifold, kitbashed or AI meshes), then cleans to 4 influences and normalizes.
 6. **Stress test**: `scripts/stress_poses.py -- --armature RIG_Body`, then `look(mode="frames", frames=[1,10,20,30,40,50])`. Fix collapsing elbows, candy-wrapped forearms, a sunken shoulder or a hip crease (below).
-7. **Engine skeleton**: `rigify_build.py -- --rig RIG_Body --game-skeleton` gives `GAME_RIG_Body` = `root` + DEF bones in a clean hierarchy, with `DEF-` stripped, constrained to the control rig and with the meshes re-targeted. Animate with the control rig, then bake to the game skeleton and export it (`animation.md` → `blender-to-unity`).
+7. **Engine skeleton**: `rigify_build.py -- --rig RIG_Body --game-skeleton` gives `GAME_RIG_Body` = `root` + DEF bones in a clean hierarchy, with `DEF-` stripped, constrained to the control rig and with the meshes re-targeted. Animate with the control rig, then bake to the game skeleton and export it (`animation.md` → `blender-game-export`).
 8. **Validate**: `scripts/rig_check.py -- --armature GAME_RIG_Body --profile unity|unreal|roblox [--fix]`.
 
 ## Bone rules

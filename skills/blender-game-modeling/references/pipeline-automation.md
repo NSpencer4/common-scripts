@@ -1,15 +1,15 @@
 
 # Pipeline Automation
 
-The execution model is in `blender-core` (`run_in_blender.py` finds Blender and prints only the JSON results).
+The execution model is in `operating-blender.md` (`run_in_blender.py` finds Blender and prints only the JSON results).
 
 ## Batch one-liners
 ```
 blender -b -P scripts/batch_process.py -- --in "assets/**/*.fbx" --op convert --to glb --out export/
 blender -b -P scripts/batch_process.py -- --in library/ --op report                      # inventory JSON lines
 blender -b -P scripts/batch_process.py -- --in "src/*.blend" --op script \
-    --script ../blender-game-assets/scripts/qa_check.py --kwargs '{"profile":"game"}'       # QA a whole library
-blender -b -P scripts/batch_process.py -- --in src/ --op script --script ../blender-game-assets/scripts/make_lods.py \
+    --script scripts/qa_check.py --kwargs '{"profile":"game"}'       # QA a whole library
+blender -b -P scripts/batch_process.py -- --in src/ --op script --script ../blender-game-export/scripts/make_lods.py \
     --kwargs '{"rename":true}' --save-to processed/                                      # LODs for every file
 ```
 Each file is streamed as one JSON line with `ok`, timing and results. Failures don't stop the batch, and the summary lists them. **Parallel**: start N processes with `--shard 0/N` … `--shard N-1/N` (Blender uses one core for Python, so processes scale with CPU/GPU count).
@@ -33,7 +33,7 @@ Environment variables: `BLENDER_USER_SCRIPTS`, `BLENDER_USER_EXTENSIONS`, `BLEND
 `pip install bpy==5.3.*` (or `5.2.*` for the LTS) (Python 3.13, matching the Blender release) gives `import bpy` in plain Python, which is handy for pytest/CI/web services. It has no UI and no GPU module by default, and it's large (~300 MB). Version-lock it with the Blender you target. The `bpy` wheel and the CLI behave the same for data API work.
 
 ## Library patterns
-- **Append/link**: `bpy.data.libraries.load(path, link=...)` (see `blender-core/references/bpy-patterns.md`). 5.2: `data_from.libraries` exposes nested library paths when loading.
+- **Append/link**: `bpy.data.libraries.load(path, link=...)` (see `bpy-patterns.md`). 5.2: `data_from.libraries` exposes nested library paths when loading.
 - **Write a subset**: `bpy.data.libraries.write(path, {datablocks}, fake_user=True, path_remap="RELATIVE_ALL")` builds asset/library files from a session.
 - **Find files**: `bpy.data.file_path_foreach(...)` (5.2 flags: `EXPAND_TOKENS` for UDIMs, `EXPAND_SEQUENCES`, `EXPAND_CACHES`), and `bpy.utils.blend_paths(absolute=True)` lists every external path.
 - **Remap/relocate**: `bpy.ops.file.find_missing_files(directory=...)`, `make_paths_relative`, `pack_all`. Libraries: `lib.filepath = new; lib.reload()`.

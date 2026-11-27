@@ -1,11 +1,11 @@
 
 # Scene Setup & Hygiene
 
-The execution model and verification steps are in `blender-core`.
+The execution model and verification steps are in `operating-blender.md`.
 
 ## Procedure
 1. Run `scripts/scene_audit.py` (add `--fix purge scale paths` only on files you own). It reports units, unapplied/negative scale, default names, objects in the scene root, missing images, orphans and far-off origins.
-2. Set units: Metric, Unit Scale **1.0**, Length meters. Keep 1.0 even for Unreal/Roblox, because exporters handle the conversion (see `blender-to-unity`).
+2. Set units: Metric, Unit Scale **1.0**, Length meters. Keep 1.0 even for Unreal/Roblox, because exporters handle the conversion (see `blender-game-export`).
 3. Build the collection layout (below). Every object must be in a named collection, never the scene root.
 4. Name everything with the conventions below. Rename after every duplicate or join so no `.001` suffixes remain.
 5. Set origins: props at the bottom-center (they sit on the ground at Z=0), characters at world origin between the feet, doors/hinges at the pivot.

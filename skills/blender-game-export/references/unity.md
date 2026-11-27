@@ -1,6 +1,20 @@
 # Unity (Unity 6, 2022 LTS)
 
-FBX is the default path. glTF needs a package (glTFast).
+FBX is Unity's built-in path. GLB needs the glTFast package (`com.unity.cloud.gltfast` in `Packages/manifest.json`).
+
+## Choose the format
+
+| Asset | Format |
+|---|---|
+| PBR textures, metallic/roughness, emission, alpha, or vertex colors, and glTFast is installed | GLB |
+| Humanoid character that needs Unity's avatar pipeline, or no glTFast | FBX |
+| Plain static geometry | Either; follow what the project already uses |
+
+Tested by CoplayDev on Unity 6000.4 with URP: FBX dropped emission, reset metallic to 0, left alpha materials opaque, and did not assign embedded textures; GLB through glTFast carried all of them. Details: [unity-bridge-fidelity.md](unity-bridge-fidelity.md).
+
+## Export presets
+
+`scripts/export_asset.py -- --preset unity` (static FBX, Apply Transform on), `--preset unity_skeletal` (FBX, Apply Transform off, deform bones only, no leaf bones), or `--preset gltf` (GLB with modifiers applied). The `unity` preset follows el4cteo in using Apply Transform; see the disagreement below and check the root rotation on import.
 
 ## FBX export settings
 
@@ -38,6 +52,6 @@ Unity does not build useful PBR materials from FBX; recreate them or extract and
 
 Name meshes `X_LOD0`, `X_LOD1`, ...; Unity builds a LOD Group from the suffixes. Unity colliders are set in the editor, not from FBX names. Lightmap UVs: ship UV1 or tick Generate Lightmap UVs.
 
-## Scale reference
+## Verify in Unity
 
-Unity's default capsule is 2 m tall.
+Report numbers: bounds against Unity's default 2 m capsule or a 1 m cube, root rotation 0 and scale 1 on the prefab, material count with textures assigned, the LOD Group levels, colliders, and for characters a valid Avatar, the clip names, and one clip playing in Play mode. When both a Blender MCP and a Unity MCP server are connected, [unity-mcp-handoff.md](unity-mcp-handoff.md) covers the export, import, size normalization and emission restore; the `unity-cli` skill can do the Unity side with `script eval`.

@@ -50,11 +50,24 @@ Compiled by el4cteo/blender-skills as 2026 guidance. Whole-scene limits matter m
 - The glTF exporter's `export_apply` defaults to False: a beveled crate exported with 12 triangles instead of 44. Pass `export_apply=True` unless the modifiers are deliberately left out.
 - A GLB re-import adds an `Icosphere` object used to display bones; it is not part of the asset. `inspect_asset.py` skips it.
 
+## Scripts
+
+Run them through `blender-game-modeling/scripts/run_in_blender.py` (see operating-blender.md). Each returns JSON.
+
+| Script | Does |
+|---|---|
+| `mesh_stats.py` | `--budget mobile\|web\|vr\|console\|pc`: triangles, estimated draw calls, materials, texture memory, bones, and what is over budget |
+| `make_lods.py` | `--cleanup` (merge by distance, dissolve degenerate, delete loose); `--rename` builds `_LOD1` to `_LOD3` at 50, 25 and 12.5% |
+| `export_asset.py` | Export presets: `unity`, `unity_skeletal`, `gltf`, `unreal`, `unreal_skeletal`, `godot`, `web`, `usd`. `--batch` writes one file per object at the origin; `--set key=value` overrides any exporter option. GLB presets apply modifiers (`export_apply=True`). |
+| `inspect_asset.py` | Measures a .blend or an export and compares two reports (above) |
+
+Rigged characters: build the game skeleton and bake clips with `blender-rigging-animation` before exporting.
+
 ## Engine references
 
 Load only the one for the target:
 
-- [references/unity.md](references/unity.md)
+- [references/unity.md](references/unity.md), with [references/unity-bridge-fidelity.md](references/unity-bridge-fidelity.md) (what survives FBX vs GLB, tested) and [references/unity-mcp-handoff.md](references/unity-mcp-handoff.md) (Blender MCP to Unity MCP file handoff)
 - [references/unreal.md](references/unreal.md)
 - [references/godot.md](references/godot.md)
 - [references/web.md](references/web.md)

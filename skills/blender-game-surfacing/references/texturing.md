@@ -1,7 +1,7 @@
 
 # Texturing
 
-The execution model is in `blender-core`. Material wiring and measured values are in `pbr-materials.md`, and bakes are in `texture-baking.md`. This skill authors the *surface story*: where paint chips, where dirt collects, what's printed on it.
+The execution model is in `blender-game-modeling` (`operating-blender.md`). Material wiring is in `materials.md`, measured values in `pbr-values.md`, and bakes in `baking.md`. This skill authors the *surface story*: where paint chips, where dirt collects, what's printed on it.
 
 ## One call each
 ```
@@ -13,7 +13,7 @@ scripts/smart_material.py -- --objects Crate --remove                           
 ```
 
 ## How pros layer a material
-Start with a clean base (correct albedo/roughness, `pbr-materials.md`), then stack from the inside out: **base → edge wear → rust → grime → dust**. Each layer has a physical cause:
+Start with a clean base (correct albedo/roughness, `materials.md`), then stack from the inside out: **base → edge wear → rust → grime → dust**. Each layer has a physical cause:
 | Layer | Mask (cause) | Look |
 |---|---|---|
 | Edge wear | convex curvature (edges get hit) + chip noise | reveals the under-material: bare metal, primer, raw wood |
@@ -31,11 +31,11 @@ Pure curvature looks procedural and even. Always multiply in noise so wear is he
 - Colors are sRGB 0–1. Defaults: steel under paint (0.56, 0.57, 0.58, metallic 1, roughness 0.35). For wood under paint, use `--under-color 0.45 0.32 0.2 --under-metallic 0 --under-roughness 0.7`.
 
 ## To game engines
-Engines don't run Blender node trees. Bake the result into a texture set: `bake_maps.py -- --low SM_Crate --maps basecolor roughness metallic normal --pack-orm` (self-bake, no `--high`). Then `build_pbr_material.py --textures` and export. Check the result with `asset-qa.md` and a lit `look`.
+Engines don't run Blender node trees. Bake the result into a texture set: `bake_maps.py -- --low SM_Crate --maps basecolor roughness metallic normal --pack-orm` (self-bake, no `--high`). Then `build_pbr_material.py --textures` and export. Check the result with `blender-game-modeling` (`asset-qa.md`) and a lit `look`.
 
 ## Decals (decal.py)
 - Places a subdivided plane at the closest surface point to `--at`, oriented to the normal and spun by `--rotation`. A Shrinkwrap (project, above surface) keeps it `--offset` (2 mm) off the surface. It's parented, has no shadow, uses Dithered alpha, and its height follows the image aspect.
-- It measures the gap at every triangle like `asset-qa.md` does, and doubles `--subdiv` (to 128) until flat triangles stop dipping over convex creases. The result reports `gap_min_m`/`gap_max_m`. Never place decals at 0 offset: that's guaranteed z-fighting.
+- It measures the gap at every triangle like `blender-game-modeling` (`asset-qa.md`) does, and doubles `--subdiv` (to 128) until flat triangles stop dipping over convex creases. The result reports `gap_min_m`/`gap_max_m`. Never place decals at 0 offset: that's guaranteed z-fighting.
 - Games: mesh decals cost a draw call each and need alpha sorting. Merge decals that share an atlas into one mesh, use engine projectors (UE Decal Actor, Unity URP Decal Projector, Godot `Decal`) for dynamic ones, or bake them into the base texture.
 
 ## Trim sheets, tiling, painting

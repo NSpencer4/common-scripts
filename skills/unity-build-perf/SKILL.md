@@ -97,4 +97,4 @@ pass absolute paths.
 - `unity-csharp`: code changes the profiler points at, test assemblies.
 - `unity-rendering`: GPU-side fixes (shaders, lighting, post-processing).
 - `unity-ui`: Canvas rebuild and TextMeshPro memory.
-- `blender-game-assets`: polygon budgets and texture sizes at the source.
+- `blender-game-export`: polygon budgets, LODs and texture sizes at the source.

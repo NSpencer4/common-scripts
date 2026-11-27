@@ -3,7 +3,7 @@
 ## Trim sheets (environment and hard-surface kits)
 - One texture holds horizontal **strips** (trims) that tile in U: panels, edges, bolts, pipes, rails. Many meshes share one material, which means few draw calls, high texel density, and consistent wear.
 - Layout: a 2048² or 4096² sheet with strip heights in powers of two (32/64/128/256/512 px), so mips don't bleed. Put the most-used trims tallest. Leave 4–8 px gutters.
-- Model with UV-friendly pieces: each face's UVs go into exactly one strip, with U running along the length. Keep the kit's **texel density** fixed (`retopology-uv.md` `texel_density.py`, e.g. 512 px/m) and let U overrun 0–1 to tile.
+- Model with UV-friendly pieces: each face's UVs go into exactly one strip, with U running along the length. Keep the kit's **texel density** fixed (`uv-layout.md` `texel_density.py`, e.g. 512 px/m) and let U overrun 0–1 to tile.
 - Snap an island to a strip with numpy (`v0`/`v1` are the strip's bounds, 0–1 from the bottom):
 ```python
 uv = me.uv_layers.active.uv; a = np.empty(len(uv) * 2, np.float32); uv.foreach_get("vector", a)
@@ -14,7 +14,7 @@ uv.foreach_set("vector", a.ravel())
 - Unique hero assets still get unique textures. Trims are for kits, architecture and vehicles' repeated parts.
 
 ## Tiling materials + vertex-color blends (large surfaces)
-- Tiling textures (concrete, brick, ground) + a **color attribute** that blends a second layer (moss, dirt, wet). This keeps resolution infinite and memory tiny. Paint the mask in Vertex Paint (5.2: spherical falloff draws a surface-aligned cursor), or compute slope and height masks (`environment-kits.md`).
+- Tiling textures (concrete, brick, ground) + a **color attribute** that blends a second layer (moss, dirt, wet). This keeps resolution infinite and memory tiny. Paint the mask in Vertex Paint (5.2: spherical falloff draws a surface-aligned cursor), or compute slope and height masks (`blender-game-modeling` (`environment-kits.md`)).
 - Height-blend instead of a linear fade: `t = clamp((hB − hA + (mask·2 − 1)) · contrast + 0.5)`. The second layer fills the cracks of the first first, which looks natural. The node is `ShaderNodeVertexColor` (`layer_name`).
 - Engines get the mask as COLOR_0 (glTF exports the active color attribute, `export_vertex_color`). Rebuild the blend in the engine shader.
 

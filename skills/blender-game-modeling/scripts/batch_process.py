@@ -5,7 +5,7 @@ Inputs: .blend .fbx .glb .gltf .obj .stl .ply .usd .usda .usdc .usdz .abc (folde
 Usage:
   blender -b -P batch_process.py -- --in "assets/**/*.fbx" --op convert --to glb --out export/
   blender -b -P batch_process.py -- --in assets/ --op report
-  blender -b -P batch_process.py -- --in "src/*.blend" --op script --script skills/blender-game-assets/scripts/qa_check.py
+  blender -b -P batch_process.py -- --in "src/*.blend" --op script --script skills/blender-game-modeling/scripts/qa_check.py
       --kwargs '{"profile":"game"}' [--save-to out/]
   parallel: run N processes with --shard 0/4, 1/4, 2/4, 3/4
   MCP (careful: replaces the open file): import batch_process; batch_process.run(inp="C:/assets", op="report")

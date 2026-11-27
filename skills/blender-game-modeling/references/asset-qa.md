@@ -28,12 +28,12 @@ Never assume a generated or edited mesh is correct. Check it with numbers, then 
 | `duplicate_verts` | unwelded seams | `remove_doubles(threshold=1e-4)` (Merge by Distance); check UV seams after |
 | `ngons` | faces with >4 sides | triangulate/quadrangulate locally; n-gons are fine only on flat hard-surface faces that never deform |
 | unapplied/negative scale | object transform | `transform_apply(rotation=True, scale=True)`; negative scale flips normals on export |
-| `uv_maps: 0` / zero-area UV / overlap | missing or bad unwrap | `retopology-uv.md` |
+| `uv_maps: 0` / zero-area UV / overlap | missing or bad unwrap | `blender-game-surfacing` |
 | unweighted / >4 influences | skinning | `blender-rigging-animation` (`rig_check.py`) |
 | `ground_z` ≠ 0 | asset floats or sinks | move the origin to the bottom and set z = 0 (props) |
 | faces on empty/missing slot | material removed or index out of range | assign a material; engines show grey/magenta |
 | `feeds [...] but is sRGB` | normal/roughness/metal/AO map tagged as color | `image.colorspace_settings.is_data = True` (Non-Color) |
-| missing texture file | broken path, unpacked | relink (`blender-core` path cleanup) or pack |
+| missing texture file | broken path, unpacked | relink (`scene-setup.md` path cleanup) or pack |
 | unused slot / Non-Color base color | leftovers, wrong tag | remove the slot; base color and emission are sRGB |
 
 ## Manual checks the script can't fully judge

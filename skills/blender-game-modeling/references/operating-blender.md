@@ -11,7 +11,19 @@ Shared by blender-game-modeling, blender-game-surfacing, and blender-game-export
 
 Do not open a new GUI Blender window on the user's machine to test something. Live work goes through the session they already have open; everything else runs headless.
 
-MCP bridges differ in tool names (some expose `execute_blender_code`, others `execute_python` with a preloaded `result` dict). Read the server's tool schemas before the first call.
+MCP bridges differ in tool names (some expose `execute_blender_code`, others `execute_python` with a preloaded `result` dict). Read the server's tool schemas before the first call. Health checks and known bridge failures: [blender-mcp.md](blender-mcp.md).
+
+## Running the skill scripts
+
+The scripts in blender-game-modeling, blender-game-surfacing, blender-game-export, and blender-rigging-animation share one interface: flags after `--`, one JSON result, and a `run(**kw) -> dict` function.
+
+- Headless: `python3 <skills>/blender-game-modeling/scripts/run_in_blender.py --blend in.blend <script.py> -- <flags>`. It finds Blender (`$BLENDER_EXE`, then `PATH`, then standard install folders) and prints only the JSON. `--expr "..."` runs one expression; `--which` prints the Blender it would use.
+- Live: import the script inside the bridge call. Each call runs in a fresh namespace, so import every time (modules stay cached; `reload` only after editing a script):
+
+  ```python
+  import sys, importlib; sys.path.insert(0, r"<skills>/blender-game-modeling/scripts")
+  import qa_check; importlib.reload(qa_check); print(qa_check.run(objects=["SM_Crate"]))
+  ```
 
 ## bpy rules that prevent most failures
 

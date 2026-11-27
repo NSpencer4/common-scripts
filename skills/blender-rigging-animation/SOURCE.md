@@ -7,5 +7,5 @@ Static skill (not installed via `npx skills`). Do not auto-update.
 - Snapshot date: 2026-11-25
 - Changes: SKILL.md is a new merge. Upstream skill names in text renamed to reference file names
   or to this repo's Blender skills; a link to the upstream Roblox export reference removed; em
-  dashes replaced. Scripts unchanged.
+  dashes replaced. Scripts unchanged. The run_in_blender.py runner they use lives in `blender-game-modeling/scripts/`.
 - Licenses: `licenses/`.
