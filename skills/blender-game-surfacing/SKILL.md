@@ -41,8 +41,24 @@ How to drive Blender and render review images is in [../blender-game-modeling/re
 - **Data maps are Non-Color.** Normal, roughness, metallic, AO, ORM, and masks in sRGB give washed-out normals and wrong roughness, the most common material bug.
 - **Engines do not run Blender node trees.** Procedural noise, mix nodes, and math produce nothing after export; bake them to textures.
 
+## Scripts
+
+Run them through `blender-game-modeling/scripts/run_in_blender.py` (see operating-blender.md). Each returns JSON.
+
+| Script | Does |
+|---|---|
+| `uv_pack.py` | `--seams-from-sharp 60` marks every hard edge as a seam, unwraps (`--method seams\|min_stretch\|smart`), packs with pixel margins, `--lightmap` adds a lightmap UV2 |
+| `texel_density.py` | `--res 2048` measures px/m and spread; `--set <px/m>` scales islands to a target |
+| `build_pbr_material.py` | `--name M_X --textures //tex/x` wires a texture set by filename with correct color spaces, splits ORM, flips DirectX normals; `--preset wood\|iron\|...` for solid materials |
+| `smart_material.py` | Wear, rust, grime and dust layers (`--wear 0.4 --grime 0.3`), `--remove` restores the original exactly |
+| `decal.py` | Projects an image decal onto a surface with a z-fight-safe offset |
+| `bake_maps.py` | `--low X_low --high X_high --maps normal ao curvature id --pack-orm`, or a self-bake of procedural materials without `--high`; picks the GPU and names outputs `T_<name>_<map>.png` |
+
 ## References
 
 - [references/uv-layout.md](references/uv-layout.md): seams by asset type, unwrap methods, texel density targets, packing math, lightmap UVs, trim-sheet layout.
 - [references/baking.md](references/baking.md): bake setup, extrusion vs cage, map types and settings, artifact diagnosis table.
 - [references/materials.md](references/materials.md): PBR rules, measured values, channel packing per engine, alpha, trim sheets, wear layering.
+- [references/pbr-values.md](references/pbr-values.md): measured albedo and F0 tables.
+- [references/texturing.md](references/texturing.md): how `smart_material.py` layers wear, rust, grime and dust, and how to bake the result for an engine.
+- [references/trims-tiling-painting.md](references/trims-tiling-painting.md): trim sheets, tiling materials with vertex-color blends, texture painting.
